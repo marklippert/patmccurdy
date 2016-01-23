@@ -1,0 +1,954 @@
+/*
+#A69C89 - lighter gray
+#8F8881 - light gray
+#5E5C5C - gray
+#F7EACA - yellow
+#B87D00 - orange
+#5F2E1F - dark red
+#FF0000 - red
+*/
+
+@font-face {
+  font-family: 'WhimsyICGHeavy';
+  src: url('fonts/whimsyicg-heavy.eot');
+  src: url('fonts/whimsyicg-heavy.eot?#iefix') format('eot'),
+       url('fonts/whimsyicg-heavy.woff') format('woff'),
+       url('fonts/whimsyicg-heavy.ttf') format('truetype'),
+       url('fonts/whimsyicg-heavy.svg#webfont4c4cFSuJ') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+BODY {
+  margin: 0;
+  padding: 0;
+  background: #000000 url(../images/background.jpg) no-repeat top center;
+  color: #5E5C5C;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 90%; /* 100% = 16px; 95% = 15px; 90% = 14px; 80% = 13px; 75% = 12px; */
+  line-height: 1.4em;
+}
+
+IMG {
+  border: 0;
+}
+
+HR {
+  border: none 0;
+  border-top: 1pt dashed #A69C89; /* the border */
+  height: 1pt; /* whatever the total width of the border-top and border-bottom equal */
+}
+
+A:link, A:visited {
+  color: #5F2E1F;
+  text-decoration: none;
+}
+
+A:hover, A:active {
+  color: #8F8881;
+  text-decoration: none;
+}
+
+H1 {
+  font-size: 1.7em;
+  margin: 0 auto 0.3em;
+}
+
+H2 {
+  font-size: 1.3em;
+  margin: 0 auto 0.3em;
+}
+
+UL, OL {
+  margin: 0 0 0 0.7em;
+  padding: 0 0 0 0.7em;
+}
+
+#outer-wrap {
+  background: url(../images/background-menu.png) repeat-x 0 40px;
+}
+
+#wrap {
+  width: 900px;
+  margin: 0 auto;
+}
+
+#logo {
+  float: left;
+  margin: 1.2em 0 0 2.5em;
+  position: relative;
+  z-index: 99;
+}
+
+.clearfix:before, .clearfix:after,
+HEADER:before, HEADER:after,
+NAV:before, NAV:after { content: ""; display: table; }
+.clearfix:after, HEADER:after, NAV:after { clear: both; }
+.clearfix, HEADER, NAV { zoom: 1; }
+
+.collapse {
+  height: auto;
+  -webkit-transition: height 0.35s ease;
+     -moz-transition: height 0.35s ease;
+       -o-transition: height 0.35s ease;
+          transition: height 0.35s ease;
+}
+
+.collapse.in {
+  height: 0;
+}
+
+#menu-toggle {
+  display: none;
+  position: absolute;
+  top: 3.2em;
+  right: 1em;
+  z-index: 100;
+  cursor: pointer;
+  border: 0;
+  background: url(../images/menu-toggle.png) top left no-repeat;
+  background-size: 2.5em;
+  height: 2.5em;
+  width: 2.5em;
+}
+
+.icon-bar {
+  display: block;
+  margin: 0.4em 0;
+  width: 2.5em;
+  height: 0.4em;
+  background-color: #FFFFFF;
+  -webkit-border-radius: 5pt;
+  -moz-border-radius: 5pt;
+  border-radius: 5pt;
+}
+
+#menu UL {
+  float: right;
+  margin: 80px 0 0 0;
+  padding: 0;
+  list-style-type: none;
+}
+
+#menu UL LI {
+  float: left;
+  padding-left: 2em;
+  position: relative;
+  z-index: 100;
+  font-family: WhimsyICGHeavy, Arial, Helvetica, sans-serif;
+  font-size: 165%;
+  text-shadow: 0 0 0.2em #000000, 0 0 1em #000000;
+}
+
+#menu UL LI:first-child {
+  padding-left: 0;
+}
+
+#menu UL LI:last-child {
+  padding-right: 2.5em;
+}
+
+#menu UL LI A:link, #menu UL LI A:visited,
+#menu UL LI UL LI A:link, #menu UL LI UL LI A:visited {
+  color: #F7EACA;
+  text-decoration: none;
+}
+
+#menu UL LI:hover A,
+#menu UL LI UL LI A:hover {
+  color: #FF0000;
+  text-decoration: none;
+}
+
+#menu UL LI UL {
+  display: none;
+}
+
+#menu UL LI:hover UL {
+  float: none;
+  margin: 0;
+  display: block;
+  position: absolute;
+  top: 0.9em;
+  left: 2em;
+  border: 2px solid #8F8881;
+  background-color: rgba(94, 92, 92, 0.75);
+  background-color: #5E5C5C\9; /* IE8 */
+  padding: 4px 0;
+}
+
+#menu UL LI UL LI,
+#menu UL LI UL LI:first-child {
+  float: none;
+  height: 1em;
+  line-height: 1em;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 65%;
+  padding: 4px 8px;
+}
+
+#menu UL LI UL LI A {
+  display: block;
+  white-space: nowrap;
+}
+
+#home-header {
+  width: 900px;
+  height: 333px;
+  position: relative;
+  top: -3em;
+  z-index: 50;
+  background: url(../images/todays-show.png) no-repeat top right;
+  margin-bottom: -87px;
+}
+
+#home-header-pics {
+  width: 62%;
+  height: 333px;
+  position: relative;
+}
+
+#hhp1 {
+  position: absolute;
+  top: 15px;
+}
+
+#hhp2 {
+  position: absolute;
+  margin: 0 auto;
+  left: 0;
+  *left: 30%; /* IE7 */
+  right: 0;
+  bottom: 0;
+}
+
+#hhp3 {
+  position: absolute;
+  right: 0;
+}
+
+#playstoday-wrap {
+  position: absolute;
+  top: 93px;
+  right: 68px;
+  width: 287px;
+  height: 155px;
+  text-align: center;
+  font-size: 170%;
+  font-weight: bold;
+  color: #000000;
+  line-height: 1.1em;
+  transform: rotate(3.5deg);
+  -moz-transform: rotate(3.5deg);
+  -webkit-transform: rotate(3.5deg);
+  -ms-transform: rotate(3.5deg);
+  display: table;
+}
+
+#playstoday {
+  display: table-cell;
+  vertical-align: middle;
+}
+
+#content-wrap {
+  width: 840px;
+  background: #F7EACA url(../images/content-head.jpg) repeat-x;
+  border-top: 6px solid #B87D00;
+  margin: 0 auto;
+  position: relative;
+  top: -23px;
+}
+
+.title {
+  margin: 0.4em 0 25px;
+  font-family: WhimsyICGHeavy, Arial, Helvetica, sans-serif;
+  text-align: center;
+  color: #5F2E1F;
+  font-size: 190%;
+  text-shadow: #A69C89 2px 2px 2px;
+  min-height: 1em;
+  _height: 1em; /* IE6 */
+}
+
+ARTICLE {
+  float: left;
+  width: 66%;
+  _width: 60%; /* IE6 */
+  margin: 0 0 3em 2%;
+  border-right: 1px dashed #A69C89;
+  padding-right: 3%;
+}
+
+ARTICLE.noside {
+  float: none;
+  width: 96%;
+  border-right: 0;
+  padding-right: 0;
+}
+
+ASIDE {
+  float: right;
+  width: 24%;
+  margin: 0 2% 3em 2%;
+  font-size: 90%;
+}
+
+.icon {
+  width: 45px;
+  height: 45px;
+  margin: 0 0.1em 0.1em 0;
+}
+
+FOOTER {
+  margin: 0 auto;
+  border-top: 8px solid #000000;
+  background: #B87D00;
+  color: #000000;
+  font-size: 0.7em;
+  text-align: center;
+}
+
+.one-third-left {
+  float: left;
+  width: 31%;
+}
+
+.one-third-right {
+  float: right;
+  width: 31%;
+}
+
+.two-third-left {
+  float: left;
+  width: 64%;
+}
+
+.two-third-right {
+  float: right;
+  width: 64%;
+}
+
+.half-left {
+  float: left;
+  width: 48%;
+}
+
+.half-right {
+  float: right;
+  width: 48%;
+}
+
+.three-fourth-left {
+  float: left;
+  width: 73%;
+}
+
+.three-fourth-right {
+  float: right;
+  width: 73%;
+}
+
+.one-fourth-left {
+  float: left;
+  width: 23%;
+}
+
+.one-fourth-right {
+  float: right;
+  width: 23%;
+}
+
+.centered-block {
+  margin: 0 auto;
+  width: 50%;
+}
+
+.centered {
+  text-align: center;
+}
+
+.calendar UL {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  clear: both;
+  width: 100%;
+}
+
+.calendar LI {
+  display: block;
+  float: left;
+  width: 14.28571428571429%;
+  padding: 4px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  border: 1px solid #000000;
+  border-right: 0;
+  margin-bottom: -1px;
+  line-height: 1.2em;
+}
+
+.calendar LI:last-child {
+  border-right: 1px solid #000000;
+}
+
+.calendar .cal-nav-l,
+.calendar .cal-nav-r {
+  float: left;
+  margin-bottom: 0.6em;
+}
+
+.calendar .cal-nav-r {
+  float: right;
+}
+
+.calendar .weekdays LI {
+  font-weight: bold;
+  text-align: center;
+  color: #000000;
+  background: #B87D00;
+}
+
+.calendar LI.blank-start {
+  border: 0;
+  border-top: 1px solid #000000;
+  background: transparent;
+}
+
+.calendar LI.blank-start:first-child {
+  border-left: 1px solid #000000;
+}
+
+.calendar LI.blank-start:last-child {
+  border-right: 1px solid #000000;
+}
+
+.calendar LI.list-noshows,
+.cal-day {
+  display: none;
+}
+
+.cal-today {
+  background: #FFFFFF;
+}
+
+.cal-date {
+  font-weight: bold;
+}
+
+.calendar LI.blank-end {
+  border-left: 0;
+  border-right: 0;
+  background: transparent;
+}
+
+.calendar LI.blank-end-first {
+  border-left: 1px solid #000000;
+}
+
+.calendar LI.blank-end:last-child {
+  border-right: 1px solid #000000;
+}
+
+.lyrics-album {
+  position: relative;
+  float: left;
+  margin: 0 3% 3% 0;
+  padding-bottom: 30%;
+  width: 30%;
+  height: 0;
+}
+
+.lyrics-album A {
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+}
+
+.lyrics-album A IMG {
+  position: relative;
+  max-width: none;
+}
+
+.lyrics-album A SPAN.text {
+  background: rgba(0,0,0,0.6);
+  color: #FFFFFF;
+  font-size: 180%;
+  line-height: 1em;
+  text-shadow: #000000 0 0 2px;
+  cursor: pointer;
+  display: table;
+  padding: 0 2%;
+  width: 96%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  opacity: 0;
+  -webkit-transition: opacity 500ms;
+  -moz-transition: opacity 500ms;
+  -o-transition: opacity 500ms;
+  transition: opacity 500ms;
+}
+
+.lyrics-album A SPAN.text SPAN {
+  display: table-cell;
+  text-align: center;
+  vertical-align: middle;
+}
+
+.lyrics-album A:hover SPAN.text {
+  opacity: 1;
+}
+
+.songlist-cd {
+  float: left;
+  width: 32%;
+  margin-right: 2%;
+  text-align: center;
+  line-height: 1em;
+}
+
+.songlist-cd IMG {
+  width: 100%;
+  height: auto;
+}
+
+.songlist-tracks {
+  float: left;
+  width: 66%;
+}
+
+.songlist-twocol {
+  float: left;
+  width: 50%;
+}
+
+.songlist-search {
+  position: absolute;
+  right: 2%;
+  width: 20%;
+  margin-bottom: 1em;
+}
+
+.search {
+  width: 33%;
+  margin-bottom: 1em;
+}
+
+.search input[type=text],
+.songlist-search input[type=text] {
+  border: 1px solid #8F8881;
+  -moz-border-radius: 4px;
+  -webkit-border-radius: 4px;
+  border-radius: 4px;
+  margin: 0;
+  padding: 0.2em 4%;
+  width: 92%;
+  color: #8F8881;
+}
+
+.album-right {
+  float: right;
+  border-left: 1px dashed #A69C89;
+  margin-left: 3%;
+  padding-left: 3%;
+  width: 33%;
+}
+
+.album-right IMG {
+  width: 100%;
+  height: auto;
+}
+
+.shipto INPUT {
+  width: 100%;
+}
+
+.newsletter {
+  float: left;
+  margin: 0 5.3% 1.5em 0;
+}
+
+.newsletter TD {
+  padding: 1px 2px;
+  text-align: center;
+  color: #A69C89;
+}
+
+.newsletter .year {
+  text-align: center;
+  font-size: 120%;
+  font-weight: bold;
+  color: #5E5C5C;
+}
+
+.embed {
+  position: relative;
+  padding-bottom: 56.25%; /* 16:9 */
+  padding-top: 25px;
+  height: 0;
+}
+.embed iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+
+@media only screen and (max-width: 800px) {
+  /* Small computer or landscape tablet */
+  #wrap {
+    width: 100%;
+  }
+
+  #menu UL LI {
+    font-size: 145%;
+  }
+
+  #home-header {
+    width: 100%;
+  }
+
+  #home-header-pics {
+    width: 57%;
+  }
+
+  #hhp2 {
+    display: none;
+  }
+
+  #content-wrap {
+    width: 90%;
+  }
+
+  .icon {
+    width: 50px;
+    height: 50px;
+  }
+
+  .lyrics-album A SPAN.text {
+    font-size: 150%;
+  }
+
+  .newsletter {
+    margin: 0 1.5% 1em 0;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  /* Tablet */
+  #logo {
+    margin-left: 1em;
+  }
+
+  #menu UL LI:last-child {
+    padding-right: 1em;
+  }
+
+  #home-header-pics {
+    width: 55%;
+  }
+
+  .newsletter {
+    margin: 0 6% 1.5em 0;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  /* Small tablet */
+  BODY {
+    font-size: 110%;
+  }
+
+  .collapse {
+    height: 0;
+    overflow: hidden;
+  }
+
+  #menu-toggle {
+    display: block;
+  }
+
+  #menu {
+    position: absolute;
+    top: 54px;
+    right: 3.5em;
+  }
+
+  #menu UL {
+    float: none;
+    background-color: #000000;
+    margin: 0;
+    padding: 0.2em 0.5em;
+    position: relative;
+    z-index: 100;
+    font-size: 150%;
+  }
+
+  #menu UL LI,
+  #menu UL LI:first-child {
+    float: none;
+    padding: 0.2em 0;
+  }
+
+  #menu UL LI UL,
+  #menu UL LI:hover UL {
+    display: block;
+    position: static;
+    border: 0;
+    background-color: transparent;
+    padding: 0 0 0 0.5em;
+    margin: 0.2em 0 0 0;
+  }
+
+  #hhp1 {
+    display: none;
+  }
+
+  #hhp3 {
+    top: 20px;
+    left: 0;
+    width: 76%;
+  }
+
+  #playstoday-wrap {
+    font-size: 140%;
+  }
+
+  ARTICLE,
+  ARTICLE.noside,
+  ASIDE {
+    float: none;
+    margin: 0 auto 3em;
+    width: 90%;
+    border: 0;
+  }
+
+  .icon {
+    width: 37px;
+    height: 37px;
+  }
+
+  .half-left,
+  .half-right,
+  .three-fourth-left,
+  .three-fourth-right,
+  .one-fourth-left,
+  .one-fourth-right {
+    float: none;
+    width: 100%;
+  }
+
+  .calendar .weekdays,
+  .calendar LI.blank-start,
+  .calendar LI.blank-end,
+  .calendar .noshow {
+    display: none;
+  }
+
+  .calendar LI {
+    min-height: 5em;
+    height: auto!important;
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #000000;
+  }
+
+  .calendar LI.list-noshows {
+    display: block;
+    text-align: center;
+  }
+
+  .cal-datebox {
+    float: left;
+    margin-right: 1em;
+    width: 3.5em;
+    padding: 0.7em 0;
+    background: #5E5C5C;
+    color: #FFFFFF;
+    line-height: 1em;
+    text-align: center;
+  }
+
+  .cal-date {
+    font-size: 160%;
+    line-height: 1em;
+    font-weight: normal;
+  }
+
+  .cal-day {
+    display: block;
+    font-size: 70%;
+    line-height: 1em;
+    font-weight: bold;
+  }
+
+  .cal-info {
+    float: left;
+    width: 84%;
+    width: calc(100% - 4.5em);
+  }
+
+  .lyrics-album {
+    margin: 0 3% 3% 0;
+    padding-bottom: 47%;
+    width: 47%;
+  }
+
+  .lyrics-album A SPAN.text {
+    font-size: 200%;
+  }
+
+  .songlist-cd,
+  .songlist-tracks,
+  .songlist-twocol {
+    float: none;
+    width: 100%;
+    margin-right: 0;
+  }
+
+  .search,
+  .songlist-search {
+    position: static;
+    right: 0;
+    width: 100%;
+  }
+
+  .search input[type=text],
+  .songlist-search input[type=text] {
+    padding: 0.2em 2%;
+    width: 96%;
+    font-size: 100%;
+  }
+
+  INPUT, TEXTAREA {
+    font-size: 100%;
+  }
+
+  .newsletter {
+    margin: 0 4.5% 1.5em 0;
+  }
+}
+
+@media only screen and (max-width: 480px) {
+  /* Phone */
+  BODY {
+    font-size: 125%;
+  }
+
+  #menu {
+    top: 0;
+    left: 0;
+    max-width: 100%;
+  }
+
+  #menu UL {
+    font-size: 110%;
+  }
+
+  #home-header {
+    top: -1.5em;
+    background: url(../images/todays-show.png) no-repeat center center;
+    -webkit-background-size: 348px auto;
+    -moz-background-size: 348px auto;
+    -o-background-size: 348px auto;
+    background-size: 348px auto;
+    height: 199px;
+    padding-top: 75px;
+    margin-bottom: -70px;
+  }
+
+  #home-header-pics {
+    display: none;
+  }
+
+  #playstoday-wrap {
+    position: static;
+    width: 72%;
+    height: 130px;
+    margin: 0 auto;
+    font-size: 115%;
+  }
+
+  #content-wrap {
+    width: 96%;
+  }
+
+  .title {
+    font-size: 115%;
+  }
+
+  .icon {
+    width: 50px;
+    height: 50px;
+  }
+
+  FOOTER {
+    font-size: 0.5em;
+  }
+
+  .one-third-left,
+  .one-third-right,
+  .two-third-left,
+  .two-third-right {
+    float: none;
+    width: 100%;
+  }
+
+  .centered-block {
+    margin: 0;
+    width: 100%;
+  }
+
+  .calendar LI {
+    min-height: 1em;
+  }
+
+  .cal-datebox {
+    margin-right: 0.6em;
+    width: 2.2em;
+    padding: 0.3em 0;
+  }
+
+  .cal-date {
+    font-size: 110%;
+    line-height: 1em;
+  }
+
+  .cal-day {
+    font-size: 50%;
+    line-height: 1em;
+  }
+
+  .cal-info {
+    width: calc(100% - 2.8em);
+  }
+
+  .lyrics-album {
+    float: none;
+    margin: 0 0 1em 0;
+    padding-bottom: 100%;
+    width: 100%;
+  }
+
+  .lyrics-album A SPAN.text {
+    font-size: 230%;
+  }
+
+  .shipto INPUT {
+    width: 90%;
+  }
+
+  .newsletter {
+    float: none;
+    margin: 0 auto 1.5em;
+  }
+
+  .newsletter TD {
+    padding: 0.2em 0.4em;
+  }
+}

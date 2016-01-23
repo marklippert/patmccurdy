@@ -1,0 +1,5 @@
+RewriteEngine on
+RewriteCond %{HTTP_HOST} ^patmccurdy\.com [NC]
+RewriteRule (.*) http://www.patmccurdy.com/$1 [L,R=301]
+
+Redirect 301 /now http://www.patmccurdy.com/pat-mccurdy-now.php

@@ -1,0 +1,193 @@
+INPUT[type=text],
+SELECT {
+  width: 100%;
+}
+
+TEXTAREA {
+  width: 100%;
+  height: 10em;
+}
+
+input[type=submit] {
+  display: block;
+  margin: 0 auto;
+}
+
+.toggle-control {
+  display: none;
+}
+
+#admin-left {
+  float: left;
+  width: 43%;
+  padding-bottom: 3em;
+}
+
+#admin-right {
+  float: right;
+  width: 48%;
+}
+
+.sub-left {
+  float: left;
+  width: 46%;
+}
+
+.sub-right {
+  float: right;
+  width: 46%;
+}
+
+.sub-center {
+  width: 50%;
+  margin: 0 auto;
+}
+
+.sub-sidebar {
+  position: absolute;
+  right: 50px;
+}
+
+#sched-prev, #sched-next {
+  float: left;
+  width: 25%;
+  text-align: center;
+  font-weight: bold;
+}
+
+#sched-month {
+  float: left;
+  width: 50%;
+  text-align: center;
+}
+
+.controls, .info, .sched-info {
+  float: left;
+}
+
+.c1 .controls { width: 8%; }
+.c2 .controls { width: 17%; }
+.c3 .controls { width: 24%; }
+
+.controls IMG {
+  vertical-align: middle;
+  margin: 0 0.2em;
+  height: 1.3em;
+  width: auto;
+}
+
+.sched-date {
+  float: left;
+  font-weight: bold;
+  /*text-align: center;*/
+  font-size: 120%;
+}
+
+.c1 .sched-date { width: 22%; }
+.c2 .sched-date { width: 13%; }
+.c3 .sched-date { width: 14%; }
+
+.info {
+  font-size: 120%;
+}
+
+.info IMG {
+  width: 50%;
+}
+
+
+.c1 .info { width: 70%; }
+.c2 .info { width: 83%; }
+.c3 .info { width: 76%; }
+
+.c3 .sched-info { width: 62%; }
+
+.spacer-height {
+  clear: both;
+  height: 1.5em;
+}
+
+#admin-left .c3 .controls { width: 20%; }
+#admin-left .c3 .sched-date { width: 20%; }
+#admin-left .c3 .info { width: 60%; }
+
+@media only screen and (max-width: 480px) {
+  INPUT[type=text] {
+    padding: 0.5em;
+    width: 90%;
+    font-size: 90%;
+  }
+
+  TEXTAREA {
+    width: 95%;
+    font-size: 90%;
+  }
+
+  SELECT {
+    width: 98%;
+    font-size: 90%;
+  }
+
+  .toggle-control {
+    display: block;
+    padding-bottom: 1em;
+  }
+
+  #admin-left {
+    display: none;
+  }
+
+  #admin-left, #admin-right,
+  .admin-edit #admin-left, .admin-edit #admin-right {
+    float: none;
+    width: 100%;
+  }
+
+  .sub-left, .sub-right {
+    float: none;
+    width: auto;
+  }
+
+  .sub-center {
+    width: 100%;
+  }
+
+  .sub-sidebar {
+    position: static;
+    margin: 0 0 50px 0;
+  }
+
+  #sched-prev, #sched-next {
+    width: 15%;
+  }
+
+  #sched-month {
+    width: 70%;
+  }
+
+  .c1 .controls { width: 17%; }
+  .c2 .controls { width: 20%; }
+  .c3 .controls { width: 20%; }
+
+  .controls IMG {
+    height: 2em;
+    margin: 0 0 0.5em;
+  }
+
+  .c1 .sched-date { width: 34%; font-size: 100%; }
+  .c3 .sched-date { width: 80%; }
+
+  .info IMG {
+    width: 100%;
+  }
+
+  .c1 .info { width: 48%; }
+  .c2 .info { width: 80%; }
+  .c3 .info { width: 80%; }
+
+  .c3 .sched-info { width: 80%; }
+
+  .show-spacer {
+    height: 2.5em;
+  }
+}
