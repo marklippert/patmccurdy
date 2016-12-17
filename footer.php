@@ -17,6 +17,7 @@
             <a href="http://www.cdbaby.com/Artist/PatMcCurdy"><img src="images/icon-cdbaby.png" alt="CD Baby" class="icon"></a>
             <a href="http://www.last.fm/music/Pat+McCurdy"><img src="images/icon-lastfm.png" alt="last.fm" class="icon"></a>
             <a href="http://www.youtube.com/user/OfficialPatMcCurdy"><img src="images/icon-youtube.png" alt="YouTube" class="icon"></a>
+            <a href="https://www.instagram.com/explore/tags/patmccurdy/"><img src="images/icon-instagram.png" alt="Instagram" class="icon"></a>
             <a href="http://www.flickr.com/photos/tags/patmccurdy/"><img src="images/icon-flickr.png" alt="Flickr" class="icon"></a>
             <a href="rss.xml"><img src="images/icon-rss.png" alt="RSS" class="icon"></a>
           </aside>
