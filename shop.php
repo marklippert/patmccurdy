@@ -22,6 +22,7 @@ if (isset($_POST['submit'])) {
   "shirtSexBeerPatXL|I Had Sex & Beer With Pat shirt [XL]|15",
   "shirtSexBeerPat2XL|I Had Sex & Beer With Pat shirt [2XL]|15",
   "cdset|Ten CD Set|125",
+  "souvenirs|Souvenirs|15",
   "pmnow|Pat McCurdy Now!|15",
   "liabt|Love is a Beautiful Thing|15",
   "15fav|15 Favorites|15",
@@ -260,6 +261,23 @@ And now...shop away!<br>
     <strong>Quantity: </strong><input type="text" size="3" style="width: 2em;" name="cdset"><br>
 
     <br><br>
+
+    <div class="half-left">
+      <a href="album.php?16"><img src="images/cds/souvenirs.jpg" alt="Souvenirs" style="width: 100%; height: auto;"><br>
+      Souvenirs</a><br>
+      Quantity: <input type="text" size="3" style="width: 2em;" name="souvenirs"><br>
+      <br>
+    </div>
+
+    <div class="half-right">
+      <strong>Pre-order "Souvenirs" now!</strong><br>
+      Buy now and have it sent to you as soon as it's available.<br>
+      <br>
+
+      Pat's first greatest hits compilation features previously unreleased live and studio versions of Imagine A Picture, Screw You, Monkey Paw and other favorites. And for the first time ever: Hey Paddy!
+    </div>
+    
+    <div style="clear: both;"></div>
 
     <div class="half-left">
       <a href="album.php?15"><img src="images/cds/pat-mccurdy-now.jpg" alt="Pat McCurdy Now!" style="width: 100%; height: auto;"><br>
