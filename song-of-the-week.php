@@ -7,7 +7,7 @@ include "header.php";
 
 <div style="text-align: center;">
   <?php
-  $baseurl = "http://www.patmccurdy.com";
+  $baseurl = "https://patmccurdy.com";
   
   // Build RSS file
   $RSSfile = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>
@@ -20,7 +20,7 @@ include "header.php";
       <description>A weekly sampling of one of Pat McCurdy's songs usually not available on any of his CDs.  Most are recorded live at his shows, with an occasional blast from the past from one of Pat's old bands.  Visit $baseurl for more information.</description>
       <itunes:category text=\"Music\" />
       <image>
-        <url>http://www.patmccurdy.com/images/sotw_iTunes.jpg</url>
+        <url>//patmccurdy.com/images/sotw_iTunes.jpg</url>
         <title>Pat McCurdy</title>
         <link>$baseurl</link>
       </image>

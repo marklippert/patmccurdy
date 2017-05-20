@@ -23,12 +23,12 @@ if (!empty($_SERVER['QUERY_STRING'])) {
   $RSSFeed = "<?xml version='1.0'?>\n<rss version=\"2.0\">
   <channel>
     <title>Pat McCurdy's Schedule</title>
-    <link>http://www.patmccurdy.com/schedule.php</link>
+    <link>https://patmccurdy.com/schedule.php</link>
     <description>Find out where and when Pat McCurdy is playing.</description>
     <image>
-      <url>http://www.patmccurdy.com/images/apple-touch-icon.png</url>
+      <url>https://patmccurdy.com/images/apple-touch-icon.png</url>
       <title>Pat McCurdy</title>
-      <link>http://www.patmccurdy.com</link>
+      <link>https://patmccurdy.com</link>
     </image>\n";
   $iCal = "BEGIN:VCALENDAR\r\nPRODID:-//Apple Computer\, Inc//iCal 2.0//EN\r\nVERSION:2.0\r\nMETHOD:PUBLISH\r\nX-WR-CALNAME:Pat McCurdy\r\nX-WR-TIMEZONE;VALUE=TEXT:US/Central\r\n";
 
@@ -104,7 +104,7 @@ if (!empty($_SERVER['QUERY_STRING'])) {
 
     $RSSFeed .= "    <item>
       <title>" . date("n/j/y", $xrow['date']) . " " . htmlspecialchars($xtitle) . "</title>
-      <link>http://www.patmccurdy.com/schedule.php</link>
+      <link>https://patmccurdy.com/schedule.php</link>
       <description><![CDATA[$xevent]]></description>
       <guid>" . $xrow['date'] . "</guid>
       <pubDate>" . date("r", $xrow['date']) . "</pubDate>
