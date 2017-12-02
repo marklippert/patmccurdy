@@ -2,12 +2,9 @@
 if (isset($_POST['submit'])) {
   // Items in catalog (id|name|price)
   $items = array(
-  "newsletter|Newsletter Subscription|10",
-  "intnewsletter|Newsletter Subscription (International)|25",
   "sex|\"Sex\" Sticker|2",
   "beer|\"Beer\" Sticker|2",
   "both|Set of Sex & Beer Stickers|3",
-  "pick|Sex & Beer Guitar Pick|1",
   "shirtChooseSexBeerM|Choose Sex & Beer shirt [M]|15",
   "shirtChooseSexBeerXL|Choose Sex & Beer shirt [XL]|15",
   "shirtChooseSexBeer2XL|Choose Sex & Beer shirt [2XL]|15",
@@ -21,6 +18,8 @@ if (isset($_POST['submit'])) {
   "shirtSexBeerPatM|I Had Sex & Beer With Pat shirt [M]|15",
   "shirtSexBeerPatXL|I Had Sex & Beer With Pat shirt [XL]|15",
   "shirtSexBeerPat2XL|I Had Sex & Beer With Pat shirt [2XL]|15",
+  "shirtSexBeerXmasM|All I Want For Xmas Is Sex & Beer shirt [M]|20",
+  "shirtSexBeerXmasXL|All I Want For Xmas Is Sex & Beer shirt [XL]|20",
   "cdset|Ten CD Set|125",
   "souvenirs|Souvenirs|15",
   "pmnow|Pat McCurdy Now!|15",
@@ -215,10 +214,19 @@ And now...shop away!<br>
     <br>
 
     <strong>Shirts</strong><br>
-    All shirts are $15.<br>
+    All shirts are $15 (except "All I Want For Xmas Is Sex & Beer" which is $20)<br>
     <br>
 
     <div class="half-left centered">
+      <img src="images/sb-xmas.jpg" alt="All I Want For Xmas Is Sex & Beer" style="width: 100%; height: auto;">
+      <div class="centered-block" style="text-align: left;">
+        <strong>Quantity:</strong> <input type="text" size="3" style="width: 2em;" name="shirtSexBeerXmasM"> M<br>
+        <strong>Quantity:</strong> <input type="text" size="3" style="width: 2em;" name="shirtSexBeerXmasXL"> XL<br>
+        <br>
+      </div>
+    </div>
+
+    <div class="half-right centered">
       <img src="images/shirt-i-heart-sex-and-beer-red.png" alt="I Heart Sex & Beer" style="width: 100%; height: auto;">
       <div class="centered-block" style="text-align: left;">
         <strong>Quantity:</strong> <input type="text" size="3" style="width: 2em;" name="shirtHeartSexBeerM"> M<br>
@@ -228,7 +236,9 @@ And now...shop away!<br>
       </div>
     </div>
 
-    <div class="half-right centered">
+    <div style="clear: both;"></div>
+
+    <div class="half-left centered">
       <img src="images/shirt-i-had-sex-and-beer.png" alt="I Had Sex & Beer With Pat" style="width: 100%; height: auto;">
       <div class="centered-block" style="text-align: left;">
         <strong>Quantity:</strong> <input type="text" size="3" style="width: 2em;" name="shirtSexBeerPatM"> M<br>
@@ -238,9 +248,7 @@ And now...shop away!<br>
       </div>
     </div>
 
-    <div style="clear: both;"></div>
-
-    <div class="half-left centered">
+    <div class="half-right centered">
       <img src="images/shirt-hey-paddy.png" alt="Hey Paddy! Play A Song For Me" style="width: 100%; height: auto;">
       <div class="centered-block" style="text-align: left;">
         <strong>Quantity:</strong> <input type="text" size="3" style="width: 2em;" name="shirtHeyPaddyM"> M<br>
