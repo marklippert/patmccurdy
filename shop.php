@@ -214,19 +214,19 @@ And now...shop away!<br>
     <br>
 
     <strong>Shirts</strong><br>
-    All shirts are $15 (except "All I Want For Xmas Is Sex & Beer" which is $20)<br>
+    All shirts are $15<br>
     <br>
 
-    <div class="half-left centered">
+<!--     <div class="half-left centered">
       <img src="images/sb-xmas.jpg" alt="All I Want For Xmas Is Sex & Beer" style="width: 100%; height: auto;">
       <div class="centered-block" style="text-align: left;">
         <strong>Quantity:</strong> <input type="text" size="3" style="width: 2em;" name="shirtSexBeerXmasM"> M<br>
         <strong>Quantity:</strong> <input type="text" size="3" style="width: 2em;" name="shirtSexBeerXmasXL"> XL<br>
         <br>
       </div>
-    </div>
+    </div> -->
 
-    <div class="half-right centered">
+    <div class="half-left centered">
       <img src="images/shirt-i-heart-sex-and-beer-red.png" alt="I Heart Sex & Beer" style="width: 100%; height: auto;">
       <div class="centered-block" style="text-align: left;">
         <strong>Quantity:</strong> <input type="text" size="3" style="width: 2em;" name="shirtHeartSexBeerM"> M<br>
