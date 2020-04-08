@@ -108,9 +108,9 @@ include "header.php";
       $count = 1;
       
       while($row = $result->fetch_array(MYSQLI_BOTH)) {
-        if (in_array($row[file], $files)) {
-          $name = ($row[band] != "") ? $row[band] : "Pat McCurdy";
-          echo "{ title: \"$name - " . $row[title] . "\", mp3: \"audio/" . $row[file] . "\" },\n";
+        if (in_array($row['file'], $files)) {
+          $name = ($row['band'] != "") ? $row['band'] : "Pat McCurdy";
+          echo "{ title: \"$name - " . $row['title'] . "\", mp3: \"audio/" . $row['file'] . "\" },\n";
           
           if ($count == "10") { break; }
           $count++;

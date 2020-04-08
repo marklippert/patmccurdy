@@ -2,9 +2,14 @@
 header("Cache-Control: no-transform"); // Fix AT&T's wireless servers gzipping bullshit (random characters on page)
 // ob_start('ob_gzhandler'); also works
 
+if (!isset($HeaderExtra)) $HeaderExtra = "";
+if (!isset($HeaderTitle)) $HeaderTitle = "";
+if (!isset($Sidebar)) $Sidebar = "";
+
 include_once("inc/dbconfig.php");
 
 function email($address, $name="") {
+  $email = "";
   for ($i = 0; $i < strlen($address); $i++) { $email .= (rand(0, 1) == 0) ? "&#" . ord(substr($address, $i)) . ";" : substr($address, $i, 1); }
   if ($name == "") $name = $email;
   echo "<a href=\"&#109;&#97;&#105;&#108;&#116;&#111;&#58;$email\">$name</a>";
