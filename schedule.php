@@ -11,7 +11,6 @@ if (!empty($_SERVER['QUERY_STRING'])) {
   $lastmonth = mktime(0,0,0,substr($_SERVER['QUERY_STRING'],-2)-1, 1, substr($_SERVER['QUERY_STRING'],0,4));
   $nextmonth = mktime(0,0,0,substr($_SERVER['QUERY_STRING'],-2)+1, 1, substr($_SERVER['QUERY_STRING'],0,4));
 } else {
-  // Set variables to generate schedule
   $date = time();
   $title = date("F Y");
   $lastmonth = mktime(1, 1, 1, date('m')-1, 1, date('Y'));
@@ -51,6 +50,8 @@ if (!empty($_SERVER['QUERY_STRING'])) {
         $xtitle .= " - " . $xrow['location'];
         $xevent .= "<br>" . $xrow['location'];
         $iloc = strip_tags(str_replace(",", "\,", $xrow['location']));
+      } else {
+        $iloc = "";
       }
 
       if ($xrow['displaytime'] == "") {
@@ -130,11 +131,21 @@ if (!empty($_SERVER['QUERY_STRING'])) {
 $first_day = strtotime("First day of " . $title . " 00:00");
 $last_day = strtotime("First day of " . date("F Y", $nextmonth) . " 00:00");
 $days_in_month = date("j", $last_day-1);
-$blanks = date("w", $first_day);
+
+$start_blanks = date("w", $first_day);
+$end_blanks = (7 - date("w", $last_day));
+
+if ($start_blanks > $end_blanks || $start_blanks == $end_blanks || $end_blanks == 7 || $start_blanks > 3) {
+  $start_blanks_content = $title;
+  $end_blanks_content = "";
+} else {
+  $start_blanks_content = "";
+  $end_blanks_content = $title;
+}
 
 $Sidebar = "no";
 $PageTitle = $title;
-$HeaderExtra = "<link rel=\"alternate\" type=\"application/rss+xml\" href=\"schedule.xml\" title=\"Pat McCurdy's Schedule\">"; 
+$HeaderExtra = "<link rel=\"alternate\" type=\"application/rss+xml\" href=\"schedule.xml\" title=\"Pat McCurdy's Schedule\">\n<link rel=\"stylesheet\" href=\"inc/print.css\">"; 
 include "header.php";
 ?>
 
@@ -145,119 +156,111 @@ include "header.php";
     <div style="clear: both;"></div>
   </div>
 
-  <ul class="weekdays">
-    <li>Sunday</li>
-    <li>Monday</li>
-    <li>Tuesday</li>
-    <li>Wednesday</li>
-    <li>Thursday</li>
-    <li>Friday</li>
-    <li>Saturday</li>
-  </ul>
+  <table>
+    <tr class="weekdays">
+      <td>Sunday</td>
+      <td>Monday</td>
+      <td>Tuesday</td>
+      <td>Wednesday</td>
+      <td>Thursday</td>
+      <td>Friday</td>
+      <td>Saturday</td>
+    </tr>
 
-  <ul class="week1">
     <?php
-    $week = 1;
-
-    // Display blank days before the month starts
-    for ($day_count = 0; $day_count < $blanks; $day_count++) {
-      echo "<li class=\"calendar-day blank-start\"></li>\n";
-    }
-
-    // Get any shows for this month and put them in an array
     $result = $mysqli->query("SELECT * FROM schedule WHERE date >= '$first_day' AND date <= '$last_day' ORDER BY date ASC");
 
-    if ($result->num_rows == 0) echo "<li class=\"calendar-day list-noshows\">No shows scheduled for this month yet. Check back later.</li>\n";
-
     $eventarr = array();
+
     while($row = $result->fetch_array(MYSQLI_BOTH)) {
       $MyDay = date("j", $row['date']);
       $eventarr[$MyDay][] = $row;
     }
+
     $result->close();
+    ?>
 
-    $day_num = 1;
+    <tr>
+      <?php if ($start_blanks > 0 && $start_blanks < 7) { ?>
+      <td colspan="<?php echo $start_blanks; ?>" class="blanks blanks<?php echo $start_blanks; ?>">
+        <div class="spacer"></div>
+        <div class="blank_date"><?php echo $start_blanks_content; ?></div>
+      </td>
+      <?php } ?>
 
-    // Create the calendar by counting up to the last day of the month
-    while ($day_num <= $days_in_month) {
-      echo "<li class=\"calendar-day";
-      if (date("F", $date) . " " . $day_num . " " . date("Y", $date) == date("F j Y")) echo " cal-today";
-      if (empty($eventarr[$day_num][0]['venue'])) echo " noshow";
-      echo "\">\n";
-        echo "
-        <div class=\"cal-datebox\">
-          <div class=\"cal-date\">$day_num</div>
-          <div class=\"cal-day\">" . date("D", $eventarr[$day_num][0]['date']) . "</div>
-        </div>
-        ";
+      <?php
+      $day_count = $start_blanks;
+      $day_num = 1;
 
-        // This day has a show so display it
-        if (isset($eventarr[$day_num])) {
-          $i = 1;
-          foreach($eventarr[$day_num] as $key => $value) {
+      while ($day_num <= $days_in_month) {
+        echo '<td class="';
+        if (date("F", $date) . " " . $day_num . " " . date("Y", $date) == date("F j Y")) echo " cal-today";
+        if (empty($eventarr[$day_num][0]['venue'])) echo " noshow";
+        echo '">';
+          echo '
+          <div class="cal-datebox">
+            <div class="cal-date">'.$day_num.'</div>
+            <div class="cal-day">';
+            if (!empty($eventarr[$day_num][0]['venue'])) echo date("D", $eventarr[$day_num][0]['date']);
+            echo "</div>
+          </div>\n";
+
+          if (isset($eventarr[$day_num])) {
+            $i = 1;
+            
             echo "<div class=\"cal-info\">\n";
+              foreach($eventarr[$day_num] as $key => $value) {
+                if ($eventarr[$day_num][$key]['status'] == "canceled") echo "<strike>";
 
-            // Canceled?
-            if ($eventarr[$day_num][$key]['status'] == "canceled") echo "<strike>";
+                if ($eventarr[$day_num][$key]['url'] != "") echo '<a href="'.$eventarr[$day_num][$key]['url'].'">';
+                echo $eventarr[$day_num][$key]['venue'];
+                if ($eventarr[$day_num][$key]['url'] != "") echo "</a>\n";
 
-            if ($eventarr[$day_num][$key]['venue'] != "") {
-              // Display venue and link
-              echo (empty($eventarr[$day_num][$key]['url'])) ? $eventarr[$day_num][$key]['venue'] : "<a href=\"" . $eventarr[$day_num][$key]['url'] . "\">" . $eventarr[$day_num][$key]['venue'] . "</a>";
+                if (!empty($eventarr[$day_num][$key]['location'])) echo "\n<div class=\"cal-location\">" . $eventarr[$day_num][$key]['location'] . "</div>";
 
-              // Display location
-              if (!empty($eventarr[$day_num][$key]['location'])) echo "<br>\n" . $eventarr[$day_num][$key]['location'];
-
-              if ($eventarr[$day_num][$key]['status'] != "canceled") {
-                // If not canceled....
-                // Display date if set
+                // Display time if set
                 if ($eventarr[$day_num][$key]['displaytime'] == "") {
-                  if ($eventarr[$day_num][$key]['date'] > strtotime(date("n/j/Y", $eventarr[$day_num][$key]['date']))) echo "<br>\n" . date("g:ia", $eventarr[$day_num][$key]['date']);
+                  if ($eventarr[$day_num][$key]['date'] > strtotime(date("n/j/Y", $eventarr[$day_num][$key]['date']))) echo "\n<div class=\"cal-time\">" . date("g:ia", $eventarr[$day_num][$key]['date']) . "</div>";
                 }
 
                 // Display stage
-                if ($eventarr[$day_num][$key]['stage'] != "") echo "<div style=\"font-size: 80%; line-height: 1.2em;\">" . $eventarr[$day_num][$key]['stage'] . "</div>";
+                if ($eventarr[$day_num][$key]['stage'] != "") echo "<div class=\"cal-stage\">" . $eventarr[$day_num][$key]['stage'] . "</div>";
 
                 // Display additional info
-                if ($eventarr[$day_num][$key]['additional'] != "") echo "<div style=\"font-size: 75%; line-height: 1.2em;\">" . $eventarr[$day_num][$key]['additional'] . "</div>";
+                if ($eventarr[$day_num][$key]['additional'] != "") echo "<div class=\"cal-additional\">" . $eventarr[$day_num][$key]['additional'] . "</div>";
+
+                if ($eventarr[$day_num][$key]['status'] == "canceled") echo "</strike><br><strong style=\"color: #FF0000;\">CANCELED</strong>";
+
+                if ($i < count($eventarr[$day_num])) echo "<hr>";
+                
+                $i++;
               }
-            } else {
-              // Old format (probably don't need this any more, but just to be safe)
-              echo $eventarr[$day_num][$key]['event'];
-            }
-
-            // Canceled?
-            if ($eventarr[$day_num][$key]['status'] == "canceled") echo "</strike><br><strong style=\"color: #FF0000;\">CANCELED</strong>";
-
-            if ($i < count($eventarr[$day_num])) echo "<hr style=\"width: 75%;\">";
-            $i++;
+            echo "</div>\n";
+          } else {
+            echo '<div class="spacer"></div>';
           }
+        echo "</td>\n";
+        
+        $day_count++;
+
+        // Start a new row every week
+        if ($day_count > 6) {
+          if ($day_num != $days_in_month) echo "</tr>\n<tr>\n";
+          $day_count = 0;
         }
-      echo "</li>\n";
 
-      $day_num++;
-      $day_count++;
-
-      // Start a new row every week
-      if ($day_count > 6) {
-        $week++;
-        echo "</ul>\n<ul class=\"week" . $week . "\">\n";
-        $day_count = 0;
+        $day_num++;
       }
-    }
+      ?>
 
-    // Finish out the table with some blank details if needed
-    $blank_end_first = 1;
-    while ($day_count > 0 && $day_count <= 6) {
-      echo "<li class=\"calendar-day blank-end";
-      if ($blank_end_first == 1) echo " blank-end-first";
-      echo "\"></li>\n";
-      $day_count++;
-      $blank_end_first++;
-    }
-    ?>
-  </ul>
+      <?php if ($end_blanks > 0 && $end_blanks < 7) { ?>
+      <td colspan="<?php echo $end_blanks; ?>" class="blanks blanks<?php echo $end_blanks; ?>">
+        <div class="spacer"></div>
+        <div class="blank_date"><?php echo $end_blanks_content; ?></div>
+      </td>
+      <?php } ?>
+    </tr>
+  </table>
 </div>
-
-<div style="clear: both;"></div>
 
 <?php include "footer.php"; ?>
