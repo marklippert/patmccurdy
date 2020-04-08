@@ -1,6 +1,11 @@
 <?php
 include("../inc/dbconfig.php");
 
+if ($_GET['a'] != "delete") {
+  $displaytime = (isset($_POST['displaytime'])) ? "yes" : "";
+  $donttweet = (isset($_POST['donttweet'])) ? "yes" : "";
+}
+
 switch ($_GET['a']) {
   case "add":
     $TheDate = strtotime($_POST['date'] . " " . $_POST['time']);
@@ -13,30 +18,32 @@ switch ($_GET['a']) {
               url,
               stage,
               additional,
-              event
+              event,
+              status
               ) VALUES (
               '" . $TheDate . "',
-              '" . $_POST['displaytime'] . "',
-              '" . $_POST['donttweet'] . "',
-              '" . mysql_real_escape_string($_POST['venue']) . "',
-              '" . mysql_real_escape_string($_POST['location']) . "',
+              '" . $displaytime . "',
+              '" . $donttweet . "',
+              '" . $mysqli->real_escape_string($_POST['venue']) . "',
+              '" . $mysqli->real_escape_string($_POST['location']) . "',
               '" . $_POST['url'] . "',
-              '" . mysql_real_escape_string($_POST['stage']) . "',
-              '" . mysql_real_escape_string($_POST['additional']) . "',
-              '" . $_POST['event'] . "'
+              '" . $mysqli->real_escape_string($_POST['stage']) . "',
+              '" . $mysqli->real_escape_string($_POST['additional']) . "',
+              '',
+              ''
               )";
     break;
   case "edit":
     $TheDate = strtotime($_POST['date'] . " " . $_POST['time']);
     $query = "UPDATE schedule SET 
               date = '" . $TheDate . "',
-              displaytime = '" . $_POST['displaytime'] . "',
-              donttweet = '" . $_POST['donttweet'] . "',
-              venue = '" . mysql_real_escape_string($_POST['venue']) . "',
-              location = '" . mysql_real_escape_string($_POST['location']) . "',
+              displaytime = '" . $displaytime . "',
+              donttweet = '" . $donttweet . "',
+              venue = '" . $mysqli->real_escape_string($_POST['venue']) . "',
+              location = '" . $mysqli->real_escape_string($_POST['location']) . "',
               url = '" . $_POST['url'] . "',
-              stage = '" . mysql_real_escape_string($_POST['stage']) . "',
-              additional = '" . mysql_real_escape_string($_POST['additional']) . "',
+              stage = '" . $mysqli->real_escape_string($_POST['stage']) . "',
+              additional = '" . $mysqli->real_escape_string($_POST['additional']) . "',
               event = '" . $_POST['event'] . "',
               status = '" . $_POST['status'] . "'
               WHERE id = '" . $_POST['id'] . "'";

@@ -9,17 +9,17 @@ switch ($_GET['a']) {
               name,
               email
               ) VALUES (
-              '" . mysql_real_escape_string($_POST['title']) . "',
-              '" . mysql_real_escape_string($_POST['tab']) . "',
-              '" . mysql_real_escape_string($_POST['name']) . "',
+              '" . $mysqli->real_escape_string($_POST['title']) . "',
+              '" . $mysqli->real_escape_string($_POST['tab']) . "',
+              '" . $mysqli->real_escape_string($_POST['name']) . "',
               '" . $_POST['email'] . "'
               )";
     break;
   case "edit":
     $query = "UPDATE tabs SET
-              title = '" . mysql_real_escape_string($_POST['title']) . "',
-              tab = '" . mysql_real_escape_string($_POST['tab']) . "',
-              name = '" . mysql_real_escape_string($_POST['name']) . "',
+              title = '" . $mysqli->real_escape_string($_POST['title']) . "',
+              tab = '" . $mysqli->real_escape_string($_POST['tab']) . "',
+              name = '" . $mysqli->real_escape_string($_POST['name']) . "',
               email = '" . $_POST['email'] . "'
               WHERE id = '" . $_POST['id'] . "'";
     break;

@@ -1,4 +1,7 @@
 <?php
+if (!isset($HeaderExtra)) $HeaderExtra = "";
+if (!isset($HeaderTitle)) $HeaderTitle = "";
+
 include_once("../inc/dbconfig.php");
 ?>
 <!DOCTYPE html>

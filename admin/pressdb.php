@@ -15,24 +15,24 @@ switch ($_GET['a']) {
               ) VALUES (
               '" . strtotime($_POST['date']) . "',
               '" . $_POST['date'] . "',
-              '" . mysql_real_escape_string($_POST['source']) . "',
+              '" . $mysqli->real_escape_string($_POST['source']) . "',
               '" . $_POST['source_url'] . "',
-              '" . mysql_real_escape_string($_POST['title']) . "',
-              '" . mysql_real_escape_string($_POST['subtitle']) . "',
-              '" . mysql_real_escape_string($_POST['author']) . "',
-              '" . mysql_real_escape_string($_POST['text']) . "'
+              '" . $mysqli->real_escape_string($_POST['title']) . "',
+              '" . $mysqli->real_escape_string($_POST['subtitle']) . "',
+              '" . $mysqli->real_escape_string($_POST['author']) . "',
+              '" . $mysqli->real_escape_string($_POST['text']) . "'
               )";
     break;
   case "edit":
     $query = "UPDATE press SET
               sort_date = '" . strtotime($_POST['date']) . "',
               date = '" . $_POST['date'] . "',
-              source = '" . mysql_real_escape_string($_POST['source']) . "',
+              source = '" . $mysqli->real_escape_string($_POST['source']) . "',
               source_url = '" . $_POST['source_url'] . "',
-              title = '" . mysql_real_escape_string($_POST['title']) . "',
-              subtitle = '" . mysql_real_escape_string($_POST['subtitle']) . "',
-              author = '" . mysql_real_escape_string($_POST['author']) . "',
-              text = '" . mysql_real_escape_string($_POST['text']) . "'
+              title = '" . $mysqli->real_escape_string($_POST['title']) . "',
+              subtitle = '" . $mysqli->real_escape_string($_POST['subtitle']) . "',
+              author = '" . $mysqli->real_escape_string($_POST['author']) . "',
+              text = '" . $mysqli->real_escape_string($_POST['text']) . "'
               WHERE id = '" . $_POST['id'] . "'";
     break;
   case "delete":
@@ -44,5 +44,5 @@ $mysqli->query($query);
 
 $mysqli->close();
 
-header( "Location: pressindex.php" );
+header("Location: pressindex.php");
 ?>

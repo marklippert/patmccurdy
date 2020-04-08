@@ -15,20 +15,20 @@ switch ($_GET['a']) {
               ) VALUES (
               '" . strtotime($_POST['startdate']) . "',
               '" . $enddate . "',
-              '" . mysql_real_escape_string($_POST['title']) . "',
+              '" . $mysqli->real_escape_string($_POST['title']) . "',
               \"" . $_POST['file'] . "\",
-              '" . mysql_real_escape_string($_POST['recat']) . "',
-              '" . mysql_real_escape_string($_POST['band']) . "'
+              '" . $mysqli->real_escape_string($_POST['recat']) . "',
+              '" . $mysqli->real_escape_string($_POST['band']) . "'
               )";
     break;
   case "edit":
     $query = "UPDATE sotw SET
               startdate = '" . strtotime($_POST['startdate']) . "',
               enddate = '" . $enddate . "',
-              title = '" . mysql_real_escape_string($_POST['title']) . "',
+              title = '" . $mysqli->real_escape_string($_POST['title']) . "',
               file = \"" . $_POST['file'] . "\",
-              recat = '" . mysql_real_escape_string($_POST['recat']) . "',
-              band = '" . mysql_real_escape_string($_POST['band']) . "'
+              recat = '" . $mysqli->real_escape_string($_POST['recat']) . "',
+              band = '" . $mysqli->real_escape_string($_POST['band']) . "'
               WHERE id = '" . $_POST['id'] . "'";
     break;
   case "delete":
@@ -40,5 +40,5 @@ $mysqli->query($query);
 
 $mysqli->close();
 
-header( "Location: sotwindex.php" );
+header("Location: sotwindex.php");
 ?>

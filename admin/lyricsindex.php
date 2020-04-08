@@ -22,7 +22,7 @@ include "header.php";
         
         <strong>Album</strong>
         <select name="album" id="album-select">
-          <option value="">none</option>
+          <option value="0">none</option>
           <?php
           $result = $mysqli->query("SELECT * FROM albums ORDER BY title ASC");
 
@@ -116,7 +116,8 @@ include "header.php";
   <br>
   
   <?php
-  if ($a != "yes") {
+  // if ($a != "yes") {
+  if (!isset($a)) {
     $query = "SELECT * FROM lyrics WHERE album = '0' AND title REGEXP '" . $f . "' ORDER BY band,title ASC";
   } else {
     $query = "SELECT * FROM lyrics WHERE album = '" . $f . "' ORDER BY album_track ASC";

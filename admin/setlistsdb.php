@@ -17,12 +17,12 @@ switch ($_GET['a']) {
               approved
               ) VALUES (
               '" . $date . "',
-              '" . mysql_real_escape_string($_POST['venue']) . "',
-              '" . mysql_real_escape_string($_POST['city']) . "',
-              '" . mysql_real_escape_string($_POST['state']) . "',
-              '" . mysql_real_escape_string($_POST['set1']) . "',
-              '" . mysql_real_escape_string($_POST['set2']) . "',
-              '" . mysql_real_escape_string($_POST['set3']) . "',
+              '" . $mysqli->real_escape_string($_POST['venue']) . "',
+              '" . $mysqli->real_escape_string($_POST['city']) . "',
+              '" . $mysqli->real_escape_string($_POST['state']) . "',
+              '" . $mysqli->real_escape_string($_POST['set1']) . "',
+              '" . $mysqli->real_escape_string($_POST['set2']) . "',
+              '" . $mysqli->real_escape_string($_POST['set3']) . "',
               '" . $_POST['approved'] . "'
               )";
     break;
@@ -32,12 +32,12 @@ switch ($_GET['a']) {
     
     $query = "UPDATE setlists SET
               date = '" . $date . "',
-              venue = '" . mysql_real_escape_string($_POST['venue']) . "',
-              city = '" . mysql_real_escape_string($_POST['city']) . "',
-              state = '" . mysql_real_escape_string($_POST['state']) . "',
-              set1 = '" . mysql_real_escape_string($_POST['set1']) . "',
-              set2 = '" . mysql_real_escape_string($_POST['set2']) . "',
-              set3 = '" . mysql_real_escape_string($_POST['set3']) . "',
+              venue = '" . $mysqli->real_escape_string($_POST['venue']) . "',
+              city = '" . $mysqli->real_escape_string($_POST['city']) . "',
+              state = '" . $mysqli->real_escape_string($_POST['state']) . "',
+              set1 = '" . $mysqli->real_escape_string($_POST['set1']) . "',
+              set2 = '" . $mysqli->real_escape_string($_POST['set2']) . "',
+              set3 = '" . $mysqli->real_escape_string($_POST['set3']) . "',
               approved = '" . $_POST['approved'] . "'
               WHERE id = '" . $_POST['id'] . "'";
     break;
@@ -47,7 +47,7 @@ switch ($_GET['a']) {
   case "approve":
     // Get the current approve state and toggle it
     $result = $mysqli->query("SELECT * FROM setlists WHERE id = '" . $_GET['id'] . "'");
-    $row = $result->fetch_array(MYSQLI_BOTH);
+    $row = $result->fetch_array(MYSQLI_ASSOC);
     $approved = (empty($row['approved'])) ? "on" : "";
     
     $query = "UPDATE setlists SET approved = '" . $approved . "' WHERE id = '" . $_GET['id'] . "'";

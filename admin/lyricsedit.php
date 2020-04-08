@@ -22,7 +22,7 @@ $row = $result->fetch_array(MYSQLI_BOTH);
 
     <strong>Album</strong>
     <select name="album" id="album-select">
-      <option value="">none</option>
+      <option value="0">none</option>
       <?php
       $aresult = $mysqli->query("SELECT * FROM albums ORDER BY title ASC");
 

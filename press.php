@@ -1,8 +1,11 @@
 <?php
 include "inc/dbconfig.php";
+
+$Title = "";
+
 if ($_SERVER['QUERY_STRING'] != "") {
-  $result = mysql_query("SELECT * FROM press WHERE id = '" . $_SERVER['QUERY_STRING'] . "'");
-  $row = mysql_fetch_array($result);
+  $result = $mysqli->query("SELECT * FROM press WHERE id = '" . $_SERVER['QUERY_STRING'] . "'");
+  $row = $result->fetch_array(MYSQLI_ASSOC);
   $Title = " | " . strip_tags(htmlspecialchars_decode($row['title'], ENT_QUOTES)) . " (" . $row['date'] . ")";
 }
 
@@ -32,9 +35,9 @@ if ($_SERVER['QUERY_STRING'] != "") {
   echo "<br>\n" . htmlspecialchars_decode(str_replace("\r", "<br>", $row['text']), ENT_QUOTES);
 } else {
   // Display main index
-  $result = mysql_query("SELECT * FROM press ORDER BY sort_date DESC");
+  $result = $mysqli->query("SELECT * FROM press ORDER BY sort_date DESC");
   
-  while($row = mysql_fetch_array($result)) {
+  while($row = $result->fetch_array(MYSQLI_ASSOC)) {
     echo "<a href=\"press.php?" . $row['id'] . "\"><strong>" . $row['source'] . "</strong> " . $row['date'];
     if ($row['title'] != "") { echo "<br>\n<em>" . htmlspecialchars_decode($row['title'], ENT_QUOTES) . "</em>"; }
     echo "</a><br>

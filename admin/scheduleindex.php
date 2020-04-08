@@ -130,6 +130,8 @@ include "header.php";
   <?php
   if (!empty($_GET['b'])) {
     $TheB = "&b=" . $_GET['b'];
+  } else {
+    $TheB = "";
   }
   
   $result = $mysqli->query("SELECT * FROM schedule WHERE date >= '$first_day' AND date <= '$last_day' ORDER BY date ASC");

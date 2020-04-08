@@ -3,8 +3,8 @@ include "inc/dbconfig.php";
 $PageTitle = "Guitar Tabs";
 
 if ($_SERVER['QUERY_STRING'] != "") {
-  $result = mysql_query("SELECT * FROM tabs WHERE id ='" . $_SERVER['QUERY_STRING'] . "'");
-  $row = mysql_fetch_array($result);
+  $result = $mysqli->query("SELECT * FROM tabs WHERE id ='" . $_SERVER['QUERY_STRING'] . "'");
+  $row = $result->fetch_array(MYSQLI_ASSOC);
   $PageTitle .= " | " . $row['title'];
 }
 
@@ -24,9 +24,9 @@ if ($_SERVER['QUERY_STRING'] != "") {
   
   echo "<br>\n<pre>" . $row['tab'] . "</pre>";
 } else {
-  $result = mysql_query("SELECT * FROM tabs ORDER BY title ASC");
+  $result = $mysqli->query("SELECT * FROM tabs ORDER BY title ASC");
   
-  while($row = mysql_fetch_array($result)) {
+  while($row = $result->fetch_array(MYSQLI_ASSOC)) {
     ?>
     <a href="guitar-tabs.php?<?php echo $row['id']; ?>"><?php echo $row['title']; ?></a><br>
     <?php
