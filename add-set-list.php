@@ -18,13 +18,22 @@ if (isset($_POST['submit']) && $_POST['confirmationCAP'] == "") {
     ) {
     // All required fields have been filled, so construct the message
     // Cleanse the date because I just don't trust users
-    $date = date("Ymd", strtotime($_POST['month'] . "/" . $_POST['day'] . "/" . $_POST['year']));
+    $date = date("Ymd", strtotime($_POST[md5('month' . $_POST['ip'] . $salt . $_POST['timestamp'])] . "/" . $_POST[md5('day' . $_POST['ip'] . $salt . $_POST['timestamp'])] . "/" . $_POST[md5('day' . $_POST['ip'] . $salt . $_POST['timestamp'])]));
     
     // Insert into database
-    mysql_query("INSERT INTO setlists (date,venue,city,state,set1,set2,set3) VALUES ('" . $date . "','" . mysql_real_escape_string($_POST['venue']) . "','" . mysql_real_escape_string($_POST['city']) . "','" . mysql_real_escape_string($_POST['state']) . "','" . mysql_real_escape_string($_POST['set1']) . "','" . mysql_real_escape_string($_POST['set2']) . "','" . mysql_real_escape_string($_POST['set3']) . "')");
+    $mysqli->query("INSERT INTO setlists (date,venue,city,state,set1,set2,set3,approved) VALUES (
+      '" . $date . "',
+      '" . $mysqli->real_escape_string($_POST[md5('venue' . $_POST['ip'] . $salt . $_POST['timestamp'])]) . "',
+      '" . $mysqli->real_escape_string($_POST[md5('city' . $_POST['ip'] . $salt . $_POST['timestamp'])]) . "',
+      '" . $mysqli->real_escape_string($_POST[md5('state' . $_POST['ip'] . $salt . $_POST['timestamp'])]) . "',
+      '" . $mysqli->real_escape_string($_POST[md5('set1' . $_POST['ip'] . $salt . $_POST['timestamp'])]) . "',
+      '" . $mysqli->real_escape_string($_POST[md5('set2' . $_POST['ip'] . $salt . $_POST['timestamp'])]) . "',
+      '" . $mysqli->real_escape_string($_POST[md5('set3' . $_POST['ip'] . $salt . $_POST['timestamp'])]) . "',
+      '')"
+    );
     
     // Notify me
-    mail("webmaster@patmccurdy.com", "Set List Submitted", "Set List submitted for \"" . $_POST['date'] . "\"", "From: donotreply@patmccurdy.com");
+    mail("webmaster@patmccurdy.com", "Set List Submitted", "Set List submitted for \"" . $_POST[md5('month' . $_POST['ip'] . $salt . $_POST['timestamp'])] . "/" . $_POST[md5('day' . $_POST['ip'] . $salt . $_POST['timestamp'])] . "/" . $_POST[md5('day' . $_POST['ip'] . $salt . $_POST['timestamp'])] . "\"", "From: donotreply@patmccurdy.com");
     
     // Thank the submitter
     echo "<strong>Thanks for your set list addition</strong><br>
