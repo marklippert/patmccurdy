@@ -154,16 +154,23 @@ All prices include shipping (unless otherwise indicated). Orders will be sent ou
     <strong>CDs</strong><br>
     All individual CDs are $15<br>
     <br>
-    <strong>Ten CD Set</strong><br>
+<!--     <strong>Ten CD Set</strong><br>
     All ten of Pat's CDs for $125. For the CDs that are out of print we'll burn high-quality copies.<br>
     <strong>Quantity:</strong> <input type="text" class="item" name="cdset" data-item="Ten CD Set" data-price="125"><br>
 
-    <br><br>
+    <br><br> -->
 
     <div class="half-left">
       <a href="album.php?16"><img src="images/cds/souvenirs.jpg" alt="Souvenirs" style="width: 100%; height: auto;"><br>
-      Souvenirs</a><br>
-      Quantity: <input type="text" class="item" name="souvenirs" data-item="Souvenirs" data-price="15"><br>
+      <div class="half-left">
+        <a href="album.php?16">Souvenirs</a><br>
+        Quantity: <input type="text" class="item" name="souvenirs" data-item="Souvenirs" data-price="15">
+      </div>
+      <div class="half-right" style="font-size: 90%;">
+        <a href="https://music.apple.com/us/album/souvenirs/1288309545">Download on iTunes</a><br>
+        <a href="https://www.amazon.com/dp/B0762RTTJN">Download on Amazon</a>
+      </div>
+      <div style="clear: both;"></div><br>
       <br>
     </div>
 
@@ -175,39 +182,41 @@ All prices include shipping (unless otherwise indicated). Orders will be sent ou
 
     <div class="half-left">
       <a href="album.php?15"><img src="images/cds/pat-mccurdy-now.jpg" alt="Pat McCurdy Now!" style="width: 100%; height: auto;"><br>
-      Pat McCurdy Now!</a><br>
-      Quantity: <input type="text" class="item" name="pmnow" data-item="Pat McCurdy Now!" data-price="15"><br>
-      <br>
+      <div class="half-left">
+        <a href="album.php?15">Pat McCurdy Now!</a><br>
+        Quantity: <input type="text" class="item" name="pmnow" data-item="Pat McCurdy Now!" data-price="15">
+      </div>
+      <div class="half-right" style="font-size: 90%;">
+        <a href="https://music.apple.com/us/album/pat-mccurdy-now/1298129807">Download on iTunes</a><br>
+        <a href="https://www.amazon.com/dp/B076JLFCDB">Download on Amazon</a>
+      </div>
+      <div style="clear: both;"></div><br>
     </div>
 
     <div class="half-right">
       <a href="album.php?14"><img src="images/cds/love-is-a-beautiful-thing.jpg" alt="Love is a Beautiful Thing" style="width: 100%; height: auto;"><br>
       Love is a Beautiful Thing</a><br>
-      Quantity: <input type="text" class="item" name="liabt" data-item="Love is a Beautiful Thing" data-price="15"><br>
-      <a href="http://www.cdbaby.com/cd/patmccurdy9" style="font-size: 90%;">Download on CD Baby</a><br>
+      Out of print<br>
+      Downloads coming soon<br>
       <br>
     </div>
     
     <div style="clear: both;"></div>
 
     <div class="half-left">
-      <a href="album.php?13"><img src="images/cds/15-favorites.jpg" alt="15 Favorites" style="width: 100%; height: auto;"></a><br>
-      <div class="half-left">
-        <a href="album.php?13">15 Favorites</a><br>
-        Quantity: <input type="text" class="item" name="15fav" data-item="15 Favorites" data-price="15"><br>
-      </div>
-      <div class="half-right" style="font-size: 90%;">
-        <a href="http://itunes.apple.com/us/album/15-favorites/id403423126">Download on iTunes</a><br>
-        <a href="http://www.amazon.com/15-Favorites-Explicit/dp/B004BWYQM6">Download on Amazon</a>
-      </div>
-      <div style="clear: both;"></div><br>
+      <a href="album.php?13"><img src="images/cds/15-favorites.jpg" alt="15 Favorites" style="width: 100%; height: auto;">
+        15 Favorites</a><br>
+      Only available for download<br>
+      <a href="https://music.apple.com/us/album/15-favorites/403423126" style="font-size: 90%;">Download on iTunes</a><br>
+      <a href="https://www.amazon.com/dp/B004BWYQM6" style="font-size: 90%;">Download on Amazon</a><br>
+      <br>
     </div>
 
     <div class="half-right">
       <a href="album.php?12"><img src="images/cds/my-world-of-love.jpg" alt="My World of Love" style="width: 100%; height: auto;"><br>
       My World of Love</a><br>
       Quantity: <input type="text" class="item" name="mwol" data-item="My World of Love" data-price="15"><br>
-      <a href="http://itunes.apple.com/us/album/my-world-of-love/id402817113" style="font-size: 90%;">Download on iTunes</a><br>
+      <a href="https://music.apple.com/us/album/my-world-of-love/402817113" style="font-size: 90%;">Download on iTunes</a><br>
       <br>
     </div>
 
@@ -217,7 +226,7 @@ All prices include shipping (unless otherwise indicated). Orders will be sent ou
       <a href="album.php?10"><img src="images/cds/pat-in-person-volume-2.jpg" alt="Pat in Person Volume 2" style="width: 100%; height: auto;"><br>
       Pat in Person Volume 2</a><br>
       Quantity: <input type="text" class="item" name="pipv2" data-item="Pat in Person Volume 2" data-price="15"><br>
-      <a href="http://itunes.apple.com/us/album/pat-in-person-vol-2/id402820238" style="font-size: 90%;">Download on iTunes</a><br>
+      <a href="https://music.apple.com/us/album/pat-in-person-vol-2/402820238" style="font-size: 90%;">Download on iTunes</a><br>
       <br>
     </div>
 
@@ -225,7 +234,7 @@ All prices include shipping (unless otherwise indicated). Orders will be sent ou
       <a href="album.php?9"><img src="images/cds/the-big-bright-beautiful-world-of-pat-mccurdy.jpg" alt="The Big Bright Beautiful World of Pat McCurdy" style="width: 100%; height: auto;"><br>
       The Big Bright Beautiful World of...</a><br>
       Quantity: <input type="text" class="item" name="bbbw" data-item="The Big Bright Beautiful World of Pat McCurdy" data-price="15"><br>
-      <a href="http://itunes.apple.com/us/album/the-big-bright-beautiful-world/id402750541" style="font-size: 90%;">Download on iTunes</a><br>
+      <a href="https://music.apple.com/us/album/the-big-bright-beautiful-world-of-pat-mccurdy/402750541" style="font-size: 90%;">Download on iTunes</a><br>
       <br>
     </div>
 
@@ -234,7 +243,9 @@ All prices include shipping (unless otherwise indicated). Orders will be sent ou
     <div class="half-left">
       <a href="album.php?8"><img src="images/cds/show-tunes.jpg" alt="Show Tunes" style="width: 100%; height: auto;"><br>
       Show Tunes</a><br>
-      Quantity: <input type="text" class="item" name="sho" data-item="Show Tunes" data-price="15"><br>
+      <!-- Quantity: <input type="text" class="item" name="sho" data-item="Show Tunes" data-price="15"><br> -->
+      Out of print<br>
+      Downloads coming soon<br>
       <br>
     </div>
 
@@ -245,8 +256,8 @@ All prices include shipping (unless otherwise indicated). Orders will be sent ou
         Quantity: <input type="text" class="item" name="pip" data-item="Pat in Person" data-price="15"><br>
       </div>
       <div class="half-right" style="font-size: 90%;">
-        <a href="https://itunes.apple.com/us/album/pat-in-person/id475034572">Download on iTunes</a><br>
-        <a href="http://www.amazon.com/Pat-Person-McCurdy/dp/B005ZG605I">Download on Amazon</a>
+        <a href="https://music.apple.com/us/album/pat-in-person/475034572">Download on iTunes</a><br>
+        <a href="https://www.amazon.com/dp/B005ZG605I">Download on Amazon</a>
       </div>
       <div style="clear: both;"></div><br>
     </div>
@@ -260,8 +271,8 @@ All prices include shipping (unless otherwise indicated). Orders will be sent ou
         Quantity: <input type="text" class="item" name="som" data-item="The Sound of Music" data-price="15">
       </div>
       <div class="half-right" style="font-size: 90%;">
-        <a href="https://itunes.apple.com/us/album/the-sound-of-music/id475036158">Download on iTunes</a><br>
-        <a href="http://www.amazon.com/Sound-Music-Pat-McCurdy/dp/B005ZC0RG0">Download on Amazon</a>
+        <a href="https://music.apple.com/us/album/the-sound-of-music/475036158">Download on iTunes</a><br>
+        <a href="https://www.amazon.com/dp/B005ZC0RG0">Download on Amazon</a>
       </div>
       <div style="clear: both;"></div><br>
     </div>
@@ -269,7 +280,8 @@ All prices include shipping (unless otherwise indicated). Orders will be sent ou
     <div class="half-right">
       <img src="images/cds/the-good-life-memorial-day.jpg" alt="The Good Life/Memorial Day" style="width: 100%; height: auto;"><br>
       <a href="album.php?4">The Good Life</a>/<a href="album.php?5">Memorial Day</a><br>
-      Quantity: <input type="text" class="item" name="glmd" data-item="Good Life/Memorial Day" data-price="15"><br>
+      Out of print<br>
+      Downloads coming soon<br>
       <br>
     </div>
 
