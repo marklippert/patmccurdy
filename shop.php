@@ -204,6 +204,14 @@ All prices include shipping (unless otherwise indicated). Orders will be sent ou
     <div style="clear: both;"></div>
 
     <div class="half-left">
+      <a href="album.php?11"><img src="images/cds/fainting-with-happiness.jpg" alt="Fainting With Happiness" style="width: 100%; height: auto;"><br>
+      Fainting With Happiness</a><br>
+      Out of print<br>
+      Downloads coming soon<br>
+      <br>
+    </div>
+
+    <div class="half-right">
       <a href="album.php?13"><img src="images/cds/15-favorites.jpg" alt="15 Favorites" style="width: 100%; height: auto;">
         15 Favorites</a><br>
       Only available for download<br>
@@ -212,7 +220,9 @@ All prices include shipping (unless otherwise indicated). Orders will be sent ou
       <br>
     </div>
 
-    <div class="half-right">
+    <div style="clear: both;"></div>
+
+    <div class="half-left">
       <a href="album.php?12"><img src="images/cds/my-world-of-love.jpg" alt="My World of Love" style="width: 100%; height: auto;"><br>
       My World of Love</a><br>
       Quantity: <input type="text" class="item" name="mwol" data-item="My World of Love" data-price="15"><br>
@@ -220,9 +230,7 @@ All prices include shipping (unless otherwise indicated). Orders will be sent ou
       <br>
     </div>
 
-    <div style="clear: both;"></div>
-
-    <div class="half-left">
+    <div class="half-right">
       <a href="album.php?10"><img src="images/cds/pat-in-person-volume-2.jpg" alt="Pat in Person Volume 2" style="width: 100%; height: auto;"><br>
       Pat in Person Volume 2</a><br>
       Quantity: <input type="text" class="item" name="pipv2" data-item="Pat in Person Volume 2" data-price="15"><br>
@@ -230,7 +238,9 @@ All prices include shipping (unless otherwise indicated). Orders will be sent ou
       <br>
     </div>
 
-    <div class="half-right">
+    <div style="clear: both;"></div>
+
+    <div class="half-left">
       <a href="album.php?9"><img src="images/cds/the-big-bright-beautiful-world-of-pat-mccurdy.jpg" alt="The Big Bright Beautiful World of Pat McCurdy" style="width: 100%; height: auto;"><br>
       The Big Bright Beautiful World of...</a><br>
       Quantity: <input type="text" class="item" name="bbbw" data-item="The Big Bright Beautiful World of Pat McCurdy" data-price="15"><br>
@@ -238,9 +248,7 @@ All prices include shipping (unless otherwise indicated). Orders will be sent ou
       <br>
     </div>
 
-    <div style="clear: both;"></div>
-
-    <div class="half-left">
+    <div class="half-right">
       <a href="album.php?8"><img src="images/cds/show-tunes.jpg" alt="Show Tunes" style="width: 100%; height: auto;"><br>
       Show Tunes</a><br>
       <!-- Quantity: <input type="text" class="item" name="sho" data-item="Show Tunes" data-price="15"><br> -->
@@ -249,7 +257,9 @@ All prices include shipping (unless otherwise indicated). Orders will be sent ou
       <br>
     </div>
 
-    <div class="half-right">
+    <div style="clear: both;"></div>
+
+    <div class="half-left">
       <a href="album.php?7"><img src="images/cds/pat-in-person.jpg" alt="Pat in Person" style="width: 100%; height: auto;"></a><br>
       <div class="half-left">
         <a href="album.php?7">Pat in Person</a><br>
@@ -262,9 +272,7 @@ All prices include shipping (unless otherwise indicated). Orders will be sent ou
       <div style="clear: both;"></div><br>
     </div>
 
-    <div style="clear: both;"></div>
-
-    <div class="half-left">
+    <div class="half-right">
       <a href="album.php?6"><img src="images/cds/the-sound-of-music.jpg" alt="The Sound of Music" style="width: 100%; height: auto;"></a><br>
       <div class="half-left">
         <a href="album.php?6">The Sound of Music</a><br>
@@ -277,7 +285,9 @@ All prices include shipping (unless otherwise indicated). Orders will be sent ou
       <div style="clear: both;"></div><br>
     </div>
 
-    <div class="half-right">
+    <div style="clear: both;"></div>
+
+    <div class="half-left">
       <img src="images/cds/the-good-life-memorial-day.jpg" alt="The Good Life/Memorial Day" style="width: 100%; height: auto;"><br>
       <a href="album.php?4">The Good Life</a>/<a href="album.php?5">Memorial Day</a><br>
       Out of print<br>
@@ -285,9 +295,35 @@ All prices include shipping (unless otherwise indicated). Orders will be sent ou
       <br>
     </div>
 
+    <div class="half-right">
+      <a href="album.php?17"><img src="images/cds/yipes3.jpg" alt="Yipes!!!" style="width: 100%; height: auto;"></a><br>
+      <div class="half-left">
+        <a href="album.php?17">Yipes!!!</a><br>
+        Quantity: <input type="text" class="item" name="yipes3" data-item="Yipes!!!" data-price="15">
+      </div>
+      <div class="half-right" style="font-size: 90%;">
+        <a href="https://music.apple.com/us/album/yipes/1445141431">Download on iTunes</a><br>
+        <a href="https://www.amazon.com/Yipes/dp/B07KZPCMVK">Download on Amazon</a>
+      </div>
+      <div style="clear: both;"></div><br>
+    </div>
+
     <div style="clear: both;"></div>
 
     <div class="half-left">
+      <a href="album.php?1"><img src="images/cds/yipes-redux.jpg" alt="Yipes! Redux" style="width: 100%; height: auto;"></a><br>
+      <div class="half-left">
+        <a href="album.php?1">Yipes! Redux</a><br>
+        Quantity: <input type="text" class="item" name="yipesredux" data-item="Yipes! Redux" data-price="15">
+      </div>
+      <div class="half-right" style="font-size: 90%;">
+        <a href="https://music.apple.com/us/album/redux/1488052645">Download on iTunes</a><br>
+        <a href="https://www.amazon.com/Redux-Yipes/dp/B081K9K92F">Download on Amazon</a>
+      </div>
+      <div style="clear: both;"></div><br>
+    </div>
+
+    <div class="half-right">
       <img src="images/cds/yipes-a-bit-irrational.jpg" alt="Yipes!/A Bit Irrational" style="width: 100%; height: auto;"><br>
       <div class="two-third-left">
         <a href="album.php?1">Yipes!</a>/<a href="album?2">A Bit Irrational</a><br>
