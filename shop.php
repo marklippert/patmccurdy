@@ -154,11 +154,11 @@ All prices include shipping (unless otherwise indicated). Orders will be sent ou
     <strong>CDs</strong><br>
     All individual CDs are $15<br>
     <br>
-<!--     <strong>Ten CD Set</strong><br>
+    <strong>Ten CD Set</strong><br>
     All ten of Pat's CDs for $125. For the CDs that are out of print we'll burn high-quality copies.<br>
     <strong>Quantity:</strong> <input type="text" class="item" name="cdset" data-item="Ten CD Set" data-price="125"><br>
 
-    <br><br> -->
+    <br><br>
 
     <div class="half-left">
       <a href="album.php?16"><img src="images/cds/souvenirs.jpg" alt="Souvenirs" style="width: 100%; height: auto;"><br>
@@ -196,8 +196,7 @@ All prices include shipping (unless otherwise indicated). Orders will be sent ou
     <div class="half-right">
       <a href="album.php?14"><img src="images/cds/love-is-a-beautiful-thing.jpg" alt="Love is a Beautiful Thing" style="width: 100%; height: auto;"><br>
       Love is a Beautiful Thing</a><br>
-      Out of print<br>
-      Downloads coming soon<br>
+      Quantity: <input type="text" class="item" name="liabt" data-item="Love is a Beautiful Thing" data-price="15">
       <br>
     </div>
     
@@ -206,18 +205,21 @@ All prices include shipping (unless otherwise indicated). Orders will be sent ou
     <div class="half-left">
       <a href="album.php?11"><img src="images/cds/fainting-with-happiness.jpg" alt="Fainting With Happiness" style="width: 100%; height: auto;"><br>
       Fainting With Happiness</a><br>
-      Out of print<br>
-      Downloads coming soon<br>
+      Quantity: <input type="text" class="item" name="fwh" data-item="Fainting With Happiness" data-price="15">
       <br>
     </div>
 
     <div class="half-right">
-      <a href="album.php?13"><img src="images/cds/15-favorites.jpg" alt="15 Favorites" style="width: 100%; height: auto;">
-        15 Favorites</a><br>
-      Only available for download<br>
-      <a href="https://music.apple.com/us/album/15-favorites/403423126" style="font-size: 90%;">Download on iTunes</a><br>
-      <a href="https://www.amazon.com/dp/B004BWYQM6" style="font-size: 90%;">Download on Amazon</a><br>
-      <br>
+      <a href="album.php?13"><img src="images/cds/15-favorites.jpg" alt="15 Favorites" style="width: 100%; height: auto;"><br>
+      <div class="half-left">
+        <a href="album.php?13">15 Favorites</a><br>
+        Quantity: <input type="text" class="item" name="15fav" data-item="15 Favorites" data-price="15">
+      </div>
+      <div class="half-right" style="font-size: 90%;">
+        <a href="https://music.apple.com/us/album/15-favorites/403423126">Download on iTunes</a><br>
+        <a href="https://www.amazon.com/dp/B004BWYQM6">Download on Amazon</a>
+      </div>
+      <div style="clear: both;"></div><br>
     </div>
 
     <div style="clear: both;"></div>
@@ -251,10 +253,7 @@ All prices include shipping (unless otherwise indicated). Orders will be sent ou
     <div class="half-right">
       <a href="album.php?8"><img src="images/cds/show-tunes.jpg" alt="Show Tunes" style="width: 100%; height: auto;"><br>
       Show Tunes</a><br>
-      <!-- Quantity: <input type="text" class="item" name="sho" data-item="Show Tunes" data-price="15"><br> -->
-      Out of print<br>
-      Downloads coming soon<br>
-      <br>
+      Quantity: <input type="text" class="item" name="sho" data-item="Show Tunes" data-price="15"><br>
     </div>
 
     <div style="clear: both;"></div>
@@ -290,9 +289,7 @@ All prices include shipping (unless otherwise indicated). Orders will be sent ou
     <div class="half-left">
       <img src="images/cds/the-good-life-memorial-day.jpg" alt="The Good Life/Memorial Day" style="width: 100%; height: auto;"><br>
       <a href="album.php?4">The Good Life</a>/<a href="album.php?5">Memorial Day</a><br>
-      Out of print<br>
-      Downloads coming soon<br>
-      <br>
+      Quantity: <input type="text" class="item" name="glmd" data-item="Good Life / Memorial Day" data-price="15"><br>
     </div>
 
     <div class="half-right">
