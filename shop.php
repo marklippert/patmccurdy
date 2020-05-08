@@ -37,6 +37,38 @@ All prices include shipping (unless otherwise indicated). Orders will be sent ou
     All shirts are $15 unless otherwise indicated<br>
     <br>
 
+    <img src="images/shirt-i-sheltered-in-place-with-pat.png" alt="I Sheltered In Place With Pat" style="max-width: 100%; height: auto;"><br>
+    <strong>LIMITED TIME ONLY!</strong><br>
+    We will be taking orders through May 31, then printing them all at once. This means they will take longer to get but there's more variety in sizes and styles. Get 'em now before they're gone like packages of toilet paper.<br>
+
+    <div class="half-left centered" style="margin-top: 0.5em;">
+      <strong>MEN'S $20</strong>
+      <div class="centered-block" style="text-align: left;">
+        <strong>Quantity:</strong> <input type="text" class="item" name="shirtShelteredMS" data-item="Men's I Sheltered In Place shirt [S]" data-price="20"> S<br>
+        <strong>Quantity:</strong> <input type="text" class="item" name="shirtShelteredMM" data-item="Men's I Sheltered In Place shirt [M]" data-price="20"> M<br>
+        <strong>Quantity:</strong> <input type="text" class="item" name="shirtShelteredML" data-item="Men's I Sheltered In Place shirt [L]" data-price="20"> L<br>
+        <strong>Quantity:</strong> <input type="text" class="item" name="shirtShelteredMXL" data-item="Men's I Sheltered In Place shirt [XL]" data-price="20"> XL<br>
+        <strong>Quantity:</strong> <input type="text" class="item" name="shirtShelteredM2XL" data-item="Men's I Sheltered In Place shirt [2XL]" data-price="20"> 2XL<br>
+        <strong>Quantity:</strong> <input type="text" class="item" name="shirtShelteredM3XL" data-item="Men's I Sheltered In Place shirt [3XL]" data-price="20"> 3XL<br>
+        <strong>Quantity:</strong> <input type="text" class="item" name="shirtShelteredM4XL" data-item="Men's I Sheltered In Place shirt [4XL]" data-price="20"> 4XL<br>
+        <br>
+      </div>
+    </div>
+
+    <div class="half-right centered">
+      <strong>WOMEN'S $20</strong>
+      <div class="centered-block" style="text-align: left;">
+        <strong>Quantity:</strong> <input type="text" class="item" name="shirtShelteredWS" data-item="Women's I Sheltered In Place shirt [S]" data-price="20"> S<br>
+        <strong>Quantity:</strong> <input type="text" class="item" name="shirtShelteredWM" data-item="Women's I Sheltered In Place shirt [M]" data-price="20"> M<br>
+        <strong>Quantity:</strong> <input type="text" class="item" name="shirtShelteredWL" data-item="Women's I Sheltered In Place shirt [L]" data-price="20"> L<br>
+        <strong>Quantity:</strong> <input type="text" class="item" name="shirtShelteredWXL" data-item="Women's I Sheltered In Place shirt [XL]" data-price="20"> XL<br>
+        <br>
+      </div>
+    </div>
+
+    <div style="clear: both;"></div>
+    <br>
+
     <div class="half-left centered">
       <img src="images/shirt-sex-and-beer-green.png" alt="I Heart Sex & Beer" style="width: 100%; height: auto;">
       <div class="centered-block" style="text-align: left;">
