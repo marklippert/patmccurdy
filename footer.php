@@ -3,6 +3,23 @@
 
           <?php if ($Sidebar == "") { ?>
           <aside>
+            <div id="support">
+              <h3>Tip Jar</h3>
+              <strong>Venmo</strong> @Pat-McCurdy-2<br>
+              <strong>Paypal</strong>
+
+              <form id="donation" name="_xclick" action="https://www.paypal.com/cgi-bin/webscr" method="post" target="new">
+                <div>
+                  <input type="hidden" name="cmd" value="_donations">
+                  <input type="hidden" name="business" value="patmccurdy123@yahoo.com">
+                  <input type="hidden" name="item_name" value="Pat McCurdy Tip">
+                  <input type="hidden" name="currency_code" value="USD">
+                  <input type="hidden" name="amount" value="">
+                  <input type="submit" name="submit" value="patmccurdy123@yahoo.com">
+                </div>
+              </form>
+            </div>
+
             <img src="images/HirePat.png" alt="Hire Pat"><br>
             <?php email("fatmurf@wi.rr.com", "Email Murf"); ?> or call 414-916-4914. Be sure to include the date, time of day, and location of the potential show to get an accurate price quote.<br>
             <br>

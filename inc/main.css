@@ -385,6 +385,31 @@ FOOTER {
   text-align: center;
 }
 
+#support H3 {
+  margin: 0.5em 0 0.25em;
+  font-family: WhimsyICGHeavy, Arial, Helvetica, sans-serif;
+  color: #5F2E1F;
+  font-size: 190%;
+  text-shadow: #A69C89 2px 2px 2px;
+}
+
+#support FORM { margin-bottom: 2em; }
+
+#support INPUT[type="submit"] {
+  outline: 0;
+  border: 0;
+  padding: 0;
+  background: transparent;
+  color: #5F2E1F;
+  font-size: 100%;
+  cursor: pointer;
+  -webkit-appearance: none;
+  transition: all 0.2s;
+  text-decoration: none;
+}
+
+#support INPUT[type="submit"]:hover { color: #8F8881; }
+
 .calendar UL {
   list-style: none;
   padding: 0;
