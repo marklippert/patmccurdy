@@ -30,7 +30,7 @@ function email($address, $name="") {
     <meta name="author" content="Mark Lippert">
 
     <meta name="viewport" content="width=device-width">
-    <link rel="stylesheet" href="inc/main.css">
+    <link rel="stylesheet" href="inc/main.css?<?php echo filemtime('inc/main.css'); ?>">
 
     <script type="text/javascript" src="inc/jquery-1.11.1.min.js"></script>
     <script type="text/javascript" src="inc/bootstrap-collapse.js"></script>
