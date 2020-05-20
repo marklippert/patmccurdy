@@ -410,6 +410,67 @@ FOOTER {
 
 #support INPUT[type="submit"]:hover { color: #8F8881; }
 
+.calendar .cal-nav-l,
+.calendar .cal-nav-r {
+  float: left;
+  margin-bottom: 0.6em;
+}
+
+.calendar .cal-nav-r {
+  float: right;
+}
+
+.calendar TABLE {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.calendar TD {
+  border: 1px solid #000000;
+  padding: 4px;
+  box-sizing: border-box;
+  width: 14.28571428571429%;
+  vertical-align: top;
+  line-height: 1.2;
+}
+
+.calendar .weekdays TD {
+  font-weight: bold;
+  text-align: center;
+  color: #000000;
+  background: #B87D00;
+}
+
+.calendar TD.blanks { position: relative; }
+
+.calendar TD.blanks .spacer:before { content: ""; display: block; padding-top: 106px; }
+
+.calendar TD.blanks .blank_date {
+  display: none;
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 100%;
+  transform: translateY(-50%);
+  font-weight: bold;
+  font-size: 200%;
+  line-height: 1;
+  text-align: center;
+}
+
+.calendar TD.noshow { position: relative; }
+.calendar TD.noshow:before { content: ""; display: block; padding-top: 100%; }
+.calendar TD.noshow .cal-date { position: absolute; top: 4px; left: 4px; }
+
+.cal-date { font-weight: bold; }
+
+.cal-today { background: #FFFFFF; }
+
+.cal-day { display: none; }
+.cal-location { font-size: 90%; }
+.cal-time, .cal-stage { font-size: 80%; }
+
+/*
 .calendar UL {
   list-style: none;
   padding: 0;
@@ -436,23 +497,6 @@ FOOTER {
   border-right: 1px solid #000000;
 }
 
-.calendar .cal-nav-l,
-.calendar .cal-nav-r {
-  float: left;
-  margin-bottom: 0.6em;
-}
-
-.calendar .cal-nav-r {
-  float: right;
-}
-
-.calendar .weekdays LI {
-  font-weight: bold;
-  text-align: center;
-  color: #000000;
-  background: #B87D00;
-}
-
 .calendar LI.blank-start {
   border: 0;
   border-top: 1px solid #000000;
@@ -472,14 +516,6 @@ FOOTER {
   display: none;
 }
 
-.cal-today {
-  background: #FFFFFF;
-}
-
-.cal-date {
-  font-weight: bold;
-}
-
 .calendar LI.blank-end {
   border-left: 0;
   border-right: 0;
@@ -493,6 +529,7 @@ FOOTER {
 .calendar LI.blank-end:last-child {
   border-right: 1px solid #000000;
 }
+*/
 
 .lyrics-album {
   position: relative;
@@ -642,12 +679,14 @@ FOOTER {
 }
 
 
+@media only screen and (max-width: 900px) {
+  #wrap { width: 100%; }
+  #content-wrap { width: 96%; }
+}
+
+
 @media only screen and (max-width: 800px) {
   /* Small computer or landscape tablet */
-  #wrap {
-    width: 100%;
-  }
-
   #menu UL LI {
     font-size: 145%;
   }
@@ -662,10 +701,6 @@ FOOTER {
 
   #hhp2 {
     display: none;
-  }
-
-  #content-wrap {
-    width: 90%;
   }
 
   .icon {
@@ -787,19 +822,21 @@ FOOTER {
   }
 
   .calendar .weekdays,
-  .calendar LI.blank-start,
-  .calendar LI.blank-end,
+  .calendar .blanks,
   .calendar .noshow {
     display: none;
   }
 
-  .calendar LI {
+  .calendar TD {
+    display: flex;
+    align-items: flex-start;
     min-height: 5em;
-    height: auto!important;
     width: 100%;
     padding: 10px;
-    border: 1px solid #000000;
+    border-bottom: 0;
   }
+
+  .calendar TABLE { border-bottom: 1px solid #000000; }
 
   .calendar LI.list-noshows {
     display: block;
@@ -807,7 +844,6 @@ FOOTER {
   }
 
   .cal-datebox {
-    float: left;
     margin-right: 1em;
     width: 3.5em;
     padding: 0.7em 0;
@@ -831,10 +867,11 @@ FOOTER {
   }
 
   .cal-info {
-    float: left;
     width: 84%;
     width: calc(100% - 4.5em);
   }
+
+  .cal-location, .cal-time, .cal-stage { font-size: 100%; }
 
   .lyrics-album {
     margin: 0 3% 3% 0;
