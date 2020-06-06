@@ -6,7 +6,7 @@ include "header.php";
 <style>
   INPUT.item { width: 2em; }
 
-  INPUT[type="submit"] {
+  #pmshop INPUT[type="submit"] {
     display: inline-block;
     outline: 0;
     border: 0;
@@ -28,16 +28,30 @@ include "header.php";
   INPUT[type="submit"]:hover { background: #5F2E1F }
 </style>
 
-All prices include shipping (unless otherwise indicated). Orders will be sent out as soon as humanly possible. Prices and items available subject to change without notice. Some items may be temporarily out of stock; please be patient.<br>
+All prices include shipping (unless otherwise indicated). Orders will be sent out as soon as humanly possible. Prices and items available subject to change without notice. Some items may be temporarily out of stock; please be patient. If you have questions about your order, please <a href="mailto: fatmurf@wi.rr.com">contact Murf</a>.<br>
 <br>
 
 <form action="https://www.paypal.com/cgi-bin/webscr" method="POST" id="pmshop" novalidate target="new">
   <div>
+    <strong>I &#10084; Sex & Beer Mask</strong><br>
+    <img src="images/i-heart-sex-and-beer-mask.png" alt="I Heart Sex & Beer Mask" style="max-width: 100%; height: auto;"><br>
+    Washable white cloth masks. $10 each or a 10 pack for $80.<br>
+    <div class="half-left centered">
+      <strong>Quantity (Single):</strong> <input type="text" class="item" name="MaskSingle" data-item="I Heart Sex & Beer Mask (single)" data-price="10">
+    </div>
+    <div class="half-right">
+      <strong>Quantity (10 Pack):</strong> <input type="text" class="item" name="Mask10Pack" data-item="I Heart Sex & Beer Mask (10 pack)" data-price="80">
+    </div>
+    <div style="clear: both;"></div>
+    <br>
+    <br>
+
+
     <strong>Shirts</strong><br>
     All shirts are $15 unless otherwise indicated<br>
     <br>
 
-    <img src="images/shirt-i-sheltered-in-place-with-pat.png" alt="I Sheltered In Place With Pat" style="max-width: 100%; height: auto;"><br>
+<!--     <img src="images/shirt-i-sheltered-in-place-with-pat.png" alt="I Sheltered In Place With Pat" style="max-width: 100%; height: auto;"><br>
     <strong>LIMITED TIME ONLY!</strong><br>
     We will be taking orders through May 31, then printing them all at once. This means they will take longer to get but there's more variety in sizes and styles. Get 'em now before they're gone like packages of toilet paper.<br>
 
@@ -53,9 +67,9 @@ All prices include shipping (unless otherwise indicated). Orders will be sent ou
         <strong>Quantity:</strong> <input type="text" class="item" name="shirtShelteredM4XL" data-item="Men's I Sheltered In Place shirt [4XL]" data-price="20"> 4XL<br>
         <br>
       </div>
-    </div>
+    </div> -->
 
-    <div class="half-right centered">
+<!--     <div class="half-right centered">
       <strong>WOMEN'S $20</strong>
       <div class="centered-block" style="text-align: left;">
         <strong>Quantity:</strong> <input type="text" class="item" name="shirtShelteredWS" data-item="Women's I Sheltered In Place shirt [S]" data-price="20"> S<br>
@@ -67,7 +81,7 @@ All prices include shipping (unless otherwise indicated). Orders will be sent ou
     </div>
 
     <div style="clear: both;"></div>
-    <br>
+    <br> -->
 
     <div class="half-left centered">
       <img src="images/shirt-sex-and-beer-green.png" alt="I Heart Sex & Beer" style="width: 100%; height: auto;">
@@ -444,7 +458,10 @@ All prices include shipping (unless otherwise indicated). Orders will be sent ou
     <input type="submit" name="submit" value="Checkout" id="submit"><br>
     <br>
 
-    Payments are processed using PayPal. A PayPal account is not required to submit payment. (Look for the "Pay with Debit or Credt Card" button.)
+    Payments are processed using PayPal. A PayPal account is not required to submit payment. (Look for the "Pay with Debit or Credt Card" button.)<br>
+    <br>
+
+    If you have questions about your order, please <a href="mailto: fatmurf@wi.rr.com">contact Murf</a>.
   </div>
 </form>
 
