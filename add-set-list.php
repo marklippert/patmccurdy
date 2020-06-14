@@ -18,7 +18,7 @@ if (isset($_POST['submit']) && $_POST['confirmationCAP'] == "") {
     ) {
     // All required fields have been filled, so construct the message
     // Cleanse the date because I just don't trust users
-    $date = date("Ymd", strtotime($_POST[md5('month' . $_POST['ip'] . $salt . $_POST['timestamp'])] . "/" . $_POST[md5('day' . $_POST['ip'] . $salt . $_POST['timestamp'])] . "/" . $_POST[md5('day' . $_POST['ip'] . $salt . $_POST['timestamp'])]));
+    $date = date("Ymd", strtotime($_POST[md5('month' . $_POST['ip'] . $salt . $_POST['timestamp'])] . "/" . $_POST[md5('day' . $_POST['ip'] . $salt . $_POST['timestamp'])] . "/" . $_POST[md5('year' . $_POST['ip'] . $salt . $_POST['timestamp'])]));
     
     // Insert into database
     $mysqli->query("INSERT INTO setlists (date,venue,city,state,set1,set2,set3,approved) VALUES (
@@ -33,7 +33,8 @@ if (isset($_POST['submit']) && $_POST['confirmationCAP'] == "") {
     );
     
     // Notify me
-    mail("webmaster@patmccurdy.com", "Set List Submitted", "Set List submitted for \"" . $_POST[md5('month' . $_POST['ip'] . $salt . $_POST['timestamp'])] . "/" . $_POST[md5('day' . $_POST['ip'] . $salt . $_POST['timestamp'])] . "/" . $_POST[md5('day' . $_POST['ip'] . $salt . $_POST['timestamp'])] . "\"", "From: donotreply@patmccurdy.com");
+    $Message = 'Set List submitted for ' . $_POST[md5('month' . $_POST['ip'] . $salt . $_POST['timestamp'])] . "/" . $_POST[md5('day' . $_POST['ip'] . $salt . $_POST['timestamp'])] . "/" . $_POST[md5('year' . $_POST['ip'] . $salt . $_POST['timestamp'])];
+    mail("webmaster@patmccurdy.com", "Set List Submitted", "Set List submitted for \"" . $_POST[md5('month' . $_POST['ip'] . $salt . $_POST['timestamp'])] . "/" . $_POST[md5('day' . $_POST['ip'] . $salt . $_POST['timestamp'])] . "/" . $_POST[md5('year' . $_POST['ip'] . $salt . $_POST['timestamp'])] . "\"", "From: donotreply@patmccurdy.com");
     
     // Thank the submitter
     echo "<strong>Thanks for your set list addition</strong><br>
