@@ -58,6 +58,6 @@ while($row = $result->fetch_array(MYSQLI_BOTH)) {
 
 $result->free();
 $aresult->free();
-$mysqli->close();
+// $mysqli->close();
 
 include "footer.php";
