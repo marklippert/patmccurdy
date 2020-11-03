@@ -678,6 +678,22 @@ FOOTER {
   height: 100%;
 }
 
+.shop-two-col { display: flex; justify-content: space-between; flex-wrap: wrap; }
+
+.shop-two-col > DIV { width: 48%; text-align: center; padding-bottom: 3em; }
+
+.shop-two-col > DIV IMG { max-width: 100%; height: auto; }
+
+.shop-two-col > DIV > DIV { display: inline-block; text-align: left; }
+
+.shop-two-col > DIV > DIV.shop-cd { display: block; }
+
+.shop-two-col > DIV > DIV.shop-cd-two-col { display: flex; justify-content: space-between; flex-wrap: wrap; }
+
+.shop-two-col > DIV > DIV.shop-cd-two-col > DIV { width: 52%; }
+
+.shop-two-col > DIV > DIV.shop-cd-two-col > DIV:last-of-type { width: 44%; font-size: 90%; }
+
 
 @media only screen and (max-width: 900px) {
   #wrap { width: 100%; }
@@ -912,6 +928,10 @@ FOOTER {
   .newsletter {
     margin: 0 4.5% 1.5em 0;
   }
+
+  .shop-two-col > DIV { width: 100%; }
+  .shop-two-col > DIV > DIV.shop-cd-two-col > DIV { width: 60%; }
+  .shop-two-col > DIV > DIV.shop-cd-two-col > DIV:last-of-type { width: 35%; }
 }
 
 @media only screen and (max-width: 480px) {
@@ -1031,4 +1051,7 @@ FOOTER {
   .newsletter TD {
     padding: 0.2em 0.4em;
   }
+
+  .shop-two-col > DIV > DIV.shop-cd-two-col > DIV,
+  .shop-two-col > DIV > DIV.shop-cd-two-col > DIV:last-of-type { width: 100%; }
 }

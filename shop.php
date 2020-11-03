@@ -51,335 +51,329 @@ All prices include shipping (unless otherwise indicated). Orders will be sent ou
     All shirts are $15 unless otherwise indicated<br>
     <br>
 
-<!--     <img src="images/shirt-i-sheltered-in-place-with-pat.png" alt="I Sheltered In Place With Pat" style="max-width: 100%; height: auto;"><br>
-    <strong>LIMITED TIME ONLY!</strong><br>
-    We will be taking orders through May 31, then printing them all at once. This means they will take longer to get but there's more variety in sizes and styles. Get 'em now before they're gone like packages of toilet paper.<br>
-
-    <div class="half-left centered" style="margin-top: 0.5em;">
-      <strong>MEN'S $20</strong>
-      <div class="centered-block" style="text-align: left;">
-        <strong>Quantity:</strong> <input type="text" class="item" name="shirtShelteredMS" data-item="Men's I Sheltered In Place shirt [S]" data-price="20"> S<br>
-        <strong>Quantity:</strong> <input type="text" class="item" name="shirtShelteredMM" data-item="Men's I Sheltered In Place shirt [M]" data-price="20"> M<br>
-        <strong>Quantity:</strong> <input type="text" class="item" name="shirtShelteredML" data-item="Men's I Sheltered In Place shirt [L]" data-price="20"> L<br>
-        <strong>Quantity:</strong> <input type="text" class="item" name="shirtShelteredMXL" data-item="Men's I Sheltered In Place shirt [XL]" data-price="20"> XL<br>
-        <strong>Quantity:</strong> <input type="text" class="item" name="shirtShelteredM2XL" data-item="Men's I Sheltered In Place shirt [2XL]" data-price="20"> 2XL<br>
-        <strong>Quantity:</strong> <input type="text" class="item" name="shirtShelteredM3XL" data-item="Men's I Sheltered In Place shirt [3XL]" data-price="20"> 3XL<br>
-        <strong>Quantity:</strong> <input type="text" class="item" name="shirtShelteredM4XL" data-item="Men's I Sheltered In Place shirt [4XL]" data-price="20"> 4XL<br>
-        <br>
+    <div class="shop-two-col">
+      <div>
+        <img src="images/shirt-mistress-of-alcohol-tank.png" alt="Mistress of Alcohol Tank">
+        <div>
+          $25<br>
+          <strong>Quantity:</strong> <input type="number" min="1" class="item" name="shirtMistressOfAlcoholTankS" data-item="Mistress of Alcohol tank [S]" data-price="25"> S<br>
+          <strong>Quantity:</strong> <input type="number" min="1" class="item" name="shirtMistressOfAlcoholTankM" data-item="Mistress of Alcohol tank [M]" data-price="25"> M<br>
+          <strong>Quantity:</strong> <input type="number" min="1" class="item" name="shirtMistressOfAlcoholTankL" data-item="Mistress of Alcohol tank [L]" data-price="25"> L<br>
+          <strong>Quantity:</strong> <input type="number" min="1" class="item" name="shirtMistressOfAlcoholTankXL" data-item="Mistress of Alcohol tank [XL]" data-price="25"> XL
+        </div>
       </div>
-    </div> -->
 
-<!--     <div class="half-right centered">
-      <strong>WOMEN'S $20</strong>
-      <div class="centered-block" style="text-align: left;">
-        <strong>Quantity:</strong> <input type="text" class="item" name="shirtShelteredWS" data-item="Women's I Sheltered In Place shirt [S]" data-price="20"> S<br>
-        <strong>Quantity:</strong> <input type="text" class="item" name="shirtShelteredWM" data-item="Women's I Sheltered In Place shirt [M]" data-price="20"> M<br>
-        <strong>Quantity:</strong> <input type="text" class="item" name="shirtShelteredWL" data-item="Women's I Sheltered In Place shirt [L]" data-price="20"> L<br>
-        <strong>Quantity:</strong> <input type="text" class="item" name="shirtShelteredWXL" data-item="Women's I Sheltered In Place shirt [XL]" data-price="20"> XL<br>
-        <br>
+      <div>
+        <img src="images/shirt-mistress-of-alcohol-scoop.png" alt="Mistress of Alcohol Shirt">
+        <div>
+          $20<br>
+          <strong>Quantity:</strong> <input type="number" min="1" class="item" name="shirtMistressOfAlcoholS" data-item="Mistress of Alcohol shirt [S]" data-price="20"> S<br>
+          <strong>Quantity:</strong> <input type="number" min="1" class="item" name="shirtMistressOfAlcoholM" data-item="Mistress of Alcohol shirt [M]" data-price="20"> M<br>
+          <strong>Quantity:</strong> <input type="number" min="1" class="item" name="shirtMistressOfAlcoholL" data-item="Mistress of Alcohol shirt [L]" data-price="20"> L<br>
+          <strong>Quantity:</strong> <input type="number" min="1" class="item" name="shirtMistressOfAlcoholXL" data-item="Mistress of Alcohol shirt [XL]" data-price="20"> XL<br>
+          <strong>Quantity:</strong> <input type="number" min="1" class="item" name="shirtMistressOfAlcohol2XL" data-item="Mistress of Alcohol shirt [2XL]" data-price="20"> 2XL<br>
+          <strong>Quantity:</strong> <input type="number" min="1" class="item" name="shirtMistressOfAlcohol3XL" data-item="Mistress of Alcohol shirt [3XL]" data-price="20"> 3XL<br>
+          <br>
+          
+          <strong>Quantity:</strong> <input type="number" min="1" class="item" name="shirtMistressOfAlcoholSMens" data-item="Mistress of Alcohol shirt (Mens) [S]" data-price="20"> Men's S<br>
+          <strong>Quantity:</strong> <input type="number" min="1" class="item" name="shirtMistressOfAlcoholMMens" data-item="Mistress of Alcohol shirt (Mens) [M]" data-price="20"> Men's M<br>
+          <strong>Quantity:</strong> <input type="number" min="1" class="item" name="shirtMistressOfAlcoholLMens" data-item="Mistress of Alcohol shirt (Mens) [L]" data-price="20"> Men's L<br>
+          <strong>Quantity:</strong> <input type="number" min="1" class="item" name="shirtMistressOfAlcoholXLMens" data-item="Mistress of Alcohol shirt (Mens) [XL]" data-price="20"> Men's XL<br>
+          <strong>Quantity:</strong> <input type="number" min="1" class="item" name="shirtMistressOfAlcohol2XLMens" data-item="Mistress of Alcohol shirt (Mens) [2XL]" data-price="20"> Men's 2XL<br>
+          <strong>Quantity:</strong> <input type="number" min="1" class="item" name="shirtMistressOfAlcohol3XLMens" data-item="Mistress of Alcohol shirt (Mens) [3XL]" data-price="20"> Men's 3XL<br>
+          <strong>Quantity:</strong> <input type="number" min="1" class="item" name="shirtMistressOfAlcohol4XLMens" data-item="Mistress of Alcohol shirt (Mens) [4XL]" data-price="20"> Men's 4XL
+        </div>
       </div>
-    </div>
 
-    <div style="clear: both;"></div>
-    <br> -->
-
-    <div class="half-left centered">
-      <img src="images/shirt-sex-and-beer-green.png" alt="I Heart Sex & Beer" style="width: 100%; height: auto;">
-      <div class="centered-block" style="text-align: left;">
-        <strong>Quantity:</strong> <input type="text" class="item" name="shirtGreenHeartSexBeerM" data-item="Green I Heart Sex & Beer shirt [M]" data-price="15"> M<br>
-        <strong>Quantity:</strong> <input type="text" class="item" name="shirtGreenHeartSexBeerXL" data-item="Green I Heart Sex & Beer shirt [XL]" data-price="15"> XL<br>
-        <strong>Quantity:</strong> <input type="text" class="item" name="shirtGreenHeartSexBeer2XL" data-item="Green I Heart Sex & Beer shirt [2XL]" data-price="15"> 2XL<br>
-        <br>
+      <div>
+        <img src="images/shirt-sex-and-beer-green.png" alt="I Heart Sex & Beer">
+        <div>
+          <strong>Quantity:</strong> <input type="number" min="1" class="item" name="shirtGreenHeartSexBeerM" data-item="Green I Heart Sex & Beer shirt [M]" data-price="15"> M<br>
+          <strong>Quantity:</strong> <input type="number" min="1" class="item" name="shirtGreenHeartSexBeerXL" data-item="Green I Heart Sex & Beer shirt [XL]" data-price="15"> XL<br>
+          <strong>Quantity:</strong> <input type="number" min="1" class="item" name="shirtGreenHeartSexBeer2XL" data-item="Green I Heart Sex & Beer shirt [2XL]" data-price="15"> 2XL
+        </div>
       </div>
-    </div>
 
-    <div class="half-right centered">
-      <img src="images/shirt-sex-and-beer-blue-small.png" alt="I Heart Sex & Beer" style="width: 100%; height: auto;">
-      <div class="centered-block" style="text-align: left;">
-        <strong>Quantity:</strong> <input type="text" class="item" name="shirtBlueHeartSexBeerM" data-item="Blue I Heart Sex & Beer shirt [M]" data-price="15"> M<br>
-        <strong>Quantity:</strong> <input type="text" class="item" name="shirtBlueHeartSexBeerXL" data-item="Blue I Heart Sex & Beer shirt [XL]" data-price="15"> XL<br>
-        <strong>Quantity:</strong> <input type="text" class="item" name="shirtBlueHeartSexBeer2XL" data-item="Blue I Heart Sex & Beer shirt [2XL]" data-price="15"> 2XL<br>
-        <br>
+      <div>
+        <img src="images/shirt-sex-and-beer-blue.png" alt="I Heart Sex & Beer">
+        <div>
+          <strong>Quantity:</strong> <input type="number" min="1" class="item" name="shirtBlueHeartSexBeerM" data-item="Blue I Heart Sex & Beer shirt [M]" data-price="15"> M<br>
+          <strong>Quantity:</strong> <input type="number" min="1" class="item" name="shirtBlueHeartSexBeerXL" data-item="Blue I Heart Sex & Beer shirt [XL]" data-price="15"> XL<br>
+          <strong>Quantity:</strong> <input type="number" min="1" class="item" name="shirtBlueHeartSexBeer2XL" data-item="Blue I Heart Sex & Beer shirt [2XL]" data-price="15"> 2XL
+        </div>
       </div>
-    </div>
 
-    <div style="clear: both;"></div>
-
-    <div class="half-left centered">
-      <img src="images/shirt-i-heart-sex-and-beer-red.png" alt="I Heart Sex & Beer" style="width: 100%; height: auto;">
-      <div class="centered-block" style="text-align: left;">
-        <strong>Quantity:</strong> <input type="text" class="item" name="shirtRedHeartSexBeerM" data-item="Red I Heart Sex & Beer shirt [M]" data-price="15"> M<br>
-        <strong>Quantity:</strong> <input type="text" class="item" name="shirtRedHeartSexBeerXL" data-item="Red I Heart Sex & Beer shirt [XL]" data-price="15"> XL<br>
-        <strong>Quantity:</strong> <input type="text" class="item" name="shirtRedHeartSexBeer2XL" data-item="Red I Heart Sex & Beer shirt [2XL]" data-price="15"> 2XL<br>
-        <br>
+      <div>
+        <img src="images/shirt-i-heart-sex-and-beer-red.png" alt="I Heart Sex & Beer">
+        <div>
+          <strong>Quantity:</strong> <input type="number" min="1" class="item" name="shirtRedHeartSexBeerM" data-item="Red I Heart Sex & Beer shirt [M]" data-price="15"> M<br>
+          <strong>Quantity:</strong> <input type="number" min="1" class="item" name="shirtRedHeartSexBeerXL" data-item="Red I Heart Sex & Beer shirt [XL]" data-price="15"> XL<br>
+          <strong>Quantity:</strong> <input type="number" min="1" class="item" name="shirtRedHeartSexBeer2XL" data-item="Red I Heart Sex & Beer shirt [2XL]" data-price="15"> 2XL
+        </div>
       </div>
-    </div>
 
-    <div class="half-right centered">
-      <img src="images/shirt-sex-and-beer-gray.png" alt="Sex & Beer" style="width: 100%; height: auto;">
-      <div class="centered-block" style="text-align: left;">
-        <strong>Quantity:</strong> <input type="text" class="item" name="shirtGraySexBeerM" data-item="Gray Sex & Beer shirt [M]" data-price="15"> M<br>
-        <strong>Quantity:</strong> <input type="text" class="item" name="shirtGraySexBeerXL" data-item="Gray Sex & Beer shirt [XL]" data-price="15"> XL<br>
-        <strong>Quantity:</strong> <input type="text" class="item" name="shirtGraySexBeer2XL" data-item="Gray Sex & Beer shirt [2XL]" data-price="15"> 2XL<br>
-        <br>
+      <div>
+        <img src="images/shirt-sex-and-beer-gray.png" alt="Sex & Beer">
+        <div>
+          <strong>Quantity:</strong> <input type="number" min="1" class="item" name="shirtGraySexBeerM" data-item="Gray Sex & Beer shirt [M]" data-price="15"> M<br>
+          <strong>Quantity:</strong> <input type="number" min="1" class="item" name="shirtGraySexBeerXL" data-item="Gray Sex & Beer shirt [XL]" data-price="15"> XL<br>
+          <strong>Quantity:</strong> <input type="number" min="1" class="item" name="shirtGraySexBeer2XL" data-item="Gray Sex & Beer shirt [2XL]" data-price="15"> 2XL
+        </div>
       </div>
-    </div>
 
-    <div style="clear: both;"></div>
-
-    <div class="half-left centered">
-      <img src="images/shirt-sex-and-beer-shamrock.png" alt="I Shamrock Sex & Beer" style="width: 100%; height: auto;">
-      <div class="centered-block" style="text-align: left;">
-        <strong>Quantity:</strong> <input type="text" class="item" name="shirtShamrockSexBeerM" data-item="I Shamrock Sex & Beer shirt [M]" data-price="15"> M<br>
-        <strong>Quantity:</strong> <input type="text" class="item" name="shirtShamrockSexBeerXL" data-item="I Shamrock Sex & Beer shirt [XL]" data-price="15"> XL<br>
-        <strong>Quantity:</strong> <input type="text" class="item" name="shirtShamrockSexBeer2XL" data-item="I Shamrock Sex & Beer shirt [2XL]" data-price="15"> 2XL<br>
-        <strong>Quantity:</strong> <input type="text" class="item" name="shirtShamrockSexBeer3XL" data-item="I Shamrock Sex & Beer shirt [3XL]" data-price="15"> 3XL<br>
-        <br>
+      <div>
+        <img src="images/shirt-sex-and-beer-shamrock.png" alt="I Shamrock Sex & Beer">
+        <div>
+          <strong>Quantity:</strong> <input type="number" min="1" class="item" name="shirtShamrockSexBeerM" data-item="I Shamrock Sex & Beer shirt [M]" data-price="15"> M<br>
+          <strong>Quantity:</strong> <input type="number" min="1" class="item" name="shirtShamrockSexBeerXL" data-item="I Shamrock Sex & Beer shirt [XL]" data-price="15"> XL<br>
+          <strong>Quantity:</strong> <input type="number" min="1" class="item" name="shirtShamrockSexBeer2XL" data-item="I Shamrock Sex & Beer shirt [2XL]" data-price="15"> 2XL<br>
+          <strong>Quantity:</strong> <input type="number" min="1" class="item" name="shirtShamrockSexBeer3XL" data-item="I Shamrock Sex & Beer shirt [3XL]" data-price="15"> 3XL
+        </div>
       </div>
-    </div>
 
-    <div class="half-right centered">
-      <img src="images/shirt-pat-mccurdy-is-my-best-friend.png" alt="Pat McCurdy Is My Best Friend" style="width: 100%; height: auto;">
-      <div class="centered-block" style="text-align: left;">
-        <strong>Quantity:</strong> <input type="text" class="item" name="shirtBestFriendS" data-item="Pat McCurdy Is My Best Friend shirt [S]" data-price="15"> S<br>
-        <strong>Quantity:</strong> <input type="text" class="item" name="shirtBestFriendM" data-item="Pat McCurdy Is My Best Friend shirt [M]" data-price="15"> M<br>
-        <strong>Quantity:</strong> <input type="text" class="item" name="shirtBestFriendXL" data-item="Pat McCurdy Is My Best Friend shirt [XL]" data-price="15"> XL<br>
-        <br>
+      <div>
+        <img src="images/shirt-pat-mccurdy-is-my-best-friend.png" alt="Pat McCurdy Is My Best Friend">
+        <div>
+          <strong>Quantity:</strong> <input type="number" min="1" class="item" name="shirtBestFriendS" data-item="Pat McCurdy Is My Best Friend shirt [S]" data-price="15"> S<br>
+          <strong>Quantity:</strong> <input type="number" min="1" class="item" name="shirtBestFriendM" data-item="Pat McCurdy Is My Best Friend shirt [M]" data-price="15"> M<br>
+          <strong>Quantity:</strong> <input type="number" min="1" class="item" name="shirtBestFriendXL" data-item="Pat McCurdy Is My Best Friend shirt [XL]" data-price="15"> XL
+        </div>
       </div>
-    </div>
 
-    <div style="clear: both;"></div>
-
-    <div class="half-left centered">
-      <img src="images/shirt-monkey-paw.png" alt="I Wish I Had A Monkey Paw" style="width: 100%; height: auto;">
-      <div class="centered-block" style="text-align: left;">
-        <strong>Quantity:</strong> <input type="text" class="item" name="shirtMonkeyPawM" data-item="I Wish I Had A Monkey Paw shirt [M]" data-price="15"> M<br>
-        <strong>Quantity:</strong> <input type="text" class="item" name="shirtMonkeyPawXL" data-item="I Wish I Had A Monkey Paw shirt [XL]" data-price="15"> XL<br>
-        <strong>Quantity:</strong> <input type="text" class="item" name="shirtMonkeyPaw2XL" data-item="I Wish I Had A Monkey Paw shirt [2XL]" data-price="15"> 2XL<br>
-        <br>
+      <div>
+        <img src="images/shirt-monkey-paw.png" alt="I Wish I Had A Monkey Paw">
+        <div>
+          <strong>Quantity:</strong> <input type="number" min="1" class="item" name="shirtMonkeyPawM" data-item="I Wish I Had A Monkey Paw shirt [M]" data-price="15"> M<br>
+          <strong>Quantity:</strong> <input type="number" min="1" class="item" name="shirtMonkeyPawXL" data-item="I Wish I Had A Monkey Paw shirt [XL]" data-price="15"> XL<br>
+          <strong>Quantity:</strong> <input type="number" min="1" class="item" name="shirtMonkeyPaw2XL" data-item="I Wish I Had A Monkey Paw shirt [2XL]" data-price="15"> 2XL
+        </div>
       </div>
-    </div>
 
-    <div class="half-right centered">
-      <img src="images/shirt-hey-paddy.png" alt="Hey Paddy! Play A Song For Me" style="width: 100%; height: auto;">
-      <div class="centered-block" style="text-align: left;">
-        <strong>Quantity:</strong> <input type="text" class="item" name="shirtHeyPaddyM" data-item="Hey Paddy! Play A Song For Me shirt [M]" data-price="15"> M<br>
-        <strong>Quantity:</strong> <input type="text" class="item" name="shirtHeyPaddyXL" data-item="Hey Paddy! Play A Song For Me shirt [XL]" data-price="15"> XL<br>
-        <strong>Quantity:</strong> <input type="text" class="item" name="shirtHeyPaddy2XL" data-item="Hey Paddy! Play A Song For Me shirt [2XL]" data-price="15"> 2XL<br>
-        <br>
+      <div>
+        <img src="images/shirt-hey-paddy.png" alt="Hey Paddy! Play A Song For Me">
+        <div>
+          <strong>Quantity:</strong> <input type="number" min="1" class="item" name="shirtHeyPaddyM" data-item="Hey Paddy! Play A Song For Me shirt [M]" data-price="15"> M<br>
+          <strong>Quantity:</strong> <input type="number" min="1" class="item" name="shirtHeyPaddyXL" data-item="Hey Paddy! Play A Song For Me shirt [XL]" data-price="15"> XL<br>
+          <strong>Quantity:</strong> <input type="number" min="1" class="item" name="shirtHeyPaddy2XL" data-item="Hey Paddy! Play A Song For Me shirt [2XL]" data-price="15"> 2XL
+        </div>
       </div>
-    </div>
 
-    <div style="clear: both;"></div>
-
-    <div class="half-left centered">
-      <img src="images/shirt-sex-and-beer-womans-small.png" alt="Women's Sex & Beer" style="width: 100%; height: auto;">
-      <div class="centered-block" style="text-align: left;">
-        Women's<br>
-        <strong>Quantity:</strong> <input type="text" class="item" name="shirtWomensSexBeerM" data-item="Womens Sex & Beer shirt [M]" data-price="15"> M<br>
-        <strong>Quantity:</strong> <input type="text" class="item" name="shirtWomensSexBeerL" data-item="Womens Sex & Beer shirt [L]" data-price="15"> L<br>
-        <strong>Quantity:</strong> <input type="text" class="item" name="shirtWomensSexBeerXL" data-item="Womens Sex & Beer shirt [XL]" data-price="15"> XL<br>
-        <br>
+      <div>
+        <img src="images/shirt-sex-and-beer-womans.png" alt="Women's Sex & Beer">
+        <div>
+          Women's<br>
+          <strong>Quantity:</strong> <input type="number" min="1" class="item" name="shirtWomensSexBeerM" data-item="Womens Sex & Beer shirt [M]" data-price="15"> M<br>
+          <strong>Quantity:</strong> <input type="number" min="1" class="item" name="shirtWomensSexBeerL" data-item="Womens Sex & Beer shirt [L]" data-price="15"> L<br>
+          <strong>Quantity:</strong> <input type="number" min="1" class="item" name="shirtWomensSexBeerXL" data-item="Womens Sex & Beer shirt [XL]" data-price="15"> XL
+        </div>
       </div>
-    </div>
 
-    <div class="half-right centered">
-      <img src="images/shirt-sex-and-beer-womans-tank.png" alt="Women's Sex & Beer Tank" style="width: 100%; height: auto;">
-      <div class="centered-block" style="text-align: left;">
-        Women's Tank $20<br>
-        <strong>Quantity:</strong> <input type="text" class="item" name="shirtWomensSexBeerTankM" data-item="Womens Sex & Beer tank [M]" data-price="20"> M<br>
-        <strong>Quantity:</strong> <input type="text" class="item" name="shirtWomensSexBeerTankL" data-item="Womens Sex & Beer tank [L]" data-price="20"> L<br>
-        <br>
+      <div>
+        <img src="images/shirt-sex-and-beer-womans-tank.png" alt="Women's Sex & Beer Tank">
+        <div>
+          Women's Tank $20<br>
+          <strong>Quantity:</strong> <input type="number" min="1" class="item" name="shirtWomensSexBeerTankM" data-item="Womens Sex & Beer tank [M]" data-price="20"> M<br>
+          <strong>Quantity:</strong> <input type="number" min="1" class="item" name="shirtWomensSexBeerTankL" data-item="Womens Sex & Beer tank [L]" data-price="20"> L
+        </div>
       </div>
-    </div>
-
-    <div style="clear: both;"></div>
-
-    <br>
+    </div> <!-- /.shop-two-col -->
 
     <strong>CDs</strong><br>
     All individual CDs are $15<br>
     <br>
     <strong>Ten CD Set</strong><br>
     All ten of Pat's CDs for $125. For the CDs that are out of print we'll burn high-quality copies.<br>
-    <strong>Quantity:</strong> <input type="text" class="item" name="cdset" data-item="Ten CD Set" data-price="125"><br>
+    <strong>Quantity:</strong> <input type="number" min="1" class="item" name="cdset" data-item="Ten CD Set" data-price="125"><br>
 
     <br><br>
 
-    <div class="half-left">
-      <a href="album.php?16"><img src="images/cds/souvenirs.jpg" alt="Souvenirs" style="width: 100%; height: auto;"><br>
-      <div class="half-left">
-        <a href="album.php?16">Souvenirs</a><br>
-        Quantity: <input type="text" class="item" name="souvenirs" data-item="Souvenirs" data-price="15">
+    <div class="shop-two-col">
+      <div>
+        <a href="album.php?16"><img src="images/cds/souvenirs.jpg" alt="Souvenirs"></a>
+        <div class="shop-cd-two-col">
+          <div>
+            <a href="album.php?16">Souvenirs</a><br>
+            <strong>Quantity:</strong> <input type="number" min="1" class="item" name="souvenirs" data-item="Souvenirs" data-price="15">
+          </div>
+          <div>
+            <a href="https://music.apple.com/us/album/souvenirs/1288309545">Buy on Apple Music</a><br>
+            <a href="https://www.amazon.com/dp/B0762RTTJN">Buy on Amazon</a>
+          </div>
+        </div>
       </div>
-      <div class="half-right" style="font-size: 90%;">
-        <a href="https://music.apple.com/us/album/souvenirs/1288309545">Download on iTunes</a><br>
-        <a href="https://www.amazon.com/dp/B0762RTTJN">Download on Amazon</a>
+
+      <div style="text-align: left;">
+        Pat's first greatest hits compilation features previously unreleased live and studio versions of Imagine A Picture, Screw You, Monkey Paw and other favorites. And for the first time ever: Hey Paddy!
       </div>
-      <div style="clear: both;"></div><br>
-      <br>
-    </div>
 
-    <div class="half-right">
-      Pat's first greatest hits compilation features previously unreleased live and studio versions of Imagine A Picture, Screw You, Monkey Paw and other favorites. And for the first time ever: Hey Paddy!
-    </div>
-    
-    <div style="clear: both;"></div>
-
-    <div class="half-left">
-      <a href="album.php?15"><img src="images/cds/pat-mccurdy-now.jpg" alt="Pat McCurdy Now!" style="width: 100%; height: auto;"><br>
-      <div class="half-left">
-        <a href="album.php?15">Pat McCurdy Now!</a><br>
-        Quantity: <input type="text" class="item" name="pmnow" data-item="Pat McCurdy Now!" data-price="15">
+      <div>
+        <a href="album.php?15"><img src="images/cds/pat-mccurdy-now.jpg" alt="Pat McCurdy Now!"></a>
+        <div class="shop-cd-two-col">
+          <div>
+            <a href="album.php?15">Pat McCurdy Now!</a><br>
+            <strong>Quantity:</strong> <input type="number" min="1" class="item" name="pmnow" data-item="Pat McCurdy Now!" data-price="15">
+          </div>
+          <div>
+            <a href="https://music.apple.com/us/album/pat-mccurdy-now/1298129807">Buy on Apple Music</a><br>
+            <a href="https://www.amazon.com/dp/B076JLFCDB">Buy on Amazon</a>
+          </div>
+        </div>
       </div>
-      <div class="half-right" style="font-size: 90%;">
-        <a href="https://music.apple.com/us/album/pat-mccurdy-now/1298129807">Download on iTunes</a><br>
-        <a href="https://www.amazon.com/dp/B076JLFCDB">Download on Amazon</a>
+
+      <div>
+        <a href="album.php?14"><img src="images/cds/love-is-a-beautiful-thing.jpg" alt="Love is a Beautiful Thing"></a>
+        <div class="shop-cd">
+          <a href="album.php?14">Love is a Beautiful Thing</a><br>
+          <strong>Quantity:</strong> <input type="number" min="1" class="item" name="liabt" data-item="Love is a Beautiful Thing" data-price="15">
+        </div>
       </div>
-      <div style="clear: both;"></div><br>
-    </div>
-
-    <div class="half-right">
-      <a href="album.php?14"><img src="images/cds/love-is-a-beautiful-thing.jpg" alt="Love is a Beautiful Thing" style="width: 100%; height: auto;"><br>
-      Love is a Beautiful Thing</a><br>
-      Quantity: <input type="text" class="item" name="liabt" data-item="Love is a Beautiful Thing" data-price="15">
-      <br>
-    </div>
-    
-    <div style="clear: both;"></div>
-
-    <div class="half-left">
-      <a href="album.php?11"><img src="images/cds/fainting-with-happiness.jpg" alt="Fainting With Happiness" style="width: 100%; height: auto;"><br>
-      Fainting With Happiness</a><br>
-      Quantity: <input type="text" class="item" name="fwh" data-item="Fainting With Happiness" data-price="15">
-      <br>
-    </div>
-
-    <div class="half-right">
-      <a href="album.php?13"><img src="images/cds/15-favorites.jpg" alt="15 Favorites" style="width: 100%; height: auto;"><br>
-      <div class="half-left">
-        <a href="album.php?13">15 Favorites</a><br>
-        Quantity: <input type="text" class="item" name="15fav" data-item="15 Favorites" data-price="15">
+      
+      <div>
+        <a href="album.php?13"><img src="images/cds/15-favorites.jpg" alt="15 Favorites"></a>
+        <div class="shop-cd-two-col">
+          <div>
+            <a href="album.php?13">15 Favorites</a><br>
+            <strong>Quantity:</strong> <input type="number" min="1" class="item" name="15fav" data-item="15 Favorites" data-price="15">
+          </div>
+          <div>
+            <a href="https://music.apple.com/us/album/15-favorites/403423126">Buy on Apple Music</a><br>
+            <a href="https://www.amazon.com/dp/B004BWYQM6">Buy on Amazon</a>
+          </div>
+        </div>
       </div>
-      <div class="half-right" style="font-size: 90%;">
-        <a href="https://music.apple.com/us/album/15-favorites/403423126">Download on iTunes</a><br>
-        <a href="https://www.amazon.com/dp/B004BWYQM6">Download on Amazon</a>
+
+      <div>
+        <a href="album.php?12"><img src="images/cds/my-world-of-love.jpg" alt="My World of Love"></a>
+        <div class="shop-cd-two-col">
+          <div>
+            <a href="album.php?12">My World of Love</a><br>
+            <strong>Quantity:</strong> <input type="number" min="1" class="item" name="mwol" data-item="My World of Love" data-price="15">
+          </div>
+          <div>
+            <a href="https://music.apple.com/us/album/my-world-of-love/402817113">Buy on Apple Music</a>
+          </div>
+        </div>
       </div>
-      <div style="clear: both;"></div><br>
-    </div>
 
-    <div style="clear: both;"></div>
-
-    <div class="half-left">
-      <a href="album.php?12"><img src="images/cds/my-world-of-love.jpg" alt="My World of Love" style="width: 100%; height: auto;"><br>
-      My World of Love</a><br>
-      Quantity: <input type="text" class="item" name="mwol" data-item="My World of Love" data-price="15"><br>
-      <a href="https://music.apple.com/us/album/my-world-of-love/402817113" style="font-size: 90%;">Download on iTunes</a><br>
-      <br>
-    </div>
-
-    <div class="half-right">
-      <a href="album.php?10"><img src="images/cds/pat-in-person-volume-2.jpg" alt="Pat in Person Volume 2" style="width: 100%; height: auto;"><br>
-      Pat in Person Volume 2</a><br>
-      Quantity: <input type="text" class="item" name="pipv2" data-item="Pat in Person Volume 2" data-price="15"><br>
-      <a href="https://music.apple.com/us/album/pat-in-person-vol-2/402820238" style="font-size: 90%;">Download on iTunes</a><br>
-      <br>
-    </div>
-
-    <div style="clear: both;"></div>
-
-    <div class="half-left">
-      <a href="album.php?9"><img src="images/cds/the-big-bright-beautiful-world-of-pat-mccurdy.jpg" alt="The Big Bright Beautiful World of Pat McCurdy" style="width: 100%; height: auto;"><br>
-      The Big Bright Beautiful World of...</a><br>
-      Quantity: <input type="text" class="item" name="bbbw" data-item="The Big Bright Beautiful World of Pat McCurdy" data-price="15"><br>
-      <a href="https://music.apple.com/us/album/the-big-bright-beautiful-world-of-pat-mccurdy/402750541" style="font-size: 90%;">Download on iTunes</a><br>
-      <br>
-    </div>
-
-    <div class="half-right">
-      <a href="album.php?8"><img src="images/cds/show-tunes.jpg" alt="Show Tunes" style="width: 100%; height: auto;"><br>
-      Show Tunes</a><br>
-      Quantity: <input type="text" class="item" name="sho" data-item="Show Tunes" data-price="15"><br>
-    </div>
-
-    <div style="clear: both;"></div>
-
-    <div class="half-left">
-      <a href="album.php?7"><img src="images/cds/pat-in-person.jpg" alt="Pat in Person" style="width: 100%; height: auto;"></a><br>
-      <div class="half-left">
-        <a href="album.php?7">Pat in Person</a><br>
-        Quantity: <input type="text" class="item" name="pip" data-item="Pat in Person" data-price="15"><br>
+      <div>
+        <a href="album.php?11"><img src="images/cds/fainting-with-happiness.jpg" alt="Fainting With Happiness"></a>
+        <div class="shop-cd">
+          <a href="album.php?11">Fainting With Happiness</a><br>
+          <strong>Quantity:</strong> <input type="number" min="1" class="item" name="fwh" data-item="Fainting With Happiness" data-price="15">
+        </div>
       </div>
-      <div class="half-right" style="font-size: 90%;">
-        <a href="https://music.apple.com/us/album/pat-in-person/475034572">Download on iTunes</a><br>
-        <a href="https://www.amazon.com/dp/B005ZG605I">Download on Amazon</a>
-      </div>
-      <div style="clear: both;"></div><br>
-    </div>
 
-    <div class="half-right">
-      <a href="album.php?6"><img src="images/cds/the-sound-of-music.jpg" alt="The Sound of Music" style="width: 100%; height: auto;"></a><br>
-      <div class="half-left">
-        <a href="album.php?6">The Sound of Music</a><br>
-        Quantity: <input type="text" class="item" name="som" data-item="The Sound of Music" data-price="15">
+      <div>
+        <a href="album.php?10"><img src="images/cds/pat-in-person-volume-2.jpg" alt="Pat in Person Volume 2"></a>
+        <div class="shop-cd-two-col">
+          <div>
+            <a href="album.php?10">Pat in Person Volume 2</a><br>
+            <strong>Quantity:</strong> <input type="number" min="1" class="item" name="pipv2" data-item="Pat in Person Volume 2" data-price="15">
+          </div>
+          <div>
+            <a href="https://music.apple.com/us/album/pat-in-person-vol-2/402820238">Buy on Apple Music</a>
+          </div>
+        </div>
       </div>
-      <div class="half-right" style="font-size: 90%;">
-        <a href="https://music.apple.com/us/album/the-sound-of-music/475036158">Download on iTunes</a><br>
-        <a href="https://www.amazon.com/dp/B005ZC0RG0">Download on Amazon</a>
-      </div>
-      <div style="clear: both;"></div><br>
-    </div>
 
-    <div style="clear: both;"></div>
-
-    <div class="half-left">
-      <img src="images/cds/the-good-life-memorial-day.jpg" alt="The Good Life/Memorial Day" style="width: 100%; height: auto;"><br>
-      <a href="album.php?4">The Good Life</a>/<a href="album.php?5">Memorial Day</a><br>
-      Quantity: <input type="text" class="item" name="glmd" data-item="Good Life / Memorial Day" data-price="15"><br>
-    </div>
-
-    <div class="half-right">
-      <a href="album.php?17"><img src="images/cds/yipes3.jpg" alt="Yipes!!!" style="width: 100%; height: auto;"></a><br>
-      <div class="half-left">
-        <a href="album.php?17">Yipes!!!</a><br>
-        Quantity: <input type="text" class="item" name="yipes3" data-item="Yipes!!!" data-price="15">
+      <div>
+        <a href="album.php?9"><img src="images/cds/the-big-bright-beautiful-world-of-pat-mccurdy.jpg" alt="The Big Bright Beautiful World of Pat McCurdy"></a>
+        <div class="shop-cd-two-col">
+          <div>
+            <a href="album.php?9">The Big Bright Beautiful World of Pat McCurdy</a><br>
+            <strong>Quantity:</strong> <input type="number" min="1" class="item" name="bbbw" data-item="The Big Bright Beautiful World of Pat McCurdy" data-price="15">
+          </div>
+          <div>
+            <a href="https://music.apple.com/us/album/the-big-bright-beautiful-world-of-pat-mccurdy/402750541">Buy on Apple Music</a>
+          </div>
+        </div>
       </div>
-      <div class="half-right" style="font-size: 90%;">
-        <a href="https://music.apple.com/us/album/yipes/1445141431">Download on iTunes</a><br>
-        <a href="https://www.amazon.com/Yipes/dp/B07KZPCMVK">Download on Amazon</a>
-      </div>
-      <div style="clear: both;"></div><br>
-    </div>
 
-    <div style="clear: both;"></div>
+      <div>
+        <a href="album.php?8"><img src="images/cds/show-tunes.jpg" alt="Show Tunes"></a>
+        <div class="shop-cd">
+          <a href="album.php?8">Show Tunes</a><br>
+          <strong>Quantity:</strong> <input type="number" min="1" class="item" name="sho" data-item="Show Tunes" data-price="15">
+        </div>
+      </div>
 
-    <div class="half-left">
-      <a href="album.php?1"><img src="images/cds/yipes-redux.jpg" alt="Yipes! Redux" style="width: 100%; height: auto;"></a><br>
-      <div class="half-left">
-        <a href="album.php?1">Yipes! Redux</a><br>
-        Quantity: <input type="text" class="item" name="yipesredux" data-item="Yipes! Redux" data-price="15">
+      <div>
+        <a href="album.php?7"><img src="images/cds/pat-in-person.jpg" alt="Pat in Person"></a>
+        <div class="shop-cd-two-col">
+          <div>
+            <a href="album.php?7">Pat in Person</a><br>
+            <strong>Quantity:</strong> <input type="number" min="1" class="item" name="pip" data-item="Pat in Person" data-price="15">
+          </div>
+          <div>
+            <a href="https://music.apple.com/us/album/pat-in-person/475034572">Buy on Apple Music</a><br>
+            <a href="https://www.amazon.com/dp/B005ZG605I">Buy on Amazon</a>
+          </div>
+        </div>
       </div>
-      <div class="half-right" style="font-size: 90%;">
-        <a href="https://music.apple.com/us/album/redux/1488052645">Download on iTunes</a><br>
-        <a href="https://www.amazon.com/Redux-Yipes/dp/B081K9K92F">Download on Amazon</a>
-      </div>
-      <div style="clear: both;"></div><br>
-    </div>
 
-    <div class="half-right">
-      <img src="images/cds/yipes-a-bit-irrational.jpg" alt="Yipes!/A Bit Irrational" style="width: 100%; height: auto;"><br>
-      <div class="two-third-left">
-        <a href="album.php?1">Yipes!</a>/<a href="album?2">A Bit Irrational</a><br>
-        Quantity: <input type="text" class="item" name="yipes" data-item="Yipes!/A Bit Irrational" data-price="15">
+      <div>
+        <a href="album.php?6"><img src="images/cds/the-sound-of-music.jpg" alt="The Sound of Music"></a>
+        <div class="shop-cd-two-col">
+          <div>
+            <a href="album.php?6">The Sound of Music</a><br>
+            <strong>Quantity:</strong> <input type="number" min="1" class="item" name="som" data-item="The Sound of Music" data-price="15">
+          </div>
+          <div>
+            <a href="https://music.apple.com/us/album/the-sound-of-music/475036158">Buy on Apple Music</a><br>
+            <a href="https://www.amazon.com/dp/B005ZC0RG0">Buy on Amazon</a>
+          </div>
+        </div>
       </div>
-      <div class="one-third-right" style="font-size: 90%;">
-        <em>Limited time only!</em>
-      </div>
-      <div style="clear: both;"></div><br>
-    </div>
 
-    <div style="clear: both;"></div>
-    <br>
+      <div>
+        <img src="images/cds/the-good-life-memorial-day.jpg" alt="The Good Life/Memorial Day">
+        <div class="shop-cd">
+          <a href="album.php?4">The Good Life</a>/<a href="album.php?5">Memorial Day</a><br>
+          Quantity: <input type="number" min="1" class="item" name="glmd" data-item="Good Life / Memorial Day" data-price="15">
+        </div>
+      </div>
+
+      <div>
+        <a href="album.php?17"><img src="images/cds/yipes3.jpg" alt="Yipes!!!"></a>
+        <div class="shop-cd-two-col">
+          <div>
+            <a href="album.php?17">Yipes!!!</a><br>
+            <strong>Quantity:</strong> <input type="number" min="1" class="item" name="yipes3" data-item="Yipes!!!" data-price="15">
+          </div>
+          <div>
+            <a href="https://music.apple.com/us/album/yipes/1445141431">Buy on Apple Music</a><br>
+            <a href="https://www.amazon.com/Yipes/dp/B07KZPCMVK">Buy on Amazon</a>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <a href="album.php?1"><img src="images/cds/yipes-redux.jpg" alt="Yipes! Redux"></a>
+        <div class="shop-cd-two-col">
+          <div>
+            <a href="album.php?1">Yipes! Redux</a><br>
+            <strong>Quantity:</strong> <input type="number" min="1" class="item" name="yipesredux" data-item="Yipes! Redux" data-price="15">
+          </div>
+          <div>
+            <a href="https://music.apple.com/us/album/redux/1488052645">Buy on Apple Music</a><br>
+            <a href="https://www.amazon.com/Redux-Yipes/dp/B081K9K92F">Buy on Amazon</a>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <img src="images/cds/yipes-a-bit-irrational.jpg" alt="Yipes!/A Bit Irrational">
+        <div class="shop-cd-two-col">
+          <div>
+            <a href="album.php?1">Yipes!</a>/<a href="album?2">A Bit Irrational</a><br>
+            <strong>Quantity:</strong> <input type="number" min="1" class="item" name="yipes" data-item="Yipes!/A Bit Irrational" data-price="15">
+          </div>
+          <div>
+            <em>Limited time only!</em>
+          </div>
+        </div>
+      </div>
+    </div> <!-- /.shop-two-col -->
 
     <br>
 
