@@ -6,7 +6,7 @@ include "header.php";
 
 <?php
 $now = time();
-$result = $mysqli->query("SELECT * FROM main WHERE appears != 'rss' AND (enddate = '' OR enddate >= '" . $now . "') ORDER BY id DESC");
+$result = $mysqli->query("SELECT * FROM main WHERE appears != 'rss' AND (enddate = '' OR enddate >= '" . $now . "') ORDER BY date DESC");
 
 while($row = $result->fetch_array(MYSQLI_BOTH)) {
   echo "<h2>" . $row['title'] . "</h2>\n";
@@ -21,7 +21,7 @@ if (filemtime($rsslink) < $now-21600) include "rss.php";
 ?>
 
 <?php
-$mysqli->close();
+// $mysqli->close();
 
 include "footer.php";
 ?>

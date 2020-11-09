@@ -1,21 +1,21 @@
 <?php
-$PageTitle = ($_POST['search'] != "") ? "Search Results for \"" . $_POST['search'] . "\"" : "Search";
+$PageTitle = (isset($_POST['search'])) ? "Search Results for \"" . $_POST['search'] . "\"" : "Search";
 include "header.php";
-?>
 
-<?php
-if ($_POST['search'] != "") {
-  if ($_POST['lyrics'] != "") {
+$sresults = "no";
+
+if (isset($_POST['search'])) {
+  if (isset($_POST['lyrics'])) {
     // Searching lyrics so tap into the database
     include_once "inc/dbconfig.php";
-    $result = mysql_query("SELECT * FROM lyrics WHERE title LIKE '%" . $_POST['search'] . "%' OR lyrics LIKE '%" . $_POST['search'] . "%' ORDER BY title ASC");
+    $result = $mysqli->query("SELECT * FROM lyrics WHERE title LIKE '%" . $_POST['search'] . "%' OR lyrics LIKE '%" . $_POST['search'] . "%' ORDER BY title ASC");
     
-    if (mysql_num_rows($result) > 0) {
+    if (!empty($result) && $result->num_rows > 0) {
       // Found something.  Flip the "no results" switch.
       $sresults = "yes";
       
       // Display the results
-      while($row = mysql_fetch_array($result)) {
+      while($row = $result->fetch_array(MYSQLI_ASSOC)) {
         echo "<a href=\"song.php?" . $row['id']. "\">" . $row['title'] . "</a><br>\n";
       }
       
@@ -69,7 +69,7 @@ if ($_POST['search'] != "") {
 <form action="search.php" method="POST" class="search" style="margin: 0 auto;">
   <div>
     <input type="text" name="search" value="Search" onClick="if(this.value=='Search')this.value='';" onBlur="if(this.value=='')this.value='Search';">
-    <input type="checkbox" name="lyrics"<?php if ($_POST['lyrics'] != "") echo " checked"; ?>> Search lyrics
+    <input type="checkbox" name="lyrics"<?php if (isset($_POST['lyrics'])) echo " checked"; ?>> Search lyrics
   </div>
 </form>
 

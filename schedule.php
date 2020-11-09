@@ -6,15 +6,9 @@ if (!empty($_SERVER['QUERY_STRING']) && $_SERVER['QUERY_STRING'] > $toofar) head
 include_once "inc/dbconfig.php";
 
 if (!empty($_SERVER['QUERY_STRING'])) {
-  $date = mktime(0,0,0,substr($_SERVER['QUERY_STRING'],-2), 1, substr($_SERVER['QUERY_STRING'],0,4));
-  $title = date("F Y",$date);
-  $lastmonth = mktime(0,0,0,substr($_SERVER['QUERY_STRING'],-2)-1, 1, substr($_SERVER['QUERY_STRING'],0,4));
-  $nextmonth = mktime(0,0,0,substr($_SERVER['QUERY_STRING'],-2)+1, 1, substr($_SERVER['QUERY_STRING'],0,4));
+  $date = strtotime(substr($_SERVER['QUERY_STRING'],-2)."/1/".substr($_SERVER['QUERY_STRING'],0,4));
 } else {
   $date = time();
-  $title = date("F Y");
-  $lastmonth = mktime(1, 1, 1, date('m')-1, 1, date('Y'));
-  $nextmonth = mktime(1, 1, 1, date('m')+1, 1, date('Y'));
 
   // Create RSS and iCal feeds
   $today = $date - 86400;
@@ -127,6 +121,10 @@ if (!empty($_SERVER['QUERY_STRING'])) {
 
   $xresult->free();
 }
+
+$title = date("F Y", $date);
+$lastmonth = strtotime(date("n/1/Y", $date)." -1 month");
+$nextmonth = strtotime(date("n/1/Y", $date)." +1 month");
 
 $first_day = strtotime("First day of " . $title . " 00:00");
 $last_day = strtotime("First day of " . date("F Y", $nextmonth) . " 00:00");
