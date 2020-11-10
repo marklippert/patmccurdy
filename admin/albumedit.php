@@ -29,6 +29,10 @@ $row = $result->fetch_array(MYSQLI_BOTH);
     <strong>Amazon Link</strong><br>
     <input type="text" name="amazon" value="<?php echo $row['amazon']; ?>"><br>
     <br>
+
+    <strong>Liner Notes</strong><br>
+    <textarea name="liner_notes" style="height: 25em;"><?php echo $row['liner_notes']; ?></textarea><br>
+    <br>
     
     <input type="hidden" name="id" value="<?php echo $_GET['id']; ?>">
     <input type="submit" value="Update">

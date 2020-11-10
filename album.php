@@ -22,9 +22,11 @@ if (!empty($aresult) && $aresult->num_rows > 0) {
     $result = $mysqli->query("SELECT * FROM lyrics WHERE album = '" . $_SERVER['QUERY_STRING'] . "' ORDER BY album_track");
     
     if (!empty($result) && $result->num_rows > 0) {
-      while($row = $result->fetch_array(MYSQLI_BOTH)) {
+      while($row = $result->fetch_array(MYSQLI_ASSOC)) {
         echo "<a href=\"#track" . $row['album_track'] . "\">" . stripslashes($row['title']) . "</a><br>\n";
       }
+
+      if ($arow['liner_notes'] != "") echo '<br><a href="#liner-notes">Liner Notes</a><br>';
     }
     ?>
     
@@ -62,6 +64,8 @@ if (!empty($aresult) && $aresult->num_rows > 0) {
       echo $lyrics . "<br><br><br><br>\n";
     }
   }
+
+  if ($arow['liner_notes'] != "") echo '<h2 id="liner-notes">Liner Notes</h2>'."\n".nl2br($arow['liner_notes'])."<br>\n";
 } else {
   echo "Album not found<br><br>";
 }

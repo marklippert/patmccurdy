@@ -14,7 +14,8 @@ switch ($_GET['a']) {
               '" . $mysqli->real_escape_string($_POST['cover_image']) . "',
               '" . $_POST['year'] . "',
               '" . $mysqli->real_escape_string($_POST['itunes']) . "',
-              '" . $mysqli->real_escape_string($_POST['amazon']) . "'
+              '" . $mysqli->real_escape_string($_POST['amazon']) . "',
+              '" . $mysqli->real_escape_string($_POST['liner_notes']) . "'
               )";
     break;
   case "edit":
@@ -22,8 +23,9 @@ switch ($_GET['a']) {
               title = '" . $mysqli->real_escape_string($_POST['title']) . "', 
               cover_image = '" . $mysqli->real_escape_string($_POST['cover_image']) . "', 
               year = '" . $_POST['year'] . "', 
-              itunes = '" . $mysqli->real_escape_string($_POST['itunes']) . "', 
-              amazon = '" . $mysqli->real_escape_string($_POST['amazon']) . "' 
+              itunes = '" . $mysqli->real_escape_string($_POST['itunes']) . "',
+              amazon = '" . $mysqli->real_escape_string($_POST['amazon']) . "', 
+              liner_notes = '" . $mysqli->real_escape_string($_POST['liner_notes']) . "' 
               WHERE 
               id = '" . $_POST['id'] . "'";
     break;

@@ -31,6 +31,10 @@ include "header.php";
         <strong>Amazon Link</strong><br>
         <input type="text" name="amazon"><br>
         <br>
+
+        <strong>Liner Notes</strong><br>
+        <textarea name="liner_notes" style="height: 25em;"></textarea><br>
+        <br>
         
         <input type="submit" value="Add">
       </div>
