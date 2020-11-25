@@ -37,12 +37,19 @@ All prices include shipping (unless otherwise indicated). Orders will be sent ou
     <img src="images/i-heart-sex-and-beer-mask.png" alt="I Heart Sex & Beer Mask" style="max-width: 100%; height: auto;"><br>
     Washable white cloth masks. $10 each or a 10 pack for $80.<br>
     <div class="half-left centered">
-      <strong>Quantity (Single):</strong> <input type="text" class="item" name="MaskSingle" data-item="I Heart Sex & Beer Mask (single)" data-price="10">
+      <strong>Quantity (Single):</strong> <input type="number" class="item" name="MaskSingle" data-item="I Heart Sex & Beer Mask (single)" data-price="10">
     </div>
     <div class="half-right">
-      <strong>Quantity (10 Pack):</strong> <input type="text" class="item" name="Mask10Pack" data-item="I Heart Sex & Beer Mask (10 pack)" data-price="80">
+      <strong>Quantity (10 Pack):</strong> <input type="number" class="item" name="Mask10Pack" data-item="I Heart Sex & Beer Mask (10 pack)" data-price="80">
     </div>
     <div style="clear: both;"></div>
+    <br>
+    <br>
+
+    <strong>Handwritten Lyrics</strong><br>
+    <img src="images/handwritten-lyrics.jpg" alt="" style="max-width: 100%; height: auto;"><br>
+    On the same cheap, crappy paper Pat writes all of his songs on and suitable for framing. $25 per song, written out and signed by Pat, will cover postage and hand cramps. Be sure to specify which song you want (except "Vacation"; it's just too damn long) and to whom you want it dedicated.<br>
+    <input type="text" class="lyrics" name="HandwrittenLyrics" data-item="Handwritten Lyrics" data-price="25" style="width: 100%;"><br>
     <br>
     <br>
 
@@ -189,6 +196,14 @@ All prices include shipping (unless otherwise indicated). Orders will be sent ou
 
     <div class="shop-two-col">
       <div>
+        <a href="album.php?18"><img src="images/cds/now-is-not-the-time-for-sad-songs.jpg" alt="Now is Not the Time for Sad Songs"></a>
+        <div class="shop-cd">
+          <a href="album.php?18">Now is Not the Time for Sad Songs</a><br>
+          <strong>Quantity:</strong> <input type="number" min="1" class="item" name="ninttfss" data-item="Now is Not the Time for Sad Songs" data-price="15">
+        </div>
+      </div>
+
+      <div>
         <a href="album.php?16"><img src="images/cds/souvenirs.jpg" alt="Souvenirs"></a>
         <div class="shop-cd-two-col">
           <div>
@@ -200,10 +215,6 @@ All prices include shipping (unless otherwise indicated). Orders will be sent ou
             <a href="https://www.amazon.com/dp/B0762RTTJN">Buy on Amazon</a>
           </div>
         </div>
-      </div>
-
-      <div style="text-align: left;">
-        Pat's first greatest hits compilation features previously unreleased live and studio versions of Imagine A Picture, Screw You, Monkey Paw and other favorites. And for the first time ever: Hey Paddy!
       </div>
 
       <div>
@@ -470,6 +481,15 @@ All prices include shipping (unless otherwise indicated). Orders will be sent ou
           theorder += '<input type="hidden" name="item_name_'+$i+'" value="'+$(this).attr("data-item")+'">';
           theorder += '<input type="hidden" name="amount_'+$i+'" value="'+$(this).attr("data-price")+'">';
           theorder += '<input type="hidden" name="quantity_'+$i+'" value="'+$(this).val()+'">';
+          $i++;
+        }
+      });
+      $(".lyrics").each(function() {
+        if ($(this).val() != ""){
+          var string = $(this).val().replace(/\"/g,"''");
+          theorder += '<input type="hidden" name="item_name_'+$i+'" value="Handwritten Lyrics for '+string+'">';
+          theorder += '<input type="hidden" name="amount_'+$i+'" value="'+$(this).attr("data-price")+'">';
+          theorder += '<input type="hidden" name="quantity_'+$i+'" value="1">';
           $i++;
         }
       });
