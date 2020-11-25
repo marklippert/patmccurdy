@@ -23,7 +23,7 @@ while($row = $result->fetch_array(MYSQLI_BOTH)) {
     <a href="album.php?<?php echo $row['id']; ?>"><img src="images/cds/<?php echo $row['cover_image']; ?>" alt="<?php echo $row['title']; ?>"></a>
     <?php
     if ($row['itunes'] != "" || $row['amazon'] != "") echo "Download on<br>\n";
-    if ($row['itunes'] != "") echo "<a href=\"" . $row['itunes'] . "\">iTunes</a>\n";
+    if ($row['itunes'] != "") echo "<a href=\"" . $row['itunes'] . "\">Apple Music</a>\n";
     if ($row['itunes'] != "" && $row['amazon'] != "") echo " | ";
     if ($row['amazon'] != "") echo "<a href=\"" . $row['amazon'] . "\">Amazon</a>\n";
     ?>
