@@ -119,7 +119,7 @@ NAV:before, NAV:after { content: ""; display: table; }
 #menu-toggle {
   display: none;
   position: absolute;
-  top: 3.2em;
+  top: 69px;
   right: 1em;
   z-index: 100;
   cursor: pointer;
@@ -163,7 +163,7 @@ NAV:before, NAV:after { content: ""; display: table; }
 }
 
 #menu UL LI:last-child {
-  padding-right: 2.5em;
+  padding-right: 2em;
 }
 
 #menu UL LI A:link, #menu UL LI A:visited,
@@ -605,13 +605,6 @@ FOOTER {
   width: 50%;
 }
 
-.songlist-search {
-  position: absolute;
-  right: 2%;
-  width: 20%;
-  margin-bottom: 1em;
-}
-
 .search {
   width: 33%;
   margin-bottom: 1em;
@@ -628,6 +621,9 @@ FOOTER {
   width: 92%;
   color: #8F8881;
 }
+
+.songlist-search { text-align: right; margin-bottom: 1em; }
+.songlist-search INPUT[type="text"] { width: 25%; padding: 0.3em 0.5em; }
 
 .album-right {
   float: right;
@@ -700,11 +696,14 @@ FOOTER {
   #content-wrap { width: 96%; }
 }
 
+@media only screen and (max-width: 860px) {
+  #menu UL LI { padding-left: 4.25vw; }
+}
 
 @media only screen and (max-width: 800px) {
   /* Small computer or landscape tablet */
   #menu UL LI {
-    font-size: 145%;
+    font-size: 154%;
   }
 
   #home-header {
@@ -740,7 +739,7 @@ FOOTER {
   }
 
   #menu UL LI:last-child {
-    padding-right: 1em;
+    padding-right: 0.75em;
   }
 
   #home-header-pics {
@@ -750,6 +749,10 @@ FOOTER {
   .newsletter {
     margin: 0 6% 1.5em 0;
   }
+}
+
+@media only screen and (max-width: 700px) {
+  #menu UL LI { font-size: 2.9vw; }
 }
 
 @media only screen and (max-width: 600px) {
@@ -780,13 +783,13 @@ FOOTER {
     padding: 0.2em 0.5em;
     position: relative;
     z-index: 100;
-    font-size: 150%;
   }
 
   #menu UL LI,
   #menu UL LI:first-child {
     float: none;
     padding: 0.2em 0;
+    font-size: 6.4vw;
   }
 
   #menu UL LI UL,
@@ -798,6 +801,9 @@ FOOTER {
     padding: 0 0 0 0.5em;
     margin: 0.2em 0 0 0;
   }
+
+  #menu UL LI UL LI,
+  #menu UL LI UL LI:first-child { font-size: 6vw; }
 
   #hhp1 {
     display: none;
