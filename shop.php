@@ -60,39 +60,6 @@ All prices include shipping (unless otherwise indicated). Orders will be sent ou
 
     <div class="shop-two-col">
       <div>
-        <img src="images/shirt-mistress-of-alcohol-tank.png" alt="Mistress of Alcohol Tank">
-        <div>
-          $25<br>
-          <strong>Quantity:</strong> <input type="number" min="1" class="item" name="shirtMistressOfAlcoholTankS" data-item="Mistress of Alcohol tank [S]" data-price="25"> S<br>
-          <strong>Quantity:</strong> <input type="number" min="1" class="item" name="shirtMistressOfAlcoholTankM" data-item="Mistress of Alcohol tank [M]" data-price="25"> M<br>
-          <strong>Quantity:</strong> <input type="number" min="1" class="item" name="shirtMistressOfAlcoholTankL" data-item="Mistress of Alcohol tank [L]" data-price="25"> L<br>
-          <strong>Quantity:</strong> <input type="number" min="1" class="item" name="shirtMistressOfAlcoholTankXL" data-item="Mistress of Alcohol tank [XL]" data-price="25"> XL
-        </div>
-      </div>
-
-      <div>
-        <img src="images/shirt-mistress-of-alcohol-scoop.png" alt="Mistress of Alcohol Shirt">
-        <div>
-          $20<br>
-          <strong>Quantity:</strong> <input type="number" min="1" class="item" name="shirtMistressOfAlcoholS" data-item="Mistress of Alcohol shirt [S]" data-price="20"> S<br>
-          <strong>Quantity:</strong> <input type="number" min="1" class="item" name="shirtMistressOfAlcoholM" data-item="Mistress of Alcohol shirt [M]" data-price="20"> M<br>
-          <strong>Quantity:</strong> <input type="number" min="1" class="item" name="shirtMistressOfAlcoholL" data-item="Mistress of Alcohol shirt [L]" data-price="20"> L<br>
-          <strong>Quantity:</strong> <input type="number" min="1" class="item" name="shirtMistressOfAlcoholXL" data-item="Mistress of Alcohol shirt [XL]" data-price="20"> XL<br>
-          <strong>Quantity:</strong> <input type="number" min="1" class="item" name="shirtMistressOfAlcohol2XL" data-item="Mistress of Alcohol shirt [2XL]" data-price="20"> 2XL<br>
-          <strong>Quantity:</strong> <input type="number" min="1" class="item" name="shirtMistressOfAlcohol3XL" data-item="Mistress of Alcohol shirt [3XL]" data-price="20"> 3XL<br>
-          <br>
-          
-          <strong>Quantity:</strong> <input type="number" min="1" class="item" name="shirtMistressOfAlcoholSMens" data-item="Mistress of Alcohol shirt (Mens) [S]" data-price="20"> Men's S<br>
-          <strong>Quantity:</strong> <input type="number" min="1" class="item" name="shirtMistressOfAlcoholMMens" data-item="Mistress of Alcohol shirt (Mens) [M]" data-price="20"> Men's M<br>
-          <strong>Quantity:</strong> <input type="number" min="1" class="item" name="shirtMistressOfAlcoholLMens" data-item="Mistress of Alcohol shirt (Mens) [L]" data-price="20"> Men's L<br>
-          <strong>Quantity:</strong> <input type="number" min="1" class="item" name="shirtMistressOfAlcoholXLMens" data-item="Mistress of Alcohol shirt (Mens) [XL]" data-price="20"> Men's XL<br>
-          <strong>Quantity:</strong> <input type="number" min="1" class="item" name="shirtMistressOfAlcohol2XLMens" data-item="Mistress of Alcohol shirt (Mens) [2XL]" data-price="20"> Men's 2XL<br>
-          <strong>Quantity:</strong> <input type="number" min="1" class="item" name="shirtMistressOfAlcohol3XLMens" data-item="Mistress of Alcohol shirt (Mens) [3XL]" data-price="20"> Men's 3XL<br>
-          <strong>Quantity:</strong> <input type="number" min="1" class="item" name="shirtMistressOfAlcohol4XLMens" data-item="Mistress of Alcohol shirt (Mens) [4XL]" data-price="20"> Men's 4XL
-        </div>
-      </div>
-
-      <div>
         <img src="images/shirt-sex-and-beer-green.png" alt="I Heart Sex & Beer">
         <div>
           <strong>Quantity:</strong> <input type="number" min="1" class="item" name="shirtGreenHeartSexBeerM" data-item="Green I Heart Sex & Beer shirt [M]" data-price="15"> M<br>
