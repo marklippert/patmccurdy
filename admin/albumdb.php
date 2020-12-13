@@ -8,7 +8,8 @@ switch ($_GET['a']) {
               cover_image,
               year,
               itunes,
-              amazon
+              amazon,
+              liner_notes
               ) VALUES (
               '" . $mysqli->real_escape_string($_POST['title']) . "',
               '" . $mysqli->real_escape_string($_POST['cover_image']) . "',
