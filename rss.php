@@ -1,7 +1,8 @@
 <?php
 include_once("inc/dbconfig.php");
 
-$RSSFeed = "<?xml version='1.0'?>\n<rss version=\"2.0\">
+$RSSFeed = "<?xml version='1.0'?>
+<rss version='2.0'>
 <channel>
   <title>Pat McCurdy</title>
   <link>https://patmccurdy.com</link>
@@ -12,11 +13,9 @@ $RSSFeed = "<?xml version='1.0'?>\n<rss version=\"2.0\">
     <link>https://patmccurdy.com</link>
   </image>\n";
 
-$now = time();
+$rss = $mysqli->query("SELECT * FROM main WHERE appears != 'page' AND (enddate = '' OR enddate >= '" . time() . "') ORDER BY id DESC");
 
-$result = $mysqli->query("SELECT * FROM main WHERE appears != 'page' AND (enddate = '' OR enddate >= '" . $now . "') ORDER BY id DESC");
-
-while($row = $result->fetch_array(MYSQLI_BOTH)) {
+while($row = $rss->fetch_array(MYSQLI_ASSOC)) {
   $RSSFeed .= "<item>
     <title>" . strip_tags($row['title']) . "</title>
     <link>https://patmccurdy.com</link>
@@ -28,10 +27,7 @@ while($row = $result->fetch_array(MYSQLI_BOTH)) {
 
 $RSSFeed .= "</channel>\n</rss>";
 
-$file= fopen($rsslink, "w");
+$file= fopen("rss.xml", "w");
 fwrite($file, $RSSFeed);
 fclose($file);
-
-$result->free();
-$mysqli->close();
 ?>

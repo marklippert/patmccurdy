@@ -1,131 +1,91 @@
 <?php
 include "inc/dbconfig.php";
+$ContentClass = "songlist";
 $Sidebar = "no";
 $PageTitle = "The Big Ass Song List";
 include "header.php";
 ?>
 
-<form action="search.php" method="POST" class="songlist-search">
+<input type="checkbox" id="toggle-search" role="button">
+<label for="toggle-search" title="Search"></label>
+<form action="search.php" method="POST" id="lyric-search">
   <div>
-    <input type="text" name="search" value="Find a song" onClick="if(this.value=='Find a song')this.value='';" onBlur="if(this.value=='')this.value='Find a song';">
-    <input type="hidden" name="lyrics" value="yes">
+    <input type="text" name="search" placeholder="Find a song title or lyrics"><input type="submit" name="submit" value="Search">
   </div>
 </form>
 
-<!-- BEGIN albums -->
 <?php
-// Get all albums by reverse chronological release year
-$result = $mysqli->query("SELECT * FROM albums ORDER BY year DESC");
+function ListSongs($band = "", $album = 0, $order = "title") {
+  global $mysqli;
 
-while($row = $result->fetch_array(MYSQLI_BOTH)) {
-  ?>
-  <div class="songlist-cd">
-    <a href="album.php?<?php echo $row['id']; ?>"><img src="images/cds/<?php echo $row['cover_image']; ?>" alt="<?php echo $row['title']; ?>"></a>
-    <?php
-    if ($row['itunes'] != "" || $row['amazon'] != "") echo "Download on<br>\n";
-    if ($row['itunes'] != "") echo "<a href=\"" . $row['itunes'] . "\">Apple Music</a>\n";
-    if ($row['itunes'] != "" && $row['amazon'] != "") echo " | ";
-    if ($row['amazon'] != "") echo "<a href=\"" . $row['amazon'] . "\">Amazon</a>\n";
-    ?>
-  </div>
+  $bandwhere = ($band != "") ? " AND band = '".$band."' " : "";
 
-  <div class="songlist-tracks">
-    <h2><a href="album.php?<?php echo $row['id']; ?>"><?php echo $row['title']; ?></a></h2>
-    <?php
-    // Display track list for each album
-    $cd_result = $mysqli->query("SELECT * FROM lyrics WHERE album = '" . $row['id'] . "' ORDER BY album_track ASC");
+  $songs = $mysqli->query("SELECT * FROM lyrics WHERE album = ".$album." ".$bandwhere." ORDER BY ".$order." ASC");
 
-    while($cd_row = $cd_result->fetch_array(MYSQLI_BOTH)) {
-      echo "<a href=\"song.php?" . $cd_row['id'] . "\">" . stripslashes($cd_row['title']) . "</a>";
+  while($song = $songs->fetch_array(MYSQLI_ASSOC)) {
+    if ($song['lyrics'] != "") echo '<a href="song.php?' . $song['id'] . '">';
+    echo stripslashes($song['title']);
+    if ($song['lyrics'] != "") echo "</a>";
 
-      $tresult = $mysqli->query("SELECT * FROM tabs WHERE title = \"" . ($cd_row['title']) . "\"");
+    $tabs = $mysqli->query("SELECT * FROM tabs WHERE title = \"" . ($song['title']) . "\"");
 
-      if ($tresult->num_rows > 0) {
-        $trow = $tresult->fetch_array(MYSQLI_BOTH);
-        echo " <a href=\"guitar-tabs.php?" . $trow['id'] . "\"><img src=\"images/guitar.gif\" alt=\"guitar tab\" style=\"vertical-align: middle;\"></a>";
-      }
-
-      echo "<br>\n";
-
-      $tresult->free();
-    }
-
-    $cd_result->free();
-    ?>
-  </div>
-
-  <div style="clear: both; height: 2em;"></div>
-<?php } ?>
-<!-- END albums -->
-
-<?php
-// Create a two column layout of songs
-function TwoCol($mysqli, $band) {
-  $result = $mysqli->query("SELECT * FROM lyrics WHERE album = 0 AND band = '" . $band . "' ORDER BY title ASC");
-
-  $num_rows = $result->num_rows;
-  $half = round($num_rows / 2);
-
-  $count = 1;
-  while($row = $result->fetch_array(MYSQLI_BOTH)) {
-    if ($count == $half+1) echo "</div>\n<div class=\"songlist-twocol\">\n";
-
-    if ($row['lyrics'] != "") echo "<a href=\"song.php?" . $row['id'] . "\">";
-    echo stripslashes($row['title']);
-    if ($row['lyrics'] != "") echo "</a>";
-
-    $tresult = $mysqli->query("SELECT * FROM tabs WHERE title = \"" . stripslashes($row['title']) . "\"");
-
-    if ($tresult->num_rows > 0) {
-      $trow = $tresult->fetch_array(MYSQLI_BOTH);
-      echo " <a href=\"guitar-tabs.php?" . $trow['id'] . "\"><img src=\"images/guitar.gif\" alt=\"guitar tab\" style=\"vertical-align: middle;\"></a>";
+    if ($tabs->num_rows > 0) {
+      $tab = $tabs->fetch_array(MYSQLI_ASSOC);
+      echo ' <a href="guitar-tabs.php?' . $tab['id'] . '" title="Guitar Tabs" class="tab"></a>';
     }
 
     echo "<br>\n";
-
-    $count++;
-
-    $tresult->free();
   }
-
-  $result->free();
 }
-?>
+
+// Get all albums by reverse chronological release year
+$albums = $mysqli->query("SELECT * FROM albums ORDER BY year DESC");
+
+while($album = $albums->fetch_array(MYSQLI_ASSOC)) {
+  ?>
+  <div class="songlist-album">
+    <div class="image">
+      <a href="album.php?<?php echo $album['id']; ?>"><img src="images/cds/<?php echo $album['cover_image']; ?>" alt="<?php echo $album['title']; ?>"></a>
+      <?php
+      if ($album['itunes'] != "" || $album['amazon'] != "") echo "Buy on<br>\n";
+      if ($album['itunes'] != "") echo '<a href="' . $album['itunes'] . '">Apple Music</a>';
+      if ($album['itunes'] != "" && $album['amazon'] != "") echo " | ";
+      if ($album['amazon'] != "") echo '<a href="' . $album['amazon'] . '">Amazon</a>';
+      ?>
+    </div> <!-- /.image-->
+
+    <div class="tracks">
+      <h2><a href="album.php?<?php echo $album['id']; ?>"><?php echo $album['title']; ?></a></h2>
+      <?php ListSongs("", $album['id'], "album_track"); ?>
+    </div> <!-- /.tracks -->
+  </div> <!-- /.songlist-album -->
+<?php } ?>
 
 <h2 style="text-align: center;">Songs you have to see Pat live to hear</h2>
 <div class="songlist-twocol">
-  <?php TwoCol($mysqli, ""); ?>
+  <?php ListSongs(); ?>
 </div>
-<div style="clear: both; height: 1.5em;"></div>
 
-<h2 style="text-align: center; margin-bottom: 1em;">Pat's old bands (A.K.A. "Songs you'll probably never hear him play")</h2>
+<h2 style="text-align: center; margin-bottom: 0.5em;">Pat's old bands (A.K.A. "Songs you'll probably never hear him play")</h2>
 
-<h2>Confidentials</h2>
+<h3>Confidentials</h3>
 <div class="songlist-twocol">
-  <?php TwoCol($mysqli, "Confidentials"); ?>
+  <?php ListSongs("Confidentials"); ?>
 </div>
-<div style="clear: both; height: 1.5em;"></div>
 
-<h2>Mankind</h2>
+<h3>Mankind</h3>
 <div class="songlist-twocol">
-  <?php TwoCol($mysqli, "Mankind"); ?>
+  <?php ListSongs("Mankind"); ?>
 </div>
-<div style="clear: both; height: 1.5em;"></div>
 
-<h2>Men About Town</h2>
+<h3>Men About Town</h3>
 <div class="songlist-twocol">
-  <?php TwoCol($mysqli, "Men About Town"); ?>
+  <?php ListSongs("Men About Town"); ?>
 </div>
-<div style="clear: both; height: 1.5em;"></div>
 
-<h2>Yipes!</h2>
+<h3>Yipes!</h3>
 <div class="songlist-twocol">
-  <?php TwoCol($mysqli, "Yipes!"); ?>
+  <?php ListSongs("Yipes!"); ?>
 </div>
-<div style="clear: both;"></div>
 
-<?php
-$mysqli->close();
-
-include "footer.php";
-?>
+<?php include "footer.php"; ?>

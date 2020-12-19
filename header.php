@@ -1,11 +1,4 @@
 <?php
-header("Cache-Control: no-transform"); // Fix AT&T's wireless servers gzipping bullshit (random characters on page)
-// ob_start('ob_gzhandler'); also works
-
-if (!isset($HeaderExtra)) $HeaderExtra = "";
-if (!isset($HeaderTitle)) $HeaderTitle = "";
-if (!isset($Sidebar)) $Sidebar = "";
-
 include_once("inc/dbconfig.php");
 
 function email($address, $name="") {
@@ -16,124 +9,88 @@ function email($address, $name="") {
 }
 ?>
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
     <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Pat McCurdy<?php if ($PageTitle != "") echo " | " . $PageTitle; ?></title>
+    <title>Pat McCurdy<?php if (isset($PageTitle)) echo " | " . $PageTitle; ?></title>
     <link rel="shortcut icon" type="image/x-icon" href="images/favicon.ico">
     <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
 
-    <meta name="description" content="Pat McCurdy is a singer-songwriter with an unusual off-beat sense of humor.  A favorite of the college crowd, this national performer is known for his comic lyrics and hilarious observations on life, love and the wonders of sex and beer.">
-    <meta name="keywords" content="sex, beer, sex & beer, sex and beer, chokin the gopher, monkey paw, hey paddy, hey patty, Milwaukee, Madison, La Crosse, Chicago, St. Paul, Minneapolis, Wisconsin, Illinois, Minnesota, music, Yipes, Men About Town, Confidentials">
-    <meta name="author" content="Mark Lippert">
+    <meta name="description" content="">
 
-    <meta name="viewport" content="width=device-width">
+    <link rel="alternate" type="application/rss+xml" href="rss.xml" title="Pat McCurdy RSS Feed">
+    <link rel="alternate" type="application/rss+xml" href="schedule.xml" title="Pat McCurdy's Schedule">
+    <link rel="alternate" type="application/rss+xml" href="sotw.xml" title="Pat McCurdy's Song of the Week">
+
     <link rel="stylesheet" href="inc/main.css?<?php echo filemtime('inc/main.css'); ?>">
 
-    <script type="text/javascript" src="inc/jquery-1.11.1.min.js"></script>
-    <script type="text/javascript" src="inc/bootstrap-collapse.js"></script>
-    <script type="text/javascript" src="inc/jquery-equalheights.js"></script>
+    <script type="text/javascript" src="inc/jquery-3.5.1.min.js"></script>
     <script type="text/javascript">
       $(document).ready(function() {
-        $("a[href^='http'], a[href$='.pdf']").not("[href*='" + window.location.host + "']").attr('target','_blank');
-        $(".week1 .calendar-day").equalHeights(100,500);
-        $(".week2 .calendar-day").equalHeights(100,500);
-        $(".week3 .calendar-day").equalHeights(100,500);
-        $(".week4 .calendar-day").equalHeights(100,500);
-        $(".week5 .calendar-day").equalHeights(100,500);
-        $(".week6 .calendar-day").equalHeights(100,500);
+        $("a[href^='http']").not("[href*='" + window.location.host + "']").prop('target','new');
+        $("a[href$='.pdf']").prop('target', 'new');
       });
     </script>
-
-    <!--[if lt IE 9]><script src="inc/modernizr-2.6.2-respond-1.1.0.min.js"></script><![endif]-->
-    <!--[if lt IE 7 ]>
-    <script type="text/javascript" src="inc/dd_belatedpng.js"></script>
-    <script type="text/javascript">DD_belatedPNG.fix('img, .png, #outer-wrap, #home-header');</script>
-    <![endif]-->
-
-    <?php echo $HeaderExtra; ?>
-
-    <!-- BEGIN Google Analytics -->
-    <script type="text/javascript">
-      var _gaq = _gaq || [];
-      _gaq.push(['_setAccount', 'UA-9892672-2']);
-      _gaq.push(['_trackPageview']);
-
-      (function() {
-        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-      })();
-    </script>
-    <!-- END Google Analytics -->
   </head>
   <body>
 
-    <div id="outer-wrap">
-      <div id="wrap">
-        <header>
-          <a href="."><img src="images/logo.png" alt="Pat McCurdy" id="logo"></a>
+    <header<?php if (!isset($PageTitle)) echo ' class="home-header"'; ?>>
+      <div class="site-width">
+        <a href="."><img src="images/logo.png" alt="" id="logo"></a>
 
-          <a id="menu-toggle" data-toggle="collapse" data-target="#menu"></a>
-
-          <nav id="menu" class="collapse">
-            <ul class="clearfix">
-              <li><a href="schedule.php">Schedule</a></li>
-              <li>
-                <a href="song-of-the-week.php">Music</a>
-                <ul>
-                  <li><a href="song-of-the-week.php">Song of the Week</a></li>
-                  <li><a href="lyrics.php">Lyrics</a></li>
-                  <li><a href="guitar-tabs.php">Guitar Tabs</a></li>
-                  <li><a href="set-lists.php">Set Lists</a></li>
-                </ul>
-              </li>
-              <li>
-                <a href="videos.php">Visual</a>
-                <ul>
-                  <li><a href="videos.php">Videos</a></li>
-                  <li><a href="photos.php">Photos</a></li>
-                </ul>
-              </li>
-              <li>
-                <a href="schedule.php">Information</a>
-                <ul>
-                  <li><a href="schedule.php">Schedule</a></li>
-                  <li><a href="faq.php">FAQ</a></li>
-                  <li><a href="press.php">Press</a></li>
-                  <li><a href="media-kit.php">Media Kit</a></li>
-                  <li><a href="contact.php">Contact</a></li>
-                </ul>
-              </li>
-              <li><a href="shop.php">Shop</a></li>
+        <input type="checkbox" id="toggle-menu" role="button">
+        <label for="toggle-menu"><div></div></label>
+        <ul id="menu">
+          <li><a href="schedule.php">Schedule</a></li>
+          <li>
+            <a href="song-of-the-week.php">Music</a>
+            <ul>
+              <li><a href="song-of-the-week.php">Song of the Week</a></li>
+              <li><a href="lyrics.php">Lyrics</a></li>
+              <li><a href="guitar-tabs.php">Guitar Tabs</a></li>
+              <li><a href="set-lists.php">Set Lists</a></li>
             </ul>
-          </nav>
+          </li>
+          <li>
+            <a href="faq.php">Information</a>
+            <ul>
+              <li><a href="faq.php">FAQ</a></li>
+              <li><a href="press.php">Press</a></li>
+              <li><a href="media-kit.php">Media Kit</a></li>
+              <li><a href="contact.php">Contact</a></li>
+            </ul>
+          </li>
+          <li><a href="shop.php">Shop</a></li>
+        </ul>
+      </div> <!-- /.site-width -->
+    </header>
 
-          <div style="clear: both;"></div>
+    <?php if (!isset($PageTitle)) { ?>
+    <div id="home-header">
+      <img src="images/header1.jpg" alt="" id="himg1">
+      <img src="images/header2.jpg" alt="" id="himg2">
+      <img src="images/header3.jpg" alt="" id="himg3">
 
-          <?php if ($PageTitle == "") { ?>
-          <div id="home-header">
-            <div id="home-header-pics">
-              <img src="images/home-header-pic1.png" alt="" id="hhp1">
-              <img src="images/home-header-pic2.png" alt="" id="hhp2">
-              <img src="images/home-header-pic3.png" alt="" id="hhp3">
-            </div> <!-- home-header-pics -->
+      <div id="plays-today">
+        TODAY'S SHOW
 
-            <div id="playstoday-wrap">
-              <div id="playstoday">
-              <?php
-              $ptresult = $mysqli->query("SELECT * FROM schedule WHERE date >= '" . strtotime("Today 00:00") . "' AND date <= '" . strtotime("Today 23:59") . "' ORDER BY date ASC");
-              $pti = 1;
-              if ($ptresult->num_rows == 0) {
+        <div>
+          <?php
+          $playstoday = $mysqli->query("SELECT * FROM schedule WHERE date >= '" . strtotime("Today 00:00") . "' AND date <= '" . strtotime("Today 23:59") . "' ORDER BY date ASC");
+          ?>
+          <div<?php if ($playstoday->num_rows > 1) echo ' class="multiple"'; ?>>
+            <?php
+            if ($playstoday->num_rows == 0) {
                 echo "Pat is not playing today";
               } else {
-                while($ptrow = $ptresult->fetch_array(MYSQLI_BOTH)) {
+                $pti = 1;
+                while($ptrow = $playstoday->fetch_array(MYSQLI_ASSOC)) {
                   if ($ptrow['status'] == "canceled") echo "<strike>";
 
                   if ($ptrow['venue'] != "") {
-                    if ($ptrow['url'] != "") echo "<a href=\"" . $ptrow['url'] . "\">";
+                    if ($ptrow['url'] != "") echo '<a href="' . $ptrow['url'] . '">';
                     echo $ptrow['venue'];
                     if ($ptrow['url'] != "") echo "</a>";
 
@@ -144,29 +101,26 @@ function email($address, $name="") {
                         if ($ptrow['date'] > strtotime(date("n/j/Y", $ptrow['date']))) echo "<br>\n" . date("g:ia", $ptrow['date']);
                       }
 
-                      if ($ptrow['stage'] != "") echo "<div style=\"font-size: 80%; line-height: 1em;\">" . $ptrow['stage'] . "</div>";
+                      if ($ptrow['stage'] != "") echo '<div class="stage">' . $ptrow['stage'] . "</div>\n";
 
-                      if ($ptrow['additional'] != "") echo "<div style=\"font-size: 75%; line-height: 1.1em;\">" . $ptrow['additional'] . "</div>";
+                      if ($ptrow['additional'] != "") echo '<div class="additional">' . $ptrow['additional'] . "</div>\n";
                     }
-                  } else {
-                    echo $ptrow['event'];
                   }
 
-                  if ($ptrow['status'] == "canceled") echo "</strike><div style=\"color: red;\">CANCELED</div>";
+                  if ($ptrow['status'] == "canceled") echo "</strike>\n<div style=\"color: #FF0000;\">CANCELED</div>\n";
 
-                  if ($pti < $ptresult->num_rows) echo "<hr style=\"width: 75%;\">";
+                  if ($pti < $playstoday->num_rows) echo "<hr>\n";
                   $pti++;
                 }
               }
+            ?>
+          </div>
+        </div>
+      </div>
+    </div> <!-- /#home-header -->
+    <?php } ?>
 
-              $ptresult->free();
-              ?>
-              </div> <!-- playstoday -->
-            </div> <!-- playstoday-wrap -->
-          </div> <!-- home-header -->
-          <?php } ?>
-        </header>
+    <div id="content" class="site-width<?php if (isset($ContentClass)) echo " ".$ContentClass; ?>">
+      <h1><?php if (isset($PageTitle)) echo $PageTitle; ?></h1>
 
-        <div id="content-wrap">
-          <h1 class="title"><?php echo ($HeaderTitle != "") ? $HeaderTitle : $PageTitle; ?></h1>
-          <article<?php if ($Sidebar != "") echo " class=\"noside\""; ?>>
+      <?php if (!isset($Sidebar)) echo '<div id="main-sidebar"><div id="main">'; ?>

@@ -1,35 +1,31 @@
 <?php
 include "inc/dbconfig.php";
 
+$ContentClass = "song";
 $PageTitle = "Song not found";
 
-$result = $mysqli->query("SELECT * FROM lyrics WHERE id = '" . $_SERVER['QUERY_STRING'] . "'");
-if (!empty($result) && $result->num_rows > 0) {
-  $row = $result->fetch_array(MYSQLI_ASSOC);
-  $PageTitle = stripslashes($row['title']);
+$songs = $mysqli->query("SELECT * FROM lyrics WHERE id = '" . $_SERVER['QUERY_STRING'] . "'");
+if (!empty($songs) && $songs->num_rows > 0) {
+  $song = $songs->fetch_array(MYSQLI_ASSOC);
+  $PageTitle = stripslashes($song['title']);
 }
 
 include "header.php";
 
-if (!empty($result) && $result->num_rows > 0) {
-  $tresult = $mysqli->query("SELECT * FROM tabs WHERE title = \"" . stripslashes($row['title']) . "\"");
+if (!empty($songs) && $songs->num_rows > 0) {
+  $tabs = $mysqli->query("SELECT * FROM tabs WHERE title = \"" . ($song['title']) . "\"");
 
-  if (!empty($tresult) && $tresult->num_rows > 0) {
-    $trow = $tresult->fetch_array(MYSQLI_ASSOC);
-    echo "<a href=\"guitar-tabs.php?" . $trow['id'] . "\"><img src=\"images/guitar.gif\" alt=\"guitar tab\" style=\"vertical-align: middle; float: right;\"></a>";
+  if (!empty($tabs) && $tabs->num_rows > 0) {
+    $tab = $tabs->fetch_array(MYSQLI_ASSOC);
+    echo '<a href="guitar-tabs.php?' . $tab['id'] . '" title="Guitar Tabs" class="tab"></a>';
   }
 
-  $tresult->free();
-
-  $lyrics = str_replace("\n", "<br>", stripslashes($row['lyrics']));
+  $lyrics = str_replace("\n", "<br>", stripslashes($song['lyrics']));
   $lyrics = str_replace("<br>", "<br>\n      ", $lyrics);
   echo $lyrics . "\n";
 } else {
   echo "Song not found";
 }
-
-$result->free();
-$mysqli->close();
 
 include "footer.php";
 ?>

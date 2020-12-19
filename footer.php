@@ -1,50 +1,44 @@
+      <?php if (!isset($Sidebar)) { ?>
+      </div> <!-- /#main -->
+        <div id="sidebar">
+          <div id="icons">
+            <a href="https://venmo.com/Pat-McCurdy-2" class="icon venmo"></a>
+            
+            <form id="donation" name="_xclick" action="https://www.paypal.com/cgi-bin/webscr" method="post" target="new">
+              <div>
+                <input type="hidden" name="cmd" value="_donations">
+                <input type="hidden" name="business" value="patmccurdy123@yahoo.com">
+                <input type="hidden" name="item_name" value="Pat McCurdy Tip">
+                <input type="hidden" name="currency_code" value="USD">
+                <input type="hidden" name="amount" value="">
+                <input type="submit" name="submit" value="" class="icon paypal">
+              </div>
+            </form>
 
-          </article>
+            <a href="https://www.facebook.com/HeyPaddy/" class="icon facebook"></a>
 
-          <?php if ($Sidebar == "") { ?>
-          <aside>
-            <div id="support">
-              <h3>Tip Jar</h3>
-              <strong>Venmo</strong> @Pat-McCurdy-2<br>
-              <strong>Paypal</strong>
+            <a href="https://twitter.com/PatMcCurdy" class="icon twitter"></a>
 
-              <form id="donation" name="_xclick" action="https://www.paypal.com/cgi-bin/webscr" method="post" target="new">
-                <div>
-                  <input type="hidden" name="cmd" value="_donations">
-                  <input type="hidden" name="business" value="patmccurdy123@yahoo.com">
-                  <input type="hidden" name="item_name" value="Pat McCurdy Tip">
-                  <input type="hidden" name="currency_code" value="USD">
-                  <input type="hidden" name="amount" value="">
-                  <input type="submit" name="submit" value="patmccurdy123@yahoo.com">
-                </div>
-              </form>
-            </div>
+            <a href="https://www.instagram.com/pat_mccurdy/" class="icon instagram"></a>
 
-            <img src="images/HirePat.png" alt="Hire Pat"><br>
-            <?php email("fatmurf@wi.rr.com", "Email Murf"); ?> or call 414-916-4914. Be sure to include the date, time of day, and location of the potential show to get an accurate price quote.<br>
-            <br>
-            <br>
+            <a href="https://www.youtube.com/user/OfficialPatMcCurdy" class="icon youtube"></a>
 
-            <a href="http://www.facebook.com/pages/pat-mccurdy/46671793550"><img src="images/icon-facebook.png" alt="Facebook" class="icon"></a>
-            <a href="http://twitter.com/PatMcCurdy"><img src="images/icon-twitter.png" alt="Twitter" class="icon"></a>
-            <a href="https://www.instagram.com/pat_mccurdy/"><img src="images/icon-instagram.png" alt="Instagram" class="icon"></a>
-            <a href="http://www.youtube.com/user/OfficialPatMcCurdy"><img src="images/icon-youtube.png" alt="YouTube" class="icon"></a>
-            <a href="http://itunes.apple.com/us/artist/pat-mccurdy/id388968174"><img src="images/icon-itunes.png" alt="iTunes" class="icon"></a>
-            <a href="http://www.amazon.com/gp/product/B004167BM4"><img src="images/icon-amazon.png" alt="Amazon" class="icon"></a>
-            <a href="http://www.cdbaby.com/Artist/PatMcCurdy"><img src="images/icon-cdbaby.png" alt="CD Baby" class="icon"></a>
-            <a href="rss.xml"><img src="images/icon-rss.png" alt="RSS" class="icon"></a>
-          </aside>
-          <?php } ?>
+            <a href="https://music.apple.com/us/artist/pat-mccurdy/388968174" class="icon apple"></a>
 
-          <div style="clear: both;"></div>
+            <a href="https://www.amazon.com/Pat-McCurdy/e/B001LH3PCQ/digital/" class="icon amazon"></a>
+          </div> <!-- /#icons -->
+          
+          <h2>Hire <span>Pat</span></h2>
+          Email <a href="mailto:fatmurf@wi.rr.com">Murf</a> or call 414-916-4914. Be sure to include the date, time of day, and location of the potential show to get an accurate price quote.
+        </div> <!-- /#sidebar -->
+      </div> <!-- /#main-sidebar -->
+      <?php } ?>
 
-          <footer>
-            Copyright &copy; 1995-<?php echo date("Y"); ?> Pat McCurdy &bull; All rights reserved
-          </footer>
-        </div> <!-- content-wrap -->
+    </div> <!-- /#content -->
 
-      </div> <!-- wrap -->
-    </div> <!-- END outer-wrap -->
+    <footer class="site-width">
+      Copyright &copy; 1995-<?php echo date("Y"); ?> Pat McCurdy &middot; All rights reserved
+    </footer>
 
   </body>
 </html>

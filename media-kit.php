@@ -3,14 +3,14 @@ $PageTitle = "Media Kit";
 include "header.php";
 ?>
 
-For bookings, contact Brian "Murf" Murphy by emailing <?php echo email("murf@patmccurdy.com"); ?> or calling 414-916-4914. Be sure to include the date, time of day, and location of the potential show to get an accurate price quote.<br>
+For bookings, contact Brian "Murf" Murphy by emailing <?php echo email("fatmurf@wi.rr.com"); ?> or calling 414-916-4914. Be sure to include the date, time of day, and location of the potential show to get an accurate price quote.<br>
 <br>
 
-<strong>Biography</strong><br>
+<h5>Biography</h5>
 Pat McCurdy is a cabaret singer/songwriter from Milwaukee, Wisconsin. He regularly tours the upper midwestern part of the United States with regular stops in Milwaukee, Madison, Chicago, Green Bay, and Minneapolis. His shows usually consist of just him and his guitar and include improvised interaction with the audience. While the majority of his audience is made up of a college-age crowd, McCurdy appeals to a large number of people of all ages. Performing well over 300 shows a year, his large catalog of original songs (over 600 and growing) covers a variety of topics such as lost loves, politics, family vacations, and how the world can't live without Sex &amp; Beer.<br>
 <br>
 
-<strong>Low resolution images for the web</strong><br>
+<!-- <strong>Low resolution images for the web</strong><br>
 <a href="mediakit/pat-mccurdy-bw1.jpg"><img src="mediakit/pat-mccurdy-bw1.jpg" alt="" style="height: 200px; margin: 0 10px 10px 0;"></a>
 <a href="mediakit/pat-mccurdy-bw2.jpg"><img src="mediakit/pat-mccurdy-bw2.jpg" alt="" style="height: 200px; margin: 0 10px 10px 0;"></a>
 <a href="mediakit/pat-mccurdy-color.jpg"><img src="mediakit/pat-mccurdy-color.jpg" alt="" style="height: 200px; margin: 0 10px 10px 0;"></a>
@@ -39,9 +39,11 @@ Pat McCurdy is a cabaret singer/songwriter from Milwaukee, Wisconsin. He regular
   <br>
 </div>
 
-<div style="clear: both;"></div>
+<div style="clear: both;"></div> -->
 
-<strong>Audio available upon request.<br>
-Visit the <a href="press.php">Press</a> page for articles, reviews and further information about Pat.</strong>
+Audio available upon request.<br>
+<br>
+
+Visit the <a href="press.php">Press</a> page for articles, reviews and further information about Pat.
 
 <?php include "footer.php"; ?>

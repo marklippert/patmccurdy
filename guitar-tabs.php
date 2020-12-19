@@ -3,32 +3,32 @@ include "inc/dbconfig.php";
 $PageTitle = "Guitar Tabs";
 
 if ($_SERVER['QUERY_STRING'] != "") {
-  $result = $mysqli->query("SELECT * FROM tabs WHERE id ='" . $_SERVER['QUERY_STRING'] . "'");
-  $row = $result->fetch_array(MYSQLI_ASSOC);
-  $PageTitle .= " | " . $row['title'];
+  $tabs = $mysqli->query("SELECT * FROM tabs WHERE id ='" . $_SERVER['QUERY_STRING'] . "'");
+  $tab = $tabs->fetch_array(MYSQLI_ASSOC);
+  $PageTitle .= " | " . $tab['title'];
 }
 
 include "header.php";
 
 if ($_SERVER['QUERY_STRING'] != "") {
-  echo "<h2>" . $row['title'] . "</h2>\n";
+  echo "<h2>" . $tab['title'] . "</h2>\n";
   
-  if ($row['name'] != "" || $row['email'] != "") {
+  if ($tab['name'] != "" || $tab['email'] != "") {
     echo "Tabbed by ";
-    if ($row['email'] != "") {
-      email($row['email'], $row['name']);
+    if ($tab['email'] != "") {
+      email($tab['email'], $tab['name']);
     } else {
-      echo $row['name'];
+      echo $tab['name'];
     }
   }
   
-  echo "<br>\n<pre>" . $row['tab'] . "</pre>";
+  echo "<br>\n<pre>" . $tab['tab'] . "</pre>";
 } else {
-  $result = $mysqli->query("SELECT * FROM tabs ORDER BY title ASC");
+  $tabs = $mysqli->query("SELECT * FROM tabs ORDER BY title ASC");
   
-  while($row = $result->fetch_array(MYSQLI_ASSOC)) {
+  while($tab = $tabs->fetch_array(MYSQLI_ASSOC)) {
     ?>
-    <a href="guitar-tabs.php?<?php echo $row['id']; ?>"><?php echo $row['title']; ?></a><br>
+    <a href="guitar-tabs.php?<?php echo $tab['id']; ?>"><?php echo $tab['title']; ?></a><br>
     <?php
   }
 }
