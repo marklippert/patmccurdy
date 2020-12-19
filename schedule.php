@@ -72,11 +72,18 @@ include "header.php";
       
       $day_count = $start_blanks;
       $day_num = 1;
+      $show_num = 1;
 
       while ($day_num <= $days_in_month) {
         echo '<td class="';
         if (date("F", $date) . " " . $day_num . " " . date("Y", $date) == date("F j Y")) echo "today ";
         if (empty($schedule[$day_num][0]['venue'])) echo "noshow";
+        
+        // Only needed for mobile formatting
+        if (!empty($schedule[$day_num][0]['venue']) && $show_num == 1) {
+          echo "show1";
+          $show_num++;
+        }
         echo '">';
 
           echo '<div class="date">';

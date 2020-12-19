@@ -679,8 +679,6 @@ INPUT[type="submit"]:hover { background: #5E5C5C; }
 }
 
 @media only screen and (max-width: 800px) {
-  #schedule TABLE { border-top: 1px solid #000000; }
-
   #schedule TD {
     display: flex;
     justify-content: space-between;
@@ -690,6 +688,8 @@ INPUT[type="submit"]:hover { background: #5E5C5C; }
     font-size: 1.25rem;
     border-top: 0;
   }
+
+  #schedule TD.show1 { border-top: 0.0625rem solid #000000; }
 
   #schedule #weekdays,
   #schedule TD.blank,
