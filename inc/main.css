@@ -523,7 +523,8 @@ INPUT[type="text"],
 INPUT[type="number"],
 INPUT[type="email"],
 INPUT[type="password"],
-TEXTAREA {
+TEXTAREA,
+SELECT {
   width: 100%;
   box-sizing: border-box;
   margin: 0;
@@ -533,6 +534,7 @@ TEXTAREA {
   padding: 0.5em 1em;
   background: rgba(255, 255, 255, 0.75);
   color: #5F2E1F;
+  font-family: Arial, Helvetica, sans-serif;
   font-size: 1rem;
   line-height: 1;
   -webkit-appearance: none;
@@ -543,7 +545,14 @@ INPUT[type="number"] { -moz-appearance: textfield; }
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button { -webkit-appearance: none; margin: 0; }
 
-TEXTAREA { width: 100%; height: 15em; }
+TEXTAREA { width: 100%; height: 15em; line-height: 1.4; }
+
+SELECT {
+  cursor: pointer;
+  padding-right: 2.5em;
+  background: rgba(255, 255, 255, 0.75) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' viewBox='0 0 1000 1000' %3E%3Cpath fill='%23B87D00' d='M971.8,242.5c-12.1-12.1-26.5-18.2-43.1-18.2H71.3c-16.6,0-30.9,6.1-43.1,18.2C16.1,254.7,10,269,10,285.6c0,16.6,6.1,30.9,18.2,43.1l428.7,428.7c12.1,12.1,26.5,18.2,43.1,18.2c16.6,0,30.9-6.1,43.1-18.2l428.8-428.8c12.1-12.1,18.2-26.5,18.2-43.1C990,269,983.9,254.7,971.8,242.5z'/%3E%3C/svg%3E") no-repeat right 0.5em center;
+  background-size: auto 60%;
+}
 
 INPUT:-ms-input-placeholder { color: #5F2E1F; } /* IE11 */
 INPUT::placeholder { color: #5F2E1F; opacity: 1; }

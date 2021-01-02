@@ -6,68 +6,59 @@ include "header.php";
 
 $table = ($_GET['l'] == "holding") ? "lyrics_holding" : "lyrics";
 
-$result = $mysqli->query("SELECT * FROM $table WHERE id = '" . $_GET['id'] . "'");
-$row = $result->fetch_array(MYSQLI_BOTH);
+$lyrics = $mysqli->query("SELECT * FROM $table WHERE id = '" . $_GET['id'] . "'");
+$lyric = $lyrics->fetch_array(MYSQLI_BOTH);
 ?>
 
 <form action="lyricsdb.php?a=<?php echo ($_GET['l'] == "holding") ? "add" : "edit"; ?>" method="POST">
-  <div class="sub-center">
-    <strong>Title</strong><br>
-    <input type="text" name="title" value="<?php echo $row['title'] ?>"><br>
-    <br>
+  <div>
+    <label>Title
+      <input type="text" name="title" value="<?php echo $lyric['title'] ?>">
+    </label>
 
-    <strong>Lyrics</strong><br>
-    <textarea name="lyrics" style="height: 25em;"><?php echo str_replace("<br>", "\n", $row['lyrics']) ?></textarea><br>
-    <br>
+    <label>Lyrics
+      <textarea name="lyrics" style="height: 25em;"><?php echo str_replace("<br>", "\n", $lyric['lyrics']); ?></textarea>
+    </label>
 
-    <strong>Album</strong>
-    <select name="album" id="album-select">
-      <option value="0">none</option>
-      <?php
-      $aresult = $mysqli->query("SELECT * FROM albums ORDER BY title ASC");
+    <label>Album
+      <select name="album" id="album-select">
+        <option value="0">none</option>
+        <?php
+        $albums = $mysqli->query("SELECT * FROM albums ORDER BY title ASC");
 
-      while($arow = $aresult->fetch_array(MYSQLI_BOTH)) {
-        echo "<option value=\"" . $arow['id'] . "\"";
-        if ($arow['id'] == $row['album']) {
-          echo " selected";
+        while($album = $albums->fetch_array(MYSQLI_BOTH)) {
+          echo '<option value="' . $album['id'] . '"';
+          if ($album['id'] == $lyric['album']) echo " selected";
+          echo ">" . $album['title'] . "</option>\n";
         }
-        echo ">" . $arow['title'] . "</option>\n";
-      }
+        ?>
+      </select>
+    </label>
 
-      $aresult->free();
-      ?>
-    </select><br>
-    <br>
-    
-    <div class="sub-left" style="width: 30%;">
-      <strong>Track #</strong> <input type="text" name="album_track" style="width: 25%;" value="<?php echo $row['album_track'] ?>"><br>
-      <br>
-    </div>
-    
-    <div class="sub-right" style="width: 66%;">
-      <strong>Band</strong> 
-      <select name="band" style="width: 75%; margin-right: 3%;">>
-        <option value=""<?php if ($row['band'] == "") { echo " selected"; } ?>>Solo</option>
-        <option value="Confidentials"<?php if ($row['band'] == "Confidentials") { echo " selected"; } ?>>Confidentials</option>
-        <option value="Mankind"<?php if ($row['band'] == "Mankind") { echo " selected"; } ?>>Mankind</option>
-        <option value="Men About Town"<?php if ($row['band'] == "Men About Town") { echo " selected"; } ?>>Men About Town</option>
-        <option value="Yipes!"<?php if ($row['band'] == "Yipes!") { echo " selected"; } ?>>Yipes!</option>
-      </select><br>
-      <br>
+    <div class="admin-two-col flex">
+      <label>Track #
+        <input type="text" name="album_track" value="<?php echo $lyric['album_track'] ?>">
+      </label>
+
+      <label>Band
+        <select name="band">
+          <option value=""<?php if ($lyric['band'] == "") echo " selected"; ?>>Solo</option>
+          <option value="Confidentials"<?php if ($lyric['band'] == "Confidentials") echo " selected"; ?>>Confidentials</option>
+          <option value="Mankind"<?php if ($lyric['band'] == "Mankind") echo " selected"; ?>>Mankind</option>
+          <option value="Men About Town"<?php if ($lyric['band'] == "Men About Town") echo " selected"; ?>>Men About Town</option>
+          <option value="Yipes!"<?php if ($lyric['band'] == "Yipes!") echo " selected"; ?>>Yipes!</option>
+        </select>
+      </label>
     </div>
 
-    <div style="clear: both;"></div>
+    <?php if ($_GET['l'] != "holding") { ?>
+    <input type="hidden" name="id" value="<?php echo $_GET['id'] ?>">
+    <?php } ?>
 
-    <?php if ($_GET['l'] != "holding") { ?><input type="hidden" name="id" value="<?php echo $_GET['id'] ?>"><?php } ?>
     <input type="hidden" name="l" value="<?php echo $_GET['l'] ?>">
     
-    <input type="submit" value="Update">
+    <input type="submit" name="submit" value="Update">
   </div>
 </form>
 
-<?php
-$result->free();
-$mysqli->close();
-
-include "footer.php";
-?>
+<?php include "footer.php"; ?>

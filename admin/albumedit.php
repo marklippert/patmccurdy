@@ -4,44 +4,40 @@ include "login.php";
 $PageTitle = "Albums | Edit Album";
 include "header.php";
 
-$result = $mysqli->query("SELECT * FROM albums WHERE id = '" . $_GET['id'] . "'");
-$row = $result->fetch_array(MYSQLI_BOTH);
+$albums = $mysqli->query("SELECT * FROM albums WHERE id = '" . $_GET['id'] . "'");
+$album = $albums->fetch_array(MYSQLI_BOTH);
 ?>
 
 <form action="albumdb.php?a=edit" method="POST">
-  <div class="sub-center">
-    <strong>Title</strong><br>
-    <input type="text" name="title" value="<?php echo $row['title']; ?>"><br>
-    <br>
+  <div>
+    <label>Title
+      <input type="text" name="title" value="<?php echo $album['title']; ?>">
+    </label>
 
-    <strong>Cover Image</strong><br>
-    <input type="text" name="cover_image" value="<?php echo $row['cover_image']; ?>"><br>
-    <br>
+    <label>Cover Image
+      <input type="text" name="cover_image" value="<?php echo $album['cover_image']; ?>">
+    </label>
 
-    <strong>Year</strong>
-    <input type="text" name="year" style="width: 4em;" value="<?php echo $row['year']; ?>"><br>
-    <br>
+    <label>Year
+      <input type="number" pattern="[0-9]*" name="year" value="<?php echo $album['year']; ?>">
+    </label>
 
-    <strong>iTunes Link</strong><br>
-    <input type="text" name="itunes" value="<?php echo $row['itunes']; ?>"><br>
-    <br>
-    
-    <strong>Amazon Link</strong><br>
-    <input type="text" name="amazon" value="<?php echo $row['amazon']; ?>"><br>
-    <br>
+    <label>Apple Music Link
+      <input type="text" name="itunes" value="<?php echo $album['itunes']; ?>">
+    </label>
 
-    <strong>Liner Notes</strong><br>
-    <textarea name="liner_notes" style="height: 25em;"><?php echo $row['liner_notes']; ?></textarea><br>
-    <br>
-    
+    <label>Amazon Link
+      <input type="text" name="amazon" value="<?php echo $album['amazon']; ?>">
+    </label>
+
+    <label>Liner Notes
+      <textarea name="liner_notes"><?php echo $album['liner_notes']; ?></textarea>
+    </label>
+
     <input type="hidden" name="id" value="<?php echo $_GET['id']; ?>">
-    <input type="submit" value="Update">
+
+    <input type="submit" name="submit" value="Update">
   </div>
 </form>
 
-<?php
-$result->free();
-$mysqli->close();
-
-include "footer.php";
-?>
+<?php include "footer.php"; ?>

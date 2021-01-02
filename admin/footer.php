@@ -1,15 +1,8 @@
+    </div> <!-- /#content -->
 
-          </article>
-
-          <div style="clear: both;"></div>
-
-          <footer>
-            Copyright &copy; 1995-<?php echo date("Y"); ?> Pat McCurdy &bull; All rights reserved
-          </footer>
-        </div> <!-- content-wrap -->
-
-      </div> <!-- wrap -->
-    </div> <!-- END outer-wrap -->
+    <footer class="site-width">
+      Copyright &copy; 1995-<?php echo date("Y"); ?> Pat McCurdy &middot; All rights reserved
+    </footer>
 
   </body>
 </html>

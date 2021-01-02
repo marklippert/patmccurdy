@@ -44,7 +44,7 @@ switch ($_GET['a']) {
               url = '" . $_POST['url'] . "',
               stage = '" . $mysqli->real_escape_string($_POST['stage']) . "',
               additional = '" . $mysqli->real_escape_string($_POST['additional']) . "',
-              event = '" . $_POST['event'] . "',
+              event = '',
               status = '" . $_POST['status'] . "'
               WHERE id = '" . $_POST['id'] . "'";
     break;
@@ -55,9 +55,7 @@ switch ($_GET['a']) {
 
 $mysqli->query($query);
 
-$mysqli->close();
-
 $go = (isset($_GET['b'])) ? "?b=" . $_GET['b'] : "";
 
-header( "Location: scheduleindex.php$go" );
+header( "Location: scheduleindex.php".$go );
 ?>

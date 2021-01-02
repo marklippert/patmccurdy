@@ -4,61 +4,51 @@ include "login.php";
 $PageTitle = "Edit Set List";
 include "header.php";
 
-$result = $mysqli->query("SELECT * FROM setlists WHERE id = '" . $_GET['id'] . "'");
-$row = $result->fetch_array(MYSQLI_BOTH);
+$setlists = $mysqli->query("SELECT * FROM setlists WHERE id = '" . $_GET['id'] . "'");
+$setlist = $setlists->fetch_array(MYSQLI_BOTH);
 ?>
 
 <form action="setlistsdb.php?a=edit" method="POST">
-  <div class="sub-center">
-    <div class="sub-left">
-      <strong>Date</strong> <input type="text" name="date" class="mydatepicker" value="<?php echo date("m/d/Y", strtotime($row['date'])); ?>">
+  <div>
+    <div class="admin-two-col flex">
+      <label>Date
+        <input type="text" name="date" id="date" readonly="true"<?php echo ' value="'.date("m/d/Y", strtotime($setlist['date'])).'"'; ?>>
+      </label>
+      <label>
+        <input type="checkbox" name="approved"<?php if ($setlist['approved'] != "") echo " checked"; ?>> Approved
+      </label>
     </div>
+
+    <label>Venue
+      <input type="text" name="venue" value="<?php echo $setlist['venue']; ?>">
+    </label>
     
-    <div class="sub-right">
-      <strong>Approved</strong> <input type="checkbox" name="approved"<?php if ($row['approved'] != "") echo " checked"; ?>>
+    <div class="admin-two-col flex">
+      <label>City
+        <input type="text" name="city" value="<?php echo $setlist['city']; ?>">
+      </label>
+
+      <label>State
+        <input type="text" name="state" value="<?php echo $setlist['state']; ?>">
+      </label>
     </div>
+
+    <label>Set 1
+      <textarea name="set1"><?php echo $setlist['set1']; ?></textarea>
+    </label>
     
-    <div style="clear: both;"></div><br>
+    <label>Set 2
+      <textarea name="set2"><?php echo $setlist['set2']; ?></textarea>
+    </label>
     
-    <strong>Venue</strong><br>
-    <input type="text" name="venue" value="<?php echo $row['venue']; ?>"><br>
-    <br>
-    
-    <div class="sub-left" style="width: 83%;">
-      <strong>City</strong><br>
-      <input type="text" name="city" value="<?php echo $row['city']; ?>">
-    </div>
-    
-    <div class="sub-right" style="width: 9%;">
-      <strong>State</strong><br>
-      <input type="text" name="state" value="<?php echo $row['state']; ?>">
-    </div>
-    
-    <div style="clear: both;"></div><br>
-    
-    <strong>Set 1</strong><br>
-    <textarea name="set1" style="height: 15em;"><?php echo $row['set1']; ?></textarea><br>
-    <br>
-    
-    <strong>Set 2</strong><br>
-    <textarea name="set2" style="height: 15em;"><?php echo $row['set2']; ?></textarea><br>
-    <br>
-    
-    <div style="cursor: pointer;<?php if ($row['set3'] != "") echo " display: none;"; ?>" data-toggle="collapse" data-target="#set3">Toggle Set 3<br></div>
-    <div id="set3" class="collapse<?php if ($row['set3'] != "") echo " in"; ?>">
-      <strong>Set 3</strong><br>
-      <textarea name="set3" style="height: 15em;"><?php echo $row['set3']; ?></textarea><br>
-      <br>
-    </div>
-    
+    <label>Set 3
+      <textarea name="set3"><?php echo $setlist['set3']; ?></textarea>
+    </label>
+
     <input type="hidden" name="id" value="<?php echo $_GET['id']; ?>">
-    <input type="submit" value="Update">
+
+    <input type="submit" name="submit" value="Update">
   </div>
 </form>
 
-<?php
-$result->free();
-$mysqli->close();
-
-include "footer.php";
-?>
+<?php include "footer.php"; ?>

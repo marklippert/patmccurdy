@@ -4,50 +4,43 @@ include "login.php";
 $PageTitle = "Edit Guitar Tab";
 include "header.php";
 
-$result = $mysqli->query("SELECT * FROM tabs WHERE id = '" . $_GET['id'] . "'");
-$row = $result->fetch_array(MYSQLI_BOTH);
+$tabs = $mysqli->query("SELECT * FROM tabs WHERE id = '" . $_GET['id'] . "'");
+$tab = $tabs->fetch_array(MYSQLI_BOTH);
 ?>
 
 <form action="tabsdb.php?a=edit" method="POST">
-  <div class="sub-center">
-    <strong>Title</strong><br>
-    <select name="title">
-      <option value="">Select title...</option>
-      <?php
-      $lresult = $mysqli->query("SELECT * FROM lyrics ORDER BY title ASC");
+  <div>
+    <label>Title
+      <select name="title">
+        <option value="">Select title...</option>
+        <?php
+        $lyrics = $mysqli->query("SELECT * FROM lyrics ORDER BY title ASC");
 
-      while($lrow = $lresult->fetch_array(MYSQLI_BOTH)) {
-        echo "<option value=\"" . $lrow['title'] . "\"";
-        if ($row['title'] == $lrow['title']) echo " selected";
-        echo ">" . $lrow['title'] . "</option>\n";
-      }
+        while($lyric = $lyrics->fetch_array(MYSQLI_ASSOC)) {
+          echo "<option value=\"" . $lyric['title'] . "\"";
+          if ($tab['title'] == $lyric['title']) echo " selected";
+          echo ">" . $lyric['title'] . "</option>\n";
+        }
+        ?>
+      </select>
+    </label>
 
-      $lresult->free();
-      ?>
-    </select><br>
-    <br>
+    <label>Tabs
+      <textarea name="tab" style="height: 25em; white-space: pre;"><?php echo $tab['tab']; ?></textarea>
+    </label>
     
-    <strong>Tabs</strong><br> 
-    <textarea name="tab" style="height: 25em;"><?php echo $row['tab']; ?></textarea><br> 
-    <br>
+    <label>Name
+      <input type="text" name="name" value="<?php echo $tab['name']; ?>">
+    </label>
     
-    <strong>Name</strong><br>
-    <input type="text" name="name" value="<?php echo $row['name']; ?>"><br>
-    <br>
-    
-    <strong>Email</strong><br>
-    <input type="text" name="email" value="<?php echo $row['email']; ?>"><br>
-    <br>
-    
+    <label>Email
+      <input type="email" name="email" value="<?php echo $tab['email']; ?>">
+    </label>
+
     <input type="hidden" name="id" value="<?php echo $_GET['id']; ?>">
 
-    <input type="submit" value="Add">
+    <input type="submit" name="submit" value="Update">
   </div>
 </form>
 
-<?php
-$result->free();
-$mysqli->close();
-
-include "footer.php";
-?>
+<?php include "footer.php"; ?>

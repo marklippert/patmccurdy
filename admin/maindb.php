@@ -15,9 +15,5 @@ switch ($_GET['a']) {
 
 $mysqli->query($query);
 
-// Update RSS file
-$rsslink = "../rss.xml";
-include "../rss.php";
-
 header("Location: mainindex.php");
 ?>

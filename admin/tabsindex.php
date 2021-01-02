@@ -5,79 +5,62 @@ $PageTitle = "Guitar Tabs";
 include "header.php";
 ?>
 
-<div class="toggle-box">
-  <div class="toggle-control" data-text="Add Guitar Tab" data-expanded-text="Hide form">Add Guitar Tab</div>
-  <div id="admin-left">
+<div id="admin-tabs" class="flex main-cols">
+  <div>
     <h3>Add Guitar Tab</h3>
 
     <form action="tabsdb.php?a=add" method="POST">
       <div>
-        <strong>Title</strong><br>
-        <select name="title">
-          <option value="">Select title...</option>
-          <?php
-          $result = $mysqli->query("SELECT * FROM lyrics ORDER BY title ASC");
+        <label>Title
+          <select name="title">
+            <option value="">Select title...</option>
+            <?php
+            $lyrics = $mysqli->query("SELECT * FROM lyrics ORDER BY title ASC");
 
-          while($row = $result->fetch_array(MYSQLI_BOTH)) {
-            echo "<option value=\"" . $row['title'] . "\">" . $row['title'] . "</option>\n";
-          }
-
-          $result->free();
-          ?>
-        </select><br>
-        <br>
+            while($lyric = $lyrics->fetch_array(MYSQLI_ASSOC)) {
+              echo '<option value="' . $lyric['title'] . '">' . $lyric['title'] . "</option>\n";
+            }
+            ?>
+          </select>
+        </label>
         
-        <strong>Tabs</strong><br> 
-        <textarea name="tab" style="height: 25em;"></textarea><br> 
-        <br>
+        <label>Tabs
+          <textarea name="tab" style="height: 25em; white-space: pre;"></textarea>
+        </label>
         
-        <strong>Name</strong><br>
-        <input type="text" name="name"><br>
-        <br>
+        <label>Name
+          <input type="text" name="name">
+        </label>
         
-        <strong>Email</strong><br>
-        <input type="text" name="email"><br>
-        <br>
+        <label>Email
+          <input type="email" name="email">
+        </label>
         
-        <input type="submit" value="Add">
+        <input type="submit" name="submit" value="Add">
       </div>
     </form>
+  </div>
 
-    <div class="spacer-height"></div>
+  <div>
+    <h3>Guitar Tabs</h3>
+    
+    <?php
+    $tabs = $mysqli->query("SELECT * FROM tabs ORDER BY title ASC");
+    
+    while($tab = $tabs->fetch_array(MYSQLI_BOTH)) {
+      ?>
+      <div class="guitartab flex">
+        <div class="controls">
+          <a href="tabsdb.php?a=delete&id=<?php echo $tab['id']; ?>" class="delete" onClick="return(confirm('Are you sure you want to delete this record?'));"></a>
+          <a href="tabsedit.php?a=edit&id=<?php echo $tab['id']; ?>" class="edit"></a>
+        </div>
+        
+        <div class="info">
+          <?php echo $tab['title']; ?>
+        </div>
+      </div>
+    <?php } ?>
   </div>
 </div>
 
-<div id="admin-right">
-  <h3>Guitar Tabs</h3>
-  
-  <?php
-  $result = $mysqli->query("SELECT * FROM tabs ORDER BY title ASC");
-  
-  while($row = $result->fetch_array(MYSQLI_BOTH)) {
-    ?>
-    <div class="c2">
-      <div class="controls">
-        <a href="tabsdb.php?a=delete&id=<?php echo $row['id']; ?>" onClick="return(confirm('Are you sure you want to delete this record?'));"><img src="images/delete.png" alt="Delete" title="Delete"></a>
-        <a href="tabsedit.php?id=<?php echo $row['id']; ?>"><img src="images/edit.png" alt="Edit" title="Edit"></a>
-      </div>
-      
-      <div class="info">
-        <?php echo $row['title']; ?>
-      </div>
-      
-      <div class="spacer-height"></div>
-    </div>
-    <?php
-  }
-
-  $result->free();
-  ?>
-</div>
-
-<div style="clear: both;"></div>
-
-<?php
-$mysqli->close();
-
-include "footer.php";
-?>
+<?php include "footer.php"; ?>

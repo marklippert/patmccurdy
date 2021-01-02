@@ -42,7 +42,5 @@ switch ($_GET['a']) {
 
 $mysqli->query($query);
 
-$mysqli->close();
-
 header("Location: pressindex.php");
 ?>

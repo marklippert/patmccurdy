@@ -5,75 +5,62 @@ $PageTitle = "Main / RSS";
 include "header.php";
 ?>
 
-<div class="toggle-box">
-  <div class="toggle-control" data-text="Add Main / RSS Item" data-expanded-text="Hide form">Add Main / RSS Item</div>
-  <div id="admin-left">
+<div id="admin-main" class="flex main-cols">
+  <div>
     <h3>Add Main / RSS Item</h3>
 
     <form action="maindb.php?a=add" method="POST">
       <div>
-        <strong>End Date:</strong>
-        <input type="text" name="enddate" id="enddate" readonly="true" style="width: 6em;"><br>
-        <br>
+        <label>End Date
+          <input type="text" name="enddate" id="enddate" readonly="true" style="width: 8em;">
+        </label>
 
-        <strong>Title</strong><br>
-        <input type="text" name="title"><br>
-        <br>
+        <label>Title
+          <input type="text" name="title">
+        </label>
 
-        <strong>Text</strong> <span style="font-size: 85%;">(Remember to use absolute paths)</span><br>
-        <textarea name="text"></textarea><br>
-        <br>
+        <label>Text <span style="font-size: 85%;">(Remember to use absolute paths)</span>
+          <textarea name="text"></textarea>
+        </label>
         
-        <input type="radio" name="appears" value="page"> <strong>Page only</strong>
-        <input type="radio" name="appears" value="rss" style="margin-left: 5%;"> <strong>RSS only</strong>
-        <input type="radio" name="appears" value="both" checked style="margin-left: 5%;"> <strong>Both</strong><br>
-        <br>
+        <div class="radio">
+          <label><input type="radio" name="appears" value="page"> Page only</label>
+          <label><input type="radio" name="appears" value="rss"> RSS only</label>
+          <label><input type="radio" name="appears" value="both" checked> Both</label>
+        </div>
         
-        <input type="submit" value="Add">
+        <input type="submit" name="submit" value="Add">
       </div>
     </form>
-
-    <div class="spacer-height"></div>
   </div>
-</div>
 
-<div id="admin-right">
-  <h3>Items</h3>
-  
-  <?php
-  $result = $mysqli->query("SELECT * FROM main ORDER BY id DESC");
-  
-  while($row = $result->fetch_array(MYSQLI_BOTH)) {
-    ?>
-    <div class="c2">
-      <div class="controls">
-        <a href="maindb.php?a=delete&id=<?php echo $row['id']; ?>" onClick="return(confirm('Are you sure you want to delete this record?'));"><img src="images/delete.png" alt="Delete" title="Delete"></a>
-        <a href="mainedit.php?id=<?php echo $row['id']; ?>"><img src="images/edit.png" alt="Edit" title="Edit"></a>
-      </div>
-      
-      <div class="info">
-        <?php
-        echo $row['title'];
-        
-        if ($row['enddate'] != "" && $row['enddate'] < time()) echo " <span style=\"color: #FF0000;\">[EXPIRED]</span>";
-        
-        echo "\n";
-        ?>
-      </div>
-
-      <div class="spacer-height"></div>
-    </div>
+  <div>
+    <h3>Items</h3>
+    
     <?php
-  }
+    $items = $mysqli->query("SELECT * FROM main ORDER BY id DESC");
+    
+    while($item = $items->fetch_array(MYSQLI_BOTH)) {
+      ?>
+      <div class="item flex">
+        <div class="controls">
+          <a href="maindb.php?a=delete&id=<?php echo $item['id']; ?>" class="delete" onClick="return(confirm('Are you sure you want to delete this record?'));"></a>
+          <a href="mainedit.php?a=edit&id=<?php echo $item['id']; ?>" class="edit"></a>
+        </div>
+        
+        <div class="info">
+          <?php
+          echo $item['title'];
+          
+          if ($item['enddate'] != "" && $item['enddate'] < time()) echo ' <span style="color: #FF0000;">[EXPIRED]</span>';
+          
+          echo "\n";
+          ?>
+        </div>
+      </div>
+      <?php } ?>
+  </div>
 
-  $result->free();
-  ?>
 </div>
 
-<div style="clear: both;"></div>
-
-<?php
-$mysqli->close();
-
-include "footer.php";
-?>
+<?php include "footer.php"; ?>

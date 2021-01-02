@@ -16,13 +16,7 @@ switch ($_GET['a']) {
 
 $mysqli->query($query) or die($mysqli->error);
 
-$mysqli->close();
+$go = (isset($_REQUEST['l'])) ? "lyricsindex.php?filter=" . $_REQUEST['l'] : "lyricsindex.php";
 
-if (isset($_REQUEST['l'])) {
-  $go = "lyricsindex.php?filter=" . $_REQUEST['l'];
-} else {
-  $go = "lyricsindex.php";
-}
-
-header( "Location: $go" );
+header("Location: ".$go);
 ?>
