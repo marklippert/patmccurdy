@@ -68,9 +68,9 @@ include "header.php";
           ?>
           <tr class="show">
             <td class="controls">
-              <a href="scheduledb.php?a=delete&id=<?php echo $show['id'] . $TheB; ?>" class="delete" onClick="return(confirm('Are you sure you want to delete this record?'));"></a>
-              <a href="scheduleedit.php?a=edit&id=<?php echo $show['id'] . $TheB; ?>" class="edit"></a>
-              <a href="scheduleedit.php?a=copy&id=<?php echo $show['id'] . $TheB; ?>" class="copy"></a>
+              <a href="scheduledb.php?a=delete&id=<?php echo $search['id'] . $TheB; ?>" class="delete" onClick="return(confirm('Are you sure you want to delete this record?'));"></a>
+              <a href="scheduleedit.php?a=edit&id=<?php echo $search['id'] . $TheB; ?>" class="edit"></a>
+              <a href="scheduleedit.php?a=copy&id=<?php echo $search['id'] . $TheB; ?>" class="copy"></a>
             </td>
 
             <td class="show-date"><?php echo date("n/j/y",$search['date']); ?></td>
