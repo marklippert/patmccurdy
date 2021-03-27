@@ -51,6 +51,14 @@ $lyric = $lyrics->fetch_array(MYSQLI_BOTH);
       </label>
     </div>
 
+    <label>Apple Music
+      <input type="text" name="apple" value="<?php echo $lyric['apple'] ?>">
+    </label>
+
+    <label>Amazon
+      <input type="text" name="amazon" value="<?php echo $lyric['amazon'] ?>">
+    </label>
+
     <?php if ($_GET['l'] != "holding") { ?>
     <input type="hidden" name="id" value="<?php echo $_GET['id'] ?>">
     <?php } ?>

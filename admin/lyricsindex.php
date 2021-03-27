@@ -48,6 +48,14 @@ include "header.php";
           </label>
         </div>
 
+        <label>Apple Music
+          <input type="text" name="apple">
+        </label>
+
+        <label>Amazon
+          <input type="text" name="amazon">
+        </label>
+
         <input type="submit" name="submit" value="Add">
       </div>
     </form>

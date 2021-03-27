@@ -34,6 +34,9 @@ function ListSongs($band = "", $album = 0, $order = "title") {
       echo ' <a href="guitar-tabs.php?' . $tab['id'] . '" title="Guitar Tabs" class="tab"></a>';
     }
 
+    if ($song['apple'] != "") echo '<a href="' . $song['apple'] . '" title="Buy on Apple Music" class="apple"></a>';
+    if ($song['amazon'] != "") echo '<a href="' . $song['amazon'] . '" title="Buy on Amazon" class="amazon"></a>';
+
     echo "<br>\n";
   }
 }
