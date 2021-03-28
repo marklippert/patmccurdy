@@ -13,8 +13,8 @@ if (!empty($songs) && $songs->num_rows > 0) {
 include "header.php";
 
 if (!empty($songs) && $songs->num_rows > 0) {
-  if ($song['amazon'] != "") echo '<a href="' . $song['amazon'] . '" title="Buy on Amazon" class="amazon"></a>';
-  if ($song['apple'] != "") echo '<a href="' . $song['apple'] . '" title="Buy on Apple Music" class="apple"></a>';
+  if ($song['amazon'] != "") echo '<a href="' . $song['amazon'] . '" title="Buy on Amazon" class="sl-amazon"></a>';
+  if ($song['apple'] != "") echo '<a href="' . $song['apple'] . '" title="Buy on Apple Music" class="sl-apple"></a>';
   
   $tabs = $mysqli->query("SELECT * FROM tabs WHERE title = \"" . ($song['title']) . "\"");
 
