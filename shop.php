@@ -27,80 +27,80 @@ All prices include shipping (unless otherwise indicated). Orders will be sent ou
 
 
     <h3>Shirts</h3>
-    All shirts are $15 unless otherwise indicated<br>
+    All shirts are $20 unless otherwise indicated<br>
     <br>
 
     <div class="shop-two-col">
       <div>
         <img src="images/shirt-sex-and-beer-green.png" alt="I Heart Sex & Beer">
         <div>
-          <label><strong>Quantity:</strong> <input type="number" pattern="[0-9]*" min="1" class="item" name="shirtGreenHeartSexBeerM" data-item="Green I Heart Sex & Beer shirt [M]" data-price="15"> M</label>
-          <label><strong>Quantity:</strong> <input type="number" pattern="[0-9]*" min="1" class="item" name="shirtGreenHeartSexBeerXL" data-item="Green I Heart Sex & Beer shirt [XL]" data-price="15"> XL</label>
-          <label><strong>Quantity:</strong> <input type="number" pattern="[0-9]*" min="1" class="item" name="shirtGreenHeartSexBeer2XL" data-item="Green I Heart Sex & Beer shirt [2XL]" data-price="15"> 2XL</label>
+          <label><strong>Quantity:</strong> <input type="number" pattern="[0-9]*" min="1" class="item" name="shirtGreenHeartSexBeerM" data-item="Green I Heart Sex & Beer shirt [M]" data-price="20"> M</label>
+          <label><strong>Quantity:</strong> <input type="number" pattern="[0-9]*" min="1" class="item" name="shirtGreenHeartSexBeerXL" data-item="Green I Heart Sex & Beer shirt [XL]" data-price="20"> XL</label>
+          <label><strong>Quantity:</strong> <input type="number" pattern="[0-9]*" min="1" class="item" name="shirtGreenHeartSexBeer2XL" data-item="Green I Heart Sex & Beer shirt [2XL]" data-price="20"> 2XL</label>
         </div>
       </div>
 
       <div>
         <img src="images/shirt-sex-and-beer-blue.png" alt="I Heart Sex & Beer">
         <div>
-          <label><strong>Quantity:</strong> <input type="number" pattern="[0-9]*" min="1" class="item" name="shirtBlueHeartSexBeerM" data-item="Blue I Heart Sex & Beer shirt [M]" data-price="15"> M</label>
-          <label><strong>Quantity:</strong> <input type="number" pattern="[0-9]*" min="1" class="item" name="shirtBlueHeartSexBeerXL" data-item="Blue I Heart Sex & Beer shirt [XL]" data-price="15"> XL</label>
-          <label><strong>Quantity:</strong> <input type="number" pattern="[0-9]*" min="1" class="item" name="shirtBlueHeartSexBeer2XL" data-item="Blue I Heart Sex & Beer shirt [2XL]" data-price="15"> 2XL</label>
+          <label><strong>Quantity:</strong> <input type="number" pattern="[0-9]*" min="1" class="item" name="shirtBlueHeartSexBeerM" data-item="Blue I Heart Sex & Beer shirt [M]" data-price="20"> M</label>
+          <label><strong>Quantity:</strong> <input type="number" pattern="[0-9]*" min="1" class="item" name="shirtBlueHeartSexBeerXL" data-item="Blue I Heart Sex & Beer shirt [XL]" data-price="20"> XL</label>
+          <label><strong>Quantity:</strong> <input type="number" pattern="[0-9]*" min="1" class="item" name="shirtBlueHeartSexBeer2XL" data-item="Blue I Heart Sex & Beer shirt [2XL]" data-price="20"> 2XL</label>
         </div>
       </div>
 
       <div>
         <img src="images/shirt-i-heart-sex-and-beer-red.png" alt="I Heart Sex & Beer">
         <div>
-          <label><strong>Quantity:</strong> <input type="number" pattern="[0-9]*" min="1" class="item" name="shirtRedHeartSexBeerM" data-item="Red I Heart Sex & Beer shirt [M]" data-price="15"> M</label>
-          <label><strong>Quantity:</strong> <input type="number" pattern="[0-9]*" min="1" class="item" name="shirtRedHeartSexBeerXL" data-item="Red I Heart Sex & Beer shirt [XL]" data-price="15"> XL</label>
-          <label><strong>Quantity:</strong> <input type="number" pattern="[0-9]*" min="1" class="item" name="shirtRedHeartSexBeer2XL" data-item="Red I Heart Sex & Beer shirt [2XL]" data-price="15"> 2XL</label>
+          <label><strong>Quantity:</strong> <input type="number" pattern="[0-9]*" min="1" class="item" name="shirtRedHeartSexBeerM" data-item="Red I Heart Sex & Beer shirt [M]" data-price="20"> M</label>
+          <label><strong>Quantity:</strong> <input type="number" pattern="[0-9]*" min="1" class="item" name="shirtRedHeartSexBeerXL" data-item="Red I Heart Sex & Beer shirt [XL]" data-price="20"> XL</label>
+          <label><strong>Quantity:</strong> <input type="number" pattern="[0-9]*" min="1" class="item" name="shirtRedHeartSexBeer2XL" data-item="Red I Heart Sex & Beer shirt [2XL]" data-price="20"> 2XL</label>
         </div>
       </div>
 
       <div>
         <img src="images/shirt-sex-and-beer-shamrock.png" alt="I Shamrock Sex & Beer">
         <div>
-          <label><strong>Quantity:</strong> <input type="number" pattern="[0-9]*" min="1" class="item" name="shirtShamrockSexBeerM" data-item="I Shamrock Sex & Beer shirt [M]" data-price="15"> M</label>
-          <label><strong>Quantity:</strong> <input type="number" pattern="[0-9]*" min="1" class="item" name="shirtShamrockSexBeerXL" data-item="I Shamrock Sex & Beer shirt [XL]" data-price="15"> XL</label>
-          <label><strong>Quantity:</strong> <input type="number" pattern="[0-9]*" min="1" class="item" name="shirtShamrockSexBeer2XL" data-item="I Shamrock Sex & Beer shirt [2XL]" data-price="15"> 2XL</label>
-          <label><strong>Quantity:</strong> <input type="number" pattern="[0-9]*" min="1" class="item" name="shirtShamrockSexBeer3XL" data-item="I Shamrock Sex & Beer shirt [3XL]" data-price="15"> 3XL</label>
+          <label><strong>Quantity:</strong> <input type="number" pattern="[0-9]*" min="1" class="item" name="shirtShamrockSexBeerM" data-item="I Shamrock Sex & Beer shirt [M]" data-price="20"> M</label>
+          <label><strong>Quantity:</strong> <input type="number" pattern="[0-9]*" min="1" class="item" name="shirtShamrockSexBeerXL" data-item="I Shamrock Sex & Beer shirt [XL]" data-price="20"> XL</label>
+          <label><strong>Quantity:</strong> <input type="number" pattern="[0-9]*" min="1" class="item" name="shirtShamrockSexBeer2XL" data-item="I Shamrock Sex & Beer shirt [2XL]" data-price="20"> 2XL</label>
+          <label><strong>Quantity:</strong> <input type="number" pattern="[0-9]*" min="1" class="item" name="shirtShamrockSexBeer3XL" data-item="I Shamrock Sex & Beer shirt [3XL]" data-price="20"> 3XL</label>
         </div>
       </div>
 
       <div>
         <img src="images/shirt-sex-and-beer-gray.png" alt="Sex & Beer">
         <div>
-          <label><strong>Quantity:</strong> <input type="number" pattern="[0-9]*" min="1" class="item" name="shirtGraySexBeerM" data-item="Gray Sex & Beer shirt [M]" data-price="15"> M</label>
-          <label><strong>Quantity:</strong> <input type="number" pattern="[0-9]*" min="1" class="item" name="shirtGraySexBeerXL" data-item="Gray Sex & Beer shirt [XL]" data-price="15"> XL</label>
-          <label><strong>Quantity:</strong> <input type="number" pattern="[0-9]*" min="1" class="item" name="shirtGraySexBeer2XL" data-item="Gray Sex & Beer shirt [2XL]" data-price="15"> 2XL</label>
+          <label><strong>Quantity:</strong> <input type="number" pattern="[0-9]*" min="1" class="item" name="shirtGraySexBeerM" data-item="Gray Sex & Beer shirt [M]" data-price="20"> M</label>
+          <label><strong>Quantity:</strong> <input type="number" pattern="[0-9]*" min="1" class="item" name="shirtGraySexBeerXL" data-item="Gray Sex & Beer shirt [XL]" data-price="20"> XL</label>
+          <label><strong>Quantity:</strong> <input type="number" pattern="[0-9]*" min="1" class="item" name="shirtGraySexBeer2XL" data-item="Gray Sex & Beer shirt [2XL]" data-price="20"> 2XL</label>
         </div>
       </div>
       
       <div>
         <img src="images/shirt-pat-mccurdy-is-my-best-friend.png" alt="Pat McCurdy Is My Best Friend">
         <div>
-          <label><strong>Quantity:</strong> <input type="number" pattern="[0-9]*" min="1" class="item" name="shirtBestFriendS" data-item="Pat McCurdy Is My Best Friend shirt [S]" data-price="15"> S</label>
-          <label><strong>Quantity:</strong> <input type="number" pattern="[0-9]*" min="1" class="item" name="shirtBestFriendM" data-item="Pat McCurdy Is My Best Friend shirt [M]" data-price="15"> M</label>
-          <label><strong>Quantity:</strong> <input type="number" pattern="[0-9]*" min="1" class="item" name="shirtBestFriendXL" data-item="Pat McCurdy Is My Best Friend shirt [XL]" data-price="15"> XL</label>
+          <label><strong>Quantity:</strong> <input type="number" pattern="[0-9]*" min="1" class="item" name="shirtBestFriendS" data-item="Pat McCurdy Is My Best Friend shirt [S]" data-price="20"> S</label>
+          <label><strong>Quantity:</strong> <input type="number" pattern="[0-9]*" min="1" class="item" name="shirtBestFriendM" data-item="Pat McCurdy Is My Best Friend shirt [M]" data-price="20"> M</label>
+          <label><strong>Quantity:</strong> <input type="number" pattern="[0-9]*" min="1" class="item" name="shirtBestFriendXL" data-item="Pat McCurdy Is My Best Friend shirt [XL]" data-price="20"> XL</label>
         </div>
       </div>
 
       <div>
         <img src="images/shirt-monkey-paw.png" alt="I Wish I Had A Monkey Paw">
         <div>
-          <label><strong>Quantity:</strong> <input type="number" pattern="[0-9]*" min="1" class="item" name="shirtMonkeyPawM" data-item="I Wish I Had A Monkey Paw shirt [M]" data-price="15"> M</label>
-          <label><strong>Quantity:</strong> <input type="number" pattern="[0-9]*" min="1" class="item" name="shirtMonkeyPawXL" data-item="I Wish I Had A Monkey Paw shirt [XL]" data-price="15"> XL</label>
-          <label><strong>Quantity:</strong> <input type="number" pattern="[0-9]*" min="1" class="item" name="shirtMonkeyPaw2XL" data-item="I Wish I Had A Monkey Paw shirt [2XL]" data-price="15"> 2XL</label>
+          <label><strong>Quantity:</strong> <input type="number" pattern="[0-9]*" min="1" class="item" name="shirtMonkeyPawM" data-item="I Wish I Had A Monkey Paw shirt [M]" data-price="20"> M</label>
+          <label><strong>Quantity:</strong> <input type="number" pattern="[0-9]*" min="1" class="item" name="shirtMonkeyPawXL" data-item="I Wish I Had A Monkey Paw shirt [XL]" data-price="20"> XL</label>
+          <label><strong>Quantity:</strong> <input type="number" pattern="[0-9]*" min="1" class="item" name="shirtMonkeyPaw2XL" data-item="I Wish I Had A Monkey Paw shirt [2XL]" data-price="20"> 2XL</label>
         </div>
       </div>
 
       <div>
         <img src="images/shirt-hey-paddy.png" alt="Hey Paddy! Play A Song For Me">
         <div>
-          <label><strong>Quantity:</strong> <input type="number" pattern="[0-9]*" min="1" class="item" name="shirtHeyPaddyM" data-item="Hey Paddy! Play A Song For Me shirt [M]" data-price="15"> M</label>
-          <label><strong>Quantity:</strong> <input type="number" pattern="[0-9]*" min="1" class="item" name="shirtHeyPaddyXL" data-item="Hey Paddy! Play A Song For Me shirt [XL]" data-price="15"> XL</label>
-          <label><strong>Quantity:</strong> <input type="number" pattern="[0-9]*" min="1" class="item" name="shirtHeyPaddy2XL" data-item="Hey Paddy! Play A Song For Me shirt [2XL]" data-price="15"> 2XL</label>
+          <label><strong>Quantity:</strong> <input type="number" pattern="[0-9]*" min="1" class="item" name="shirtHeyPaddyM" data-item="Hey Paddy! Play A Song For Me shirt [M]" data-price="20"> M</label>
+          <label><strong>Quantity:</strong> <input type="number" pattern="[0-9]*" min="1" class="item" name="shirtHeyPaddyXL" data-item="Hey Paddy! Play A Song For Me shirt [XL]" data-price="20"> XL</label>
+          <label><strong>Quantity:</strong> <input type="number" pattern="[0-9]*" min="1" class="item" name="shirtHeyPaddy2XL" data-item="Hey Paddy! Play A Song For Me shirt [2XL]" data-price="20"> 2XL</label>
         </div>
       </div>
 
@@ -108,16 +108,16 @@ All prices include shipping (unless otherwise indicated). Orders will be sent ou
         <img src="images/shirt-sex-and-beer-womans.png" alt="Women's Sex & Beer">
         <div>
           Women's Tee<br>
-          <label><strong>Quantity:</strong> <input type="number" pattern="[0-9]*" min="1" class="item" name="shirtWomensSexBeerM" data-item="Womens Sex & Beer shirt [M]" data-price="15"> M</label>
-          <label><strong>Quantity:</strong> <input type="number" pattern="[0-9]*" min="1" class="item" name="shirtWomensSexBeerL" data-item="Womens Sex & Beer shirt [L]" data-price="15"> L</label>
-          <label><strong>Quantity:</strong> <input type="number" pattern="[0-9]*" min="1" class="item" name="shirtWomensSexBeerXL" data-item="Womens Sex & Beer shirt [XL]" data-price="15"> XL</label>
+          <label><strong>Quantity:</strong> <input type="number" pattern="[0-9]*" min="1" class="item" name="shirtWomensSexBeerM" data-item="Womens Sex & Beer shirt [M]" data-price="20"> M</label>
+          <label><strong>Quantity:</strong> <input type="number" pattern="[0-9]*" min="1" class="item" name="shirtWomensSexBeerL" data-item="Womens Sex & Beer shirt [L]" data-price="20"> L</label>
+          <label><strong>Quantity:</strong> <input type="number" pattern="[0-9]*" min="1" class="item" name="shirtWomensSexBeerXL" data-item="Womens Sex & Beer shirt [XL]" data-price="20"> XL</label>
         </div>
       </div>
 
       <div>
         <img src="images/shirt-sex-and-beer-womans-tank.png" alt="Women's Sex & Beer Tank">
         <div>
-          Women's Tank $20<br>
+          Women's Tank<br>
           <label><strong>Quantity:</strong> <input type="number" pattern="[0-9]*" min="1" class="item" name="shirtWomensSexBeerTankM" data-item="Womens Sex & Beer tank [M]" data-price="20"> M</label>
           <label><strong>Quantity:</strong> <input type="number" pattern="[0-9]*" min="1" class="item" name="shirtWomensSexBeerTankL" data-item="Womens Sex & Beer tank [L]" data-price="20"> L</label>
         </div>
