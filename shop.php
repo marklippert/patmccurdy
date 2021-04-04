@@ -32,6 +32,32 @@ All prices include shipping (unless otherwise indicated). Orders will be sent ou
 
     <div class="shop-two-col">
       <div>
+        <img src="images/shirt-nude-party.png" alt="Let's Have A Nude Party!">
+      </div>
+
+      <div class="two-col-sizes">
+        <h4>Let's Have A Nude Party! Shirt</h4>
+        <div>
+          <strong>Men's</strong>
+          <label><strong>Qty:</strong> <input type="number" pattern="[0-9]*" min="1" class="item" name="shirtNudePartyS" data-item="Nude Party shirt [S]" data-price="20"> S</label>
+          <label><strong>Qty:</strong> <input type="number" pattern="[0-9]*" min="1" class="item" name="shirtNudePartyM" data-item="Nude Party shirt [M]" data-price="20"> M</label>
+          <label><strong>Qty:</strong> <input type="number" pattern="[0-9]*" min="1" class="item" name="shirtNudePartyL" data-item="Nude Party shirt [L]" data-price="20"> L</label>
+          <label><strong>Qty:</strong> <input type="number" pattern="[0-9]*" min="1" class="item" name="shirtNudePartyXL" data-item="Nude Party shirt [XL]" data-price="20"> XL</label>
+          <label><strong>Qty:</strong> <input type="number" pattern="[0-9]*" min="1" class="item" name="shirtNudeParty2XL" data-item="Nude Party shirt [2XL]" data-price="20"> 2XL</label>
+          <label><strong>Qty:</strong> <input type="number" pattern="[0-9]*" min="1" class="item" name="shirtNudeParty3XL" data-item="Nude Party shirt [3XL]" data-price="20"> 3XL</label>
+          <label><strong>Qty:</strong> <input type="number" pattern="[0-9]*" min="1" class="item" name="shirtNudeParty4XL" data-item="Nude Party shirt [4XL]" data-price="20"> 4XL</label>
+        </div>
+        <div>
+          <strong>Women's</strong>
+          <label><strong>Qty:</strong> <input type="number" pattern="[0-9]*" min="1" class="item" name="shirtWomansNudePartyS" data-item="Woman's Nude Party shirt [S]" data-price="20"> S</label>
+          <label><strong>Qty:</strong> <input type="number" pattern="[0-9]*" min="1" class="item" name="shirtWomansNudePartyM" data-item="Woman's Nude Party shirt [M]" data-price="20"> M</label>
+          <label><strong>Qty:</strong> <input type="number" pattern="[0-9]*" min="1" class="item" name="shirtWomansNudePartyL" data-item="Woman's Nude Party shirt [L]" data-price="20"> L</label>
+          <label><strong>Qty:</strong> <input type="number" pattern="[0-9]*" min="1" class="item" name="shirtWomansNudePartyXL" data-item="Woman's Nude Party shirt [XL]" data-price="20"> XL</label>
+          <label><strong>Qty:</strong> <input type="number" pattern="[0-9]*" min="1" class="item" name="shirtWomansNudeParty2XL" data-item="Woman's Nude Party shirt [2XL]" data-price="20"> 2XL</label>
+        </div>
+      </div>
+
+      <div>
         <img src="images/shirt-sex-and-beer-green.png" alt="I Heart Sex & Beer">
         <div>
           <label><strong>Quantity:</strong> <input type="number" pattern="[0-9]*" min="1" class="item" name="shirtGreenHeartSexBeerM" data-item="Green I Heart Sex & Beer shirt [M]" data-price="20"> M</label>

@@ -651,6 +651,8 @@ INPUT[type="submit"]:hover { background: #5E5C5C; }
 .shop-two-col > DIV > DIV.shop-cd { display: block; }
 .shop-two-col > DIV > DIV.shop-cd-two-col { display: flex; justify-content: space-between; flex-wrap: wrap; }
 
+.shop-two-col > DIV.two-col-sizes { display: flex; justify-content: space-around; flex-wrap: wrap; align-items: flex-start; }
+
 #pmshop .checkout-two-col { display: flex; justify-content: space-between; flex-wrap: wrap; }
 #pmshop .checkout-two-col > DIV,
 #pmshop .checkout-two-col LABEL { width: 48%; margin-bottom: 1.5em; }
