@@ -18,7 +18,7 @@ include "header.php";
 function ListSongs($band = "", $album = 0, $order = "title") {
   global $mysqli;
 
-  $bandwhere = ($band != "") ? " AND band = '".$band."' " : "";
+  $bandwhere = ($band != "") ? " AND band = '".$band."' " : " AND band = ''";
 
   $songs = $mysqli->query("SELECT * FROM lyrics WHERE album = ".$album." ".$bandwhere." ORDER BY ".$order." ASC");
 
