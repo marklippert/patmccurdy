@@ -112,8 +112,9 @@ HEADER .site-width {
 #menu LI:hover A, #menu LI:hover UL LI A:hover { color: #FF0000; }
 
 #menu LI UL {
+  display: none;
   position: absolute;
-  top: -999999999px;
+  top: 100%;
   left: 1.75em;
   z-index: 10;
   margin: 0;
@@ -124,9 +125,10 @@ HEADER .site-width {
   font-family: Arial, Helvetica, sans-serif;
   font-size: 70%;
   line-height: 1;
+  flex-direction: column;
 }
 
-#menu LI:hover UL { top: 100%; }
+#menu LI:hover UL { display: flex; }
 
 #menu LI UL LI A {
   display: block;
@@ -812,6 +814,7 @@ INPUT[type="submit"]:hover { background: #5E5C5C; }
   #menu > LI > A { display: block; padding: 0.2em 0.6em; }
 
   #menu LI UL {
+    display: block;
     position: static;
     margin: 0;
     padding: 0;
