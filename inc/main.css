@@ -900,13 +900,13 @@ INPUT[type="submit"]:hover { background: #5E5C5C; }
 
   A:link, A:visited { color: #000000; }
 
-  HEADER, FOOTER, #content H1, #schedule-header, #weekdays { display: none; }
+  HEADER, FOOTER, #content H1, #schedule-header, #weekdays, #import { display: none; }
 
   #content { border-top: 0; background: transparent; width: 100%; padding: 0; }
 
   #schedule TABLE { width: 10in; height: 7.5in; margin: 0 auto; }
 
-  #schedule TD { font-size: 11pt; }
+  #schedule TD { font-size: 11pt; border-width: 1px; }
   
   #schedule TD.blank { position: relative; }
   #schedule TD.blank > DIV {
