@@ -7,43 +7,25 @@ For bookings, contact Brian "Murf" Murphy by emailing <?php echo email("fatmurf@
 <br>
 
 <h5>Biography</h5>
-Pat McCurdy is a cabaret singer/songwriter from Milwaukee, Wisconsin. He regularly tours the upper midwestern part of the United States with regular stops in Milwaukee, Madison, Chicago, Green Bay, and Minneapolis. His shows usually consist of just him and his guitar and include improvised interaction with the audience. While the majority of his audience is made up of a college-age crowd, McCurdy appeals to a large number of people of all ages. Performing well over 300 shows a year, his large catalog of original songs (over 600 and growing) covers a variety of topics such as lost loves, politics, family vacations, and how the world can't live without Sex &amp; Beer.<br>
+Milwaukee icon Pat McCurdy has been entertaining audiences in Wisconsin, the Midwest, and across the nation for decades. He brings his unique style of improvisational comedy, music and audience interaction to venues large and small. Pat consistently fills up venues and festivals with his fans, known as "Patheads. They are very enthusiastic, and many know every word of his songs. "Patheads" are fans that have seen him dozens of times, singing and dancing along to every song. It's a fun show for all.<br>
 <br>
 
-<!-- <strong>Low resolution images for the web</strong><br>
-<a href="mediakit/pat-mccurdy-bw1.jpg"><img src="mediakit/pat-mccurdy-bw1.jpg" alt="" style="height: 200px; margin: 0 10px 10px 0;"></a>
-<a href="mediakit/pat-mccurdy-bw2.jpg"><img src="mediakit/pat-mccurdy-bw2.jpg" alt="" style="height: 200px; margin: 0 10px 10px 0;"></a>
-<a href="mediakit/pat-mccurdy-color.jpg"><img src="mediakit/pat-mccurdy-color.jpg" alt="" style="height: 200px; margin: 0 10px 10px 0;"></a>
-<a href="mediakit/pat-mccurdy-double-bw.jpg"><img src="mediakit/pat-mccurdy-double-bw.jpg" alt="" style="height: 200px; margin: 0 10px 10px 0;"></a>
-<a href="mediakit/pat-promo-hand.jpg"><img src="mediakit/pat-promo-hand.jpg" alt="" style="height: 200px; margin: 0 10px 10px 0;"></a><br>
+Pat did not let the pandemic slow him down. In March 2020, Pat began his weekly virtual "Shelter in Place" shows from his living room and garage. Fans wrote in requests, birthday greetings, and anniversary acknowledgements to keep the shows interactive. Pat's Shelter in Place shows have been seen by nearly one million viewers from as far away as Paris, the UK and Australia. The pandemic inspired Pat to write a new song every week. He put these all together in his latest CD, <em>Now is Not the Time for Sad Songs: A Pandemic 2020 Souvenir</em>. The CD hit #1 on the Worldwide Radio Indie Alliance Album of the Year charts.<br>
 <br>
 
-<strong>High resolution images for printing</strong><br>
-<div class="one-third-left centered">
-  <a href="mediakit/poster-8.5x11.jpg"><img src="mediakit/poster-8.5x11-small.jpg" alt="8.5 x 11 poster"><br>
-  8.5 x 11 poster</a><br>
-  <br>
-</div>
+For fans far and wide, Pat will continue his virtual show once a month until the end of his career. Pat can be seen all over Wisconsin and the Midwest for live shows year around throughout 2021 and beyond. Grab your favorite beverage and have fun with Pat and Sex and Beer!<br>
+<br>
 
-<div class="two-third-right centered">
-  <a href="mediakit/poster-11x17.jpg"><img src="mediakit/poster-11x17-small.jpg" alt="11 x 17 poster"><br> 
-  11 x 17 poster</a><br>
-  <br>
-</div>
-
-<div style="clear: both;"></div>
-
-<div class="one-third-left centered">
-  <a href="mediakit/photo-8x10.jpg"><img src="mediakit/photo-8x10-small.jpg" alt="8 x 10 photo"><br>
-  8 x 10 photo</a><br>
-  <br>
-</div>
-
-<div style="clear: both;"></div> -->
+Visit the <a href="press.php">Press</a> page for articles, reviews and further information about Pat.<br>
+<br>
 
 Audio available upon request.<br>
 <br>
 
-Visit the <a href="press.php">Press</a> page for articles, reviews and further information about Pat.
+<h5>Images</h5>
+<img src="images/Pat-McCurdy-hand.jpg" alt=""><br>
+<img src="images/Pat-McCurdy-white-brick.jpg" alt=""><br>
+<img src="images/Pat-McCurdy-lights.jpg" alt=""><br>
+<img src="images/Pat-McCurdy-stripes.jpg" alt="">
 
 <?php include "footer.php"; ?>
