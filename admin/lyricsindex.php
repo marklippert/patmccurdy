@@ -34,7 +34,7 @@ include "header.php";
         
         <div class="admin-two-col flex">
           <label>Track #
-            <input type="text" name="album_track">
+            <input type="text" name="album_track" value="0">
           </label>
 
           <label>Band
