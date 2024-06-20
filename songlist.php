@@ -3,6 +3,7 @@ include "inc/dbconfig.php";
 $ContentClass = "songlist";
 $Sidebar = "no";
 $PageTitle = "The Big Ass Song List";
+$Description = "A large list of Pat's songs with links to lyrics and guitar tabs.";
 include "header.php";
 ?>
 
@@ -89,6 +90,11 @@ while($album = $albums->fetch_array(MYSQLI_ASSOC)) {
 <h3>Yipes!</h3>
 <div class="songlist-twocol">
   <?php ListSongs("Yipes!"); ?>
+</div>
+
+<h3>Slick</h3>
+<div class="songlist-twocol">
+  <?php ListSongs("Slick"); ?>
 </div>
 
 <?php include "footer.php"; ?>

@@ -13,11 +13,18 @@ $RSSFeed = "<?xml version='1.0'?>
     <link>https://patmccurdy.com</link>
   </image>\n";
 
-$iCal = "BEGIN:VCALENDAR\r\nPRODID:-//Apple Computer\, Inc//iCal 2.0//EN\r\nVERSION:2.0\r\nMETHOD:PUBLISH\r\nX-WR-CALNAME:Pat McCurdy's Schedule\r\nX-WR-TIMEZONE;VALUE=TEXT:US/Central\r\n";
+$iCal = "BEGIN:VCALENDAR\r\nVERSION:2.0\r\nPRODID:-//Apple Computer\, Inc//iCal 2.0//EN\r\nMETHOD:PUBLISH\r\nX-WR-CALNAME:Pat McCurdy's Schedule\r\nNAME:Pat McCurdy's Schedule\r\n";
+
+$iCal .= "BEGIN:VTIMEZONE\r\nTZID:America/Chicago\r\nLAST-MODIFIED:20201011T015911Z\r\nX-LIC-LOCATION:America/Chicago\r\nBEGIN:DAYLIGHT\r\nTZNAME:CDT\r\nTZOFFSETFROM:-0600\r\nTZOFFSETTO:-0500\r\nDTSTART:19700308T020000\r\nRRULE:FREQ=YEARLY;BYMONTH=3;BYDAY=2SU\r\nEND:DAYLIGHT\r\nBEGIN:STANDARD\r\nTZNAME:CST\r\nTZOFFSETFROM:-0500\r\nTZOFFSETTO:-0600\r\nDTSTART:19701101T020000\r\nRRULE:FREQ=YEARLY;BYMONTH=11;BYDAY=1SU\r\nEND:STANDARD\r\nEND:VTIMEZONE\r\n";
+
+$epoch = time();
 
 $rss = $mysqli->query("SELECT * FROM schedule WHERE date >= '".time()."' ORDER BY date ASC");
 
 while($row = $rss->fetch_array(MYSQLI_ASSOC)) {
+  $idtstamp = date("Ymd\THis", $epoch);
+  $iuid = time()."-".$row['id']."@patmccurdy.com";
+
   $idate = ";VALUE=DATE:" . date("Ymd", $row['date']);
   $idateend = ";VALUE=DATE:" . date("Ymd", $row['date']+86400);
 
@@ -33,7 +40,7 @@ while($row = $rss->fetch_array(MYSQLI_ASSOC)) {
     if ($row['location'] != "") {
       $title .= " - " . $row['location'];
       $event .= "<br>" . $row['location'];
-      $iloc = strip_tags(str_replace(",", "\,", $row['location']));
+      $iloc = "LOCATION:".strip_tags(str_replace(",", "\,", $row['location']))."\r\n";
     } else {
       $iloc = "";
     }
@@ -42,25 +49,31 @@ while($row = $rss->fetch_array(MYSQLI_ASSOC)) {
       if ($row['date'] > strtotime(date("n/j/Y", $row['date']))) {
         $title .= " - " . date("g:ia", $row['date']);
         $event .= "<br>" . date("g:ia", $row['date']);
-        $idate = ";TZID=US/Central:" . date("Ymd\THis", $row['date']);
-        $idateend = ";TZID=US/Central:" . date("Ymd\THis", $row['date']+7200);
+        $idate = ";TZID=America/Chicago:" . date("Ymd\THis", $row['date']);
+        $idateend = ";TZID=America/Chicago:" . date("Ymd\THis", $row['date']+9000);
       }
     }
 
     $idesc = "";
-    if ($row['stage'] != "" || $row['additional'] != "") $idesc .= "\r\nDESCRIPTION:";
+    if ($row['url'] != "" || $row['stage'] != "" || $row['additional'] != "") $idesc .= "DESCRIPTION:";
+
+    if ($row['url'] != "") $idesc .= $row['url'];
+
+    if ($row['url'] != "" && ($row['stage'] != "" || $row['additional'] != "")) $idesc .= "\\n\\n";
 
     if ($row['stage'] != "") {
       $event .= "<br>" . $row['stage'];
       $idesc .= $row['stage'];
     }
 
-    if ($row['stage'] != "" && $row['additional'] != "") $idesc .= "\\n";
+    if ($row['stage'] != "" && $row['additional'] != "") $idesc .= "\\n\\n";
 
     if ($row['additional'] != "") {
       $event .= "<br>" . $row['additional'];
       $idesc .= $row['additional'];
     }
+
+    if ($row['url'] != "" || $row['stage'] != "" || $row['additional'] != "") $idesc .= "\r\n";
   } else {
     $event = str_replace("\n", "<br>", $row['event']);
     $title = strip_tags(str_replace("<br>", " - ", $event));
@@ -93,7 +106,7 @@ while($row = $rss->fetch_array(MYSQLI_ASSOC)) {
     <pubDate>" . date("r", $row['date']) . "</pubDate>
   </item>\n";
 
-  $iCal .= "BEGIN:VEVENT\r\nDTSTART$idate\r\nDTEND$idateend\r\nSUMMARY:$isum\r\nLOCATION:$iloc" . $idesc . "\r\nEND:VEVENT\r\n";
+  $iCal .= "BEGIN:VEVENT\r\nDTSTAMP:$idtstamp\r\nUID:$iuid\r\nDTSTART$idate\r\nDTEND$idateend\r\nSUMMARY:$isum\r\n" . $iloc . $idesc . "TRANSP:TRANSPARENT\r\nEND:VEVENT\r\n";
 }
 
 $RSSFeed .= "</channel>\n</rss>";

@@ -32,13 +32,14 @@ if ($start_blanks > $end_blanks || $start_blanks == $end_blanks || $end_blanks =
 
 $Sidebar = "no";
 $PageTitle = $title;
+$Description = "Come out and see Pat play! Schedule updates regularly, so check back often.";
 include "header.php";
 ?>
 
 <div id="schedule">
   <div id="schedule-header">
-    <a href="schedule.php?<?php echo date("Ym", $lastmonth); ?>">&laquo; <?php echo date("F", $lastmonth); ?></a>
-    <a href="schedule.php?<?php echo date("Ym", $nextmonth); ?>"><?php echo date("F", $nextmonth); ?> &raquo;</a>
+    <a href="schedule.php?<?php echo date("Ym", $lastmonth); ?>" rel="nofollow">&laquo; <?php echo date("F", $lastmonth); ?></a>
+    <a href="schedule.php?<?php echo date("Ym", $nextmonth); ?>" rel="nofollow"><?php echo date("F", $nextmonth); ?> &raquo;</a>
   </div> <!-- /#schedule-header -->
   
   <table>

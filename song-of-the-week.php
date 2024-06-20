@@ -1,8 +1,10 @@
 <?php
 $PageTitle = "Song of the Week";
+$Description = "A weekly sampling of one of Pat McCurdy's songs usually not available on any of his CDs.";
 include "header.php";
 ?>
 
+<script type="text/javascript" src="inc/jquery-3.5.1.min.js"></script>
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/plyr/3.6.2/plyr.min.js"></script>
 <link rel="stylesheet" href="https://cdn.plyr.io/3.6.3/plyr.css" />
 <script type="text/javascript">

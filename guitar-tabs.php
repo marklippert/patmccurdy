@@ -1,6 +1,7 @@
 <?php
 include "inc/dbconfig.php";
 $PageTitle = "Guitar Tabs";
+$Description = "Learn to play many of Pat's songs.";
 
 if ($_SERVER['QUERY_STRING'] != "") {
   $tabs = $mysqli->query("SELECT * FROM tabs WHERE id ='" . $_SERVER['QUERY_STRING'] . "'");

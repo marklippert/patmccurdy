@@ -1,5 +1,6 @@
 <?php
 $PageTitle = "Contact";
+$Description = "For bookings and other business related matters, please contact Brian 'Murf' Murphy.";
 include "header.php";
 ?>
 

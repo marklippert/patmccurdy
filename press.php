@@ -12,6 +12,7 @@ if ($_SERVER['QUERY_STRING'] != "") {
 $PageTitle = "Press" . $Title;
 $HeaderTitle = ltrim($Title, " | ");
 if (strlen($HeaderTitle) > 69) list($HeaderTitle, $junk) = explode(" (", $HeaderTitle);
+$Description = ($_SERVER['QUERY_STRING'] == "") ? "A collection of news articles written about Pat throughout the years." : "";
 include "header.php";
 
 if ($_SERVER['QUERY_STRING'] != "") {

@@ -44,6 +44,7 @@ include "header.php";
               <option value="Mankind">Mankind</option>
               <option value="Men About Town">Men About Town</option>
               <option value="Yipes!">Yipes!</option>
+              <option value="Slick">Slick</option>
             </select>
           </label>
         </div>

@@ -47,6 +47,7 @@ $lyric = $lyrics->fetch_array(MYSQLI_BOTH);
           <option value="Mankind"<?php if ($lyric['band'] == "Mankind") echo " selected"; ?>>Mankind</option>
           <option value="Men About Town"<?php if ($lyric['band'] == "Men About Town") echo " selected"; ?>>Men About Town</option>
           <option value="Yipes!"<?php if ($lyric['band'] == "Yipes!") echo " selected"; ?>>Yipes!</option>
+          <option value="Slick"<?php if ($lyric['band'] == "Slick") echo " selected"; ?>>Slick</option>
         </select>
       </label>
     </div>

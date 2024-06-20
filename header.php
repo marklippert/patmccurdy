@@ -18,7 +18,15 @@ function email($address, $name="") {
     <link rel="shortcut icon" type="image/x-icon" href="images/favicon.ico">
     <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
 
-    <meta name="description" content="">
+    <meta name="description" content="<?php echo (isset($Description)) ? $Description : "Singer, guitar player and prodigious songwriter from Milwaukee, Wisconsin, regularly touring the upper Midwest."; ?>">
+    <meta property="og:title" content="Pat McCurdy" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://patmccurdy.com" />
+    <meta property="og:image" content="https://patmccurdy.com/images/Pat-McCurdy-hand.jpg" />
+    <meta property="og:description" content="Singer, guitar player and prodigious songwriter from Milwaukee, Wisconsin, regularly touring the upper Midwest." />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@PatMcCurdy" />
+    <meta name="twitter:title" content="Pat McCurdy" />
 
     <link rel="alternate" type="application/rss+xml" href="rss.xml" title="Pat McCurdy RSS Feed">
     <link rel="alternate" type="application/rss+xml" href="schedule.xml" title="Pat McCurdy's Schedule">
@@ -26,28 +34,20 @@ function email($address, $name="") {
 
     <link rel="stylesheet" href="inc/main.css?<?php echo filemtime('inc/main.css'); ?>">
 
-    <script type="text/javascript" src="inc/jquery-3.5.1.min.js"></script>
-    <script type="text/javascript">
-      $(document).ready(function() {
-        $("a[href^='http']").not("[href*='" + window.location.host + "']").prop('target','new');
-        $("a[href$='.pdf']").prop('target', 'new');
-      });
-    </script>
-
     <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-9892672-2"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-L7R7HCEPCZ"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
-      gtag('config', 'UA-9892672-2');
+      gtag('config', 'G-L7R7HCEPCZ');
     </script>
   </head>
-  <body>
+  <body<?php if (isset($BodyClass)) echo ' class="'.$BodyClass.'"'; ?>>
 
     <header<?php if (!isset($PageTitle)) echo ' class="home-header"'; ?>>
       <div class="site-width">
-        <a href="."><img src="images/logo.png" alt="" id="logo"></a>
+        <a href="." aria-label="Home"><img src="images/logo.webp" alt="" width="400" height="351" id="logo"></a>
 
         <input type="checkbox" id="toggle-menu" role="button">
         <label for="toggle-menu"><div></div></label>

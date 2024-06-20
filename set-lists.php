@@ -1,6 +1,7 @@
 <?php
 include "inc/dbconfig.php";
 $PageTitle = "Set Lists";
+$Description = "Want to know what was played on July 10, 1994? Find out here.";
 
 if ($_SERVER['QUERY_STRING'] != "" && !isset($_REQUEST['search'])) {
   $setlists = $mysqli->query("SELECT * FROM setlists WHERE id ='" . $_SERVER['QUERY_STRING'] . "'");

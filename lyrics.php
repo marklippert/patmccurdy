@@ -1,5 +1,6 @@
 <?php
 $PageTitle = "Lyrics";
+$Description = "The lyrics to just about every song Pat has written.";
 include "header.php";
 
 $total = $mysqli->query("SELECT * FROM lyrics");

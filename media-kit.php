@@ -1,5 +1,6 @@
 <?php
 $PageTitle = "Media Kit";
+$Description = "If Pat is playing at your venue, feel free to use any of the material on this page to promote the show.";
 include "header.php";
 ?>
 

@@ -7,9 +7,12 @@ include "header.php";
 $ip = $_SERVER['REMOTE_ADDR'];
 $timestamp = time();
 $salt = "Lippert";
-?>
 
-<?php
+function gremlins($s) { 
+  $s = str_replace(array("‘", "’", "`", '“', '”'),array("'", "'", "'", '"', '"'),$s); 
+  return $s;
+}
+
 if (isset($_POST['submit']) && $_POST['confirmationCAP'] == "") {
   if (
       $_POST[md5('month' . $_POST['ip'] . $salt . $_POST['timestamp'])] != "" &&
@@ -21,21 +24,24 @@ if (isset($_POST['submit']) && $_POST['confirmationCAP'] == "") {
     $date = date("Ymd", strtotime($_POST[md5('month' . $_POST['ip'] . $salt . $_POST['timestamp'])] . "/" . $_POST[md5('day' . $_POST['ip'] . $salt . $_POST['timestamp'])] . "/" . $_POST[md5('year' . $_POST['ip'] . $salt . $_POST['timestamp'])]));
     
     // Insert into database
-    $mysqli->query("INSERT INTO setlists (date,venue,city,state,set1,set2,set3,approved) VALUES (
-      '" . $date . "',
-      '" . $mysqli->real_escape_string($_POST[md5('venue' . $_POST['ip'] . $salt . $_POST['timestamp'])]) . "',
-      '" . $mysqli->real_escape_string($_POST[md5('city' . $_POST['ip'] . $salt . $_POST['timestamp'])]) . "',
-      '" . $mysqli->real_escape_string($_POST[md5('state' . $_POST['ip'] . $salt . $_POST['timestamp'])]) . "',
-      '" . $mysqli->real_escape_string($_POST[md5('set1' . $_POST['ip'] . $salt . $_POST['timestamp'])]) . "',
-      '" . $mysqli->real_escape_string($_POST[md5('set2' . $_POST['ip'] . $salt . $_POST['timestamp'])]) . "',
-      '" . $mysqli->real_escape_string($_POST[md5('set3' . $_POST['ip'] . $salt . $_POST['timestamp'])]) . "',
-      '')"
-    );
-    
+    $sql = "INSERT INTO setlists (date, venue, city, state, set1, set2, set3, approved) VALUES (?,?,?,?,?,?,?,?)";
+    $array = [
+      $date,
+      gremlins($_POST[md5('venue' . $_POST['ip'] . $salt . $_POST['timestamp'])]),
+      gremlins($_POST[md5('city' . $_POST['ip'] . $salt . $_POST['timestamp'])]),
+      gremlins($_POST[md5('state' . $_POST['ip'] . $salt . $_POST['timestamp'])]),
+      gremlins($_POST[md5('set1' . $_POST['ip'] . $salt . $_POST['timestamp'])]),
+      gremlins($_POST[md5('set2' . $_POST['ip'] . $salt . $_POST['timestamp'])]),
+      gremlins($_POST[md5('set3' . $_POST['ip'] . $salt . $_POST['timestamp'])]),
+      ""
+    ];
+
+    $mysqli->execute_query($sql, $array);
+
     // Notify me
-    $Message = 'Set List submitted for ' . $_POST[md5('month' . $_POST['ip'] . $salt . $_POST['timestamp'])] . "/" . $_POST[md5('day' . $_POST['ip'] . $salt . $_POST['timestamp'])] . "/" . $_POST[md5('year' . $_POST['ip'] . $salt . $_POST['timestamp'])];
-    mail("webmaster@patmccurdy.com", "Set List Submitted", "Set List submitted for \"" . $_POST[md5('month' . $_POST['ip'] . $salt . $_POST['timestamp'])] . "/" . $_POST[md5('day' . $_POST['ip'] . $salt . $_POST['timestamp'])] . "/" . $_POST[md5('year' . $_POST['ip'] . $salt . $_POST['timestamp'])] . "\"", "From: donotreply@patmccurdy.com");
-    
+    $Message = 'Set List submitted for '.$date;
+    mail("webmaster@patmccurdy.com", "Set List Submitted", "Set List submitted for ".date("m/d/Y", strtotime($date)), "From: donotreply@patmccurdy.com");
+
     // Thank the submitter
     echo "<h2>Thanks for your set list addition</h2>
     However, thanks to spammers, your addition will have to be approved by the webmaster before it is displayed here.  He has been notified and it should show up soon (assuming you're not some scumbag posting crap).  Have a nice day.<br>
