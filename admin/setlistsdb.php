@@ -1,11 +1,6 @@
 <?php
 include("../inc/dbconfig.php");
 
-function gremlins($s) { 
-  $s = str_replace(array("‘", "’", "`", '“', '”'),array("'", "'", "'", '"', '"'),$s); 
-  return $s;
-}
-
 if ($_GET['a'] == "add" || $_GET['a'] == "edit") {
   $approved = (isset($row['approved'])) ? "on" : "";
   $array = [date("Ymd", strtotime($_POST['date'])), gremlins($_POST['venue']), gremlins($_POST['city']), gremlins($_POST['state']), gremlins($_POST['set1']), gremlins($_POST['set2']), gremlins($_POST['set3']), $approved];

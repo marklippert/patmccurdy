@@ -8,11 +8,6 @@ $ip = $_SERVER['REMOTE_ADDR'];
 $timestamp = time();
 $salt = "Lippert";
 
-function gremlins($s) { 
-  $s = str_replace(array("‘", "’", "`", '“', '”'),array("'", "'", "'", '"', '"'),$s); 
-  return $s;
-}
-
 if (isset($_POST['submit']) && $_POST['confirmationCAP'] == "") {
   if (
       $_POST[md5('month' . $_POST['ip'] . $salt . $_POST['timestamp'])] != "" &&
