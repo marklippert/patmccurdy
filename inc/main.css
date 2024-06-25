@@ -542,6 +542,7 @@ INPUT[type="text"],
 INPUT[type="number"],
 INPUT[type="email"],
 INPUT[type="password"],
+INPUT[type="date"],
 TEXTAREA,
 SELECT {
   width: 100%;
@@ -564,6 +565,8 @@ INPUT[type="number"] { -moz-appearance: textfield; }
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button { -webkit-appearance: none; margin: 0; }
 
+INPUT[type="date"] { width: auto; }
+
 TEXTAREA { width: 100%; height: 15em; line-height: 1.4; }
 
 SELECT {
@@ -577,7 +580,12 @@ INPUT:-ms-input-placeholder { color: #5F2E1F; } /* IE11 */
 INPUT::placeholder { color: #5F2E1F; opacity: 1; }
 INPUT:focus::placeholder { color: transparent; }
 
-INPUT[type="submit"] {
+INPUT.alert:-ms-input-placeholder { color: #B87D00; }
+INPUT.alert::placeholder { color: #B87D00; }
+INPUT.alert { border: 1px solid #B87D00; }
+
+INPUT[type="submit"],
+FORM BUTTON {
   margin: 0;
   outline: 0;
   border: 0;
@@ -594,7 +602,77 @@ INPUT[type="submit"] {
   transition: all 0.2s;
 }
 
-INPUT[type="submit"]:hover { background: #5E5C5C; }
+INPUT[type="submit"]:hover,
+FORM BUTTON:hover { background: #5E5C5C; }
+
+FORM BUTTON.loader {
+  background: #A0A0A0; color: #D8D8D8; pointer-events: none; position: relative;
+}
+
+FORM BUTTON.loader:before {
+  --loader-size: 1.5rem;
+  content: "";
+  position: absolute;
+  top: 0.375rem;
+  left: calc(50% - (var(--loader-size) / 2));
+  border: 0.1875rem solid #FFFFFF;
+  border-top-color: #B87D00;
+  border-radius: 50%;
+  width: var(--loader-size);
+  height: var(--loader-size);
+  animation: spin 1s linear infinite;
+  box-sizing: border-box;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+#modal {
+  display: none;
+  position: fixed;
+  z-index: 10000;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.8);
+}
+
+#modal-box {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  width: 31.25rem;
+  box-sizing: border-box;
+  padding: 1.75rem 2.25rem;
+  background: #FFFFFF;
+  color: #070707;
+  font-size: 1.5rem;
+  line-height: 1.2;
+}
+
+@media only screen and (max-width: 550px) { #modal-box { width: 96%; } }
+
+#modal-button {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 1.875rem;
+  height: 1.875rem;
+  cursor: pointer;
+}
+
+#modal-button:before {
+  content: "\2715";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  font-size: 70%;
+}
 
 #lyric-search INPUT[type="text"] { width: 70%; }
 
@@ -641,17 +719,31 @@ INPUT[type="submit"]:hover { background: #5E5C5C; }
 
 #setlist-search INPUT[type="text"] { width: calc(100% - 83px); }
 
+#addsetlist INPUT[name="username"] { position: absolute; left: -999999999px; }
+
 #addsetlist LABEL { display: block; font-weight: 700; margin-bottom: 1.5em; }
 
-#addsetlist INPUT[type="number"]#month,
-#addsetlist INPUT[type="number"]#day { width: 3.2em; }
-#addsetlist INPUT[type="number"]#year { width: 4.4em; }
+#addsetlist .datealert { font-weight: normal; color: #B87D00; }
 
-#addsetlist #citystate { display: flex; justify-content: space-between; }
-#addsetlist #citystate #city { width: 70%; }
-#addsetlist #citystate #state { width: 25%; }
+#addsetlist #citystate {
+  display: flex; justify-content: space-between;
 
-#addsetlist INPUT[type="submit"] { display: block; margin: 0 auto; }
+  @media (max-width: 600px) { & { flex-direction: column; } }
+}
+
+#addsetlist #citystate #city {
+  width: 70%;
+
+  @media (max-width: 600px) { & { width: 100%; } }
+}
+
+#addsetlist #citystate #state {
+  width: 25%;
+
+  @media (max-width: 600px) { & { width: 100%; } }
+}
+
+#addsetlist BUTTON { display: block; margin: 0 auto; }
 
 
 /* FAQ */
@@ -893,10 +985,6 @@ INPUT[type="submit"]:hover { background: #5E5C5C; }
   .songlist-album .image, .songlist-album .tracks { width: 100%; padding-bottom: 0.5em; }
 
   .songlist-twocol { columns: 1; }
-  
-  #addsetlist #citystate { flex-direction: column; }
-  #addsetlist #citystate #city,
-  #addsetlist #citystate #state { width: 100%; }
 }
 
 @media only screen and (max-width: 500px) {
