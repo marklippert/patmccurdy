@@ -1,9 +1,19 @@
 <?php
-include("../inc/dbconfig.php");
+include_once "../inc/dbconfig.php";
 
 if ($_GET['a'] == "add" || $_GET['a'] == "edit") {
-  $approved = (isset($row['approved'])) ? "on" : "";
-  $array = [date("Ymd", strtotime($_POST['date'])), gremlins($_POST['venue']), gremlins($_POST['city']), gremlins($_POST['state']), gremlins($_POST['set1']), gremlins($_POST['set2']), gremlins($_POST['set3']), $approved];
+  $approved = (isset($_POST['approved'])) ? "on" : "";
+
+  $array = [
+    preg_replace("/[^0-9]/", "", $_POST['date']),
+    gremlins($_POST['venue']),
+    gremlins($_POST['city']),
+    gremlins($_POST['state']),
+    gremlins($_POST['set1']),
+    gremlins($_POST['set2']),
+    gremlins($_POST['set3']),
+    $approved
+  ];
 }
 
 switch ($_GET['a']) {

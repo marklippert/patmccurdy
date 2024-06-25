@@ -1,5 +1,5 @@
 <?php
-include("../inc/dbconfig.php");
+include_once "../inc/dbconfig.php";
 include "login.php";
 $PageTitle = "Set Lists";
 include "header.php";
@@ -12,9 +12,11 @@ include "header.php";
     <form action="setlistsdb.php?a=add" method="POST">
       <div>
         <div class="admin-two-col flex">
-          <label>Date
-            <input type="text" name="date" id="date" readonly="true">
+          <label>
+            Date<br>
+            <input type="date" name="date">
           </label>
+
           <label>
             <input type="checkbox" name="approved" checked> Approved
           </label>
@@ -55,9 +57,9 @@ include "header.php";
     <h3>Set Lists</h3>
     
     <?php
-    $setlists = $mysqli->query("SELECT * FROM setlists ORDER BY date DESC");
-    
-    while($setlist = $setlists->fetch_array(MYSQLI_BOTH)) {
+    $setlists = $mysqli->execute_query("SELECT * FROM setlists ORDER BY date DESC");
+
+    foreach ($setlists as $setlist) {
       ?>
       <div class="setlist flex">
         <div class="controls">

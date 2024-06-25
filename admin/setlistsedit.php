@@ -1,19 +1,21 @@
 <?php
-include("../inc/dbconfig.php");
+include_once "../inc/dbconfig.php";
 include "login.php";
 $PageTitle = "Edit Set List";
 include "header.php";
 
-$setlists = $mysqli->query("SELECT * FROM setlists WHERE id = '" . $_GET['id'] . "'");
-$setlist = $setlists->fetch_array(MYSQLI_BOTH);
+$setlists = $mysqli->execute_query("SELECT * FROM setlists WHERE id = ?", [$_GET['id']]);
+$setlist = $setlists->fetch_assoc();
 ?>
 
 <form action="setlistsdb.php?a=edit" method="POST">
   <div>
     <div class="admin-two-col flex">
-      <label>Date
-        <input type="text" name="date" id="date" readonly="true"<?php echo ' value="'.date("m/d/Y", strtotime($setlist['date'])).'"'; ?>>
+      <label>
+        Date<br>
+        <input type="date" name="date" value="<?php echo date("Y-m-d", strtotime($setlist['date'])); ?>">
       </label>
+
       <label>
         <input type="checkbox" name="approved"<?php if ($setlist['approved'] != "") echo " checked"; ?>> Approved
       </label>
