@@ -543,6 +543,7 @@ INPUT[type="number"],
 INPUT[type="email"],
 INPUT[type="password"],
 INPUT[type="date"],
+INPUT[type="time"],
 TEXTAREA,
 SELECT {
   width: 100%;
