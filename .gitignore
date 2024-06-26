@@ -12,3 +12,5 @@ schedule.xml
 sotw.xml
 *.mp4
 .DS_Store
+audio
+audio/*
