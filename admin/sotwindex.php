@@ -29,6 +29,7 @@ include "header.php";
             <option value="">Select...</option>
             <?php
             $dir = opendir("../audio");
+            $files = [];
             while (false != ($file = readdir($dir))) {
               if (($file != ".") and ($file != "..")) $files[] = $file;
             }
