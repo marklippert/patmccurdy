@@ -1,16 +1,16 @@
 <?php
-include("../inc/dbconfig.php");
+include_once "../inc/dbconfig.php";
 include "login.php";
 
 $Action = ($_GET['a'] == "edit") ? "Edit" : "Copy";
 $PageTitle = "Schedule | " . $Action . " Event";
 include "header.php";
 
-$shows = $mysqli->query("SELECT * FROM schedule WHERE id = '" . $_GET['id'] . "'");
-$show = $shows->fetch_array(MYSQLI_BOTH);
+$shows = $mysqli->execute_query("SELECT * FROM schedule WHERE id = ?", [$_GET['id']]);
+$show = $shows->fetch_assoc();
 ?>
 
-<form action="scheduledb.php?a=<?php echo ($_GET['a'] == "edit") ? "edit" : "add"; if (!empty($_GET['b'])) echo "&b=" . $_GET['b']; ?>" method="POST">
+<form action="scheduledb.php?a=<?php echo ($_GET['a'] == "edit") ? "edit" : "add"; if (!empty($_GET['b'])) echo "&b=".$_GET['b']; ?>" method="POST">
   <div>
     <?php if ($_GET['a'] == "edit") { ?>
     <div class="radio">
@@ -24,12 +24,13 @@ $show = $shows->fetch_array(MYSQLI_BOTH);
     <?php } ?>
 
     <div class="admin-two-col flex">
-      <label>Date
-        <input type="text" name="date" id="date" readonly="true"<?php echo ' value="'.date("m/d/Y", $show['date']).'"'; ?>>
+      <label>
+        Date<br>
+        <input type="date" name="date" value="<?php echo date("Y-m-d", $show['date']); ?>" style="width: 100%;">
       </label>
-      <?php $TheTime = ($show['date'] > strtotime(date("n/j/Y", $show['date']))) ? date("g:ia", $show['date']) : ""; ?>
-      <label>Time
-        <input type="text" name="time" class="mytimepicker"<?php echo ' value="'.$TheTime.'"'; ?>>
+      <label>
+        Time
+        <input type="time" name="time" value="<?php if (date("H:i", $show['date']) != "00:00") echo date("H:i", $show['date']); ?>">
       </label>
     </div>
 
@@ -43,23 +44,23 @@ $show = $shows->fetch_array(MYSQLI_BOTH);
     </div>
 
     <label>Venue
-      <input type="text" name="venue" value="<?php echo $show['venue']; ?>">
+      <input type="text" name="venue" value="<?php echo htmlspecialchars($show['venue']); ?>">
     </label>
     
     <label>Location
-      <input type="text" name="location" value="<?php echo $show['location']; ?>">
+      <input type="text" name="location" value="<?php echo htmlspecialchars($show['location']); ?>">
     </label>
     
     <label>URL
-      <input type="text" name="url" value="<?php echo $show['url']; ?>">
+      <input type="text" name="url" value="<?php echo htmlspecialchars($show['url']); ?>">
     </label>
     
     <label>Stage
-      <input type="text" name="stage" value="<?php echo $show['stage']; ?>">
+      <input type="text" name="stage" value="<?php echo htmlspecialchars($show['stage']); ?>">
     </label>
     
     <label>Additional Information
-      <input type="text" name="additional" value="<?php echo $show['additional']; ?>">
+      <input type="text" name="additional" value="<?php echo htmlspecialchars($show['additional']); ?>">
     </label>
 
     <?php if ($_GET['a'] == "edit") { ?>
