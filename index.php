@@ -1,11 +1,11 @@
 <?php
 include "header.php";
 
-$main = $mysqli->query("SELECT * FROM main WHERE appears != 'rss' AND (enddate = '' OR enddate >= '" . time() . "') ORDER BY date DESC");
+$main = $mysqli->execute_query("SELECT * FROM main WHERE appears != 'rss' AND (enddate = '' OR enddate >= ?) ORDER BY date DESC", [time()]);
 
-while($row = $main->fetch_array(MYSQLI_ASSOC)) {
-  echo "<h2>" . $row['title'] . "</h2>\n";
-  echo str_replace("\r", "<br>", $row['text']) . "<br>\n<br>\n";
+foreach ($main as $item) {
+  echo "<h2>".$item['title']."</h2>\n";
+  echo str_replace("\r", "<br>", $item['text'])."<br>\n<br>\n";
 }
 
 // Update RSS

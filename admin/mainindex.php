@@ -1,5 +1,5 @@
 <?php
-include "../inc/dbconfig.php";
+include_once "../inc/dbconfig.php";
 include "login.php";
 $PageTitle = "Main / RSS";
 include "header.php";
@@ -11,15 +11,18 @@ include "header.php";
 
     <form action="maindb.php?a=add" method="POST">
       <div>
-        <label>End Date
-          <input type="text" name="enddate" id="enddate" readonly="true" style="width: 8em;">
+        <label>
+          End Date
+          <input type="date" name="enddate">
         </label>
 
-        <label>Title
+        <label>
+          Title
           <input type="text" name="title">
         </label>
 
-        <label>Text <span style="font-size: 85%;">(Remember to use absolute paths)</span>
+        <label>
+          Text <span style="font-size: 85%;">(Remember to use absolute paths)</span>
           <textarea name="text"></textarea>
         </label>
         

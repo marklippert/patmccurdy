@@ -1,5 +1,5 @@
 <?php
-include_once("inc/dbconfig.php");
+include_once "inc/dbconfig.php";
 
 $RSSFeed = "<?xml version='1.0'?>
 <rss version='2.0'>
@@ -13,15 +13,15 @@ $RSSFeed = "<?xml version='1.0'?>
     <link>https://patmccurdy.com</link>
   </image>\n";
 
-$rss = $mysqli->query("SELECT * FROM main WHERE appears != 'page' AND (enddate = '' OR enddate >= '" . time() . "') ORDER BY id DESC");
+$rss = $mysqli->execute_query("SELECT * FROM main WHERE appears != 'page' AND (enddate = '' OR enddate >= ?) ORDER BY id DESC", [time()]);
 
-while($row = $rss->fetch_array(MYSQLI_ASSOC)) {
+foreach ($rss as $row) {
   $RSSFeed .= "<item>
-    <title>" . strip_tags($row['title']) . "</title>
+    <title>".strip_tags($row['title'])."</title>
     <link>https://patmccurdy.com</link>
-    <description><![CDATA[" . str_replace("\r", "<br>", $row['text']) . "]]></description>
-    <guid>" . $row['id'] . "</guid>
-    <pubDate>" . date("r", $row['date']) . "</pubDate>
+    <description><![CDATA[".str_replace("\r", "<br>", $row['text'])."]]></description>
+    <guid>".$row['id']."</guid>
+    <pubDate>".date("r", $row['date'])."</pubDate>
   </item>\n";
 }
 

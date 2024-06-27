@@ -4,8 +4,8 @@ $PageTitle = "Set Lists";
 $Description = "Want to know what was played on July 10, 1994? Find out here.";
 
 if ($_SERVER['QUERY_STRING'] != "" && !isset($_REQUEST['search'])) {
-  $setlists = $mysqli->query("SELECT * FROM setlists WHERE id ='" . $_SERVER['QUERY_STRING'] . "'");
-  $setlist = $setlists->fetch_array(MYSQLI_ASSOC);
+  $setlists = $mysqli->execute_query("SELECT * FROM setlists WHERE id = ?", [$_SERVER['QUERY_STRING']]);
+  $setlist = $setlists->fetch_assoc();
   $PageTitle .= " | " . date("F j, Y", strtotime($setlist['date'])) . " - " . $setlist['venue'];
 }
 
@@ -27,18 +27,18 @@ if ($_SERVER['QUERY_STRING'] != "" && !isset($_REQUEST['search'])) {
 } else {
   if (isset($_REQUEST['search'])) {
     // Search results (part 1)
-    $setlists = $mysqli->query("SELECT * FROM setlists WHERE approved = 'on' AND set1 LIKE \"%" . $_REQUEST['search'] . "%\" OR set2 LIKE \"%" . $_REQUEST['search'] . "%\" OR set3 LIKE \"%" . $_REQUEST['search'] . "%\" ORDER BY date DESC");
+    $setlists = $mysqli->execute_query("SELECT * FROM setlists WHERE approved = 'on' AND set1 LIKE ? OR set2 LIKE ? OR set3 LIKE ? ORDER BY date DESC", ["%{$_REQUEST['search']}%", "%{$_REQUEST['search']}%", "%{$_REQUEST['search']}%"]);
     
     $message = ($setlists->num_rows > 0) ? "The following shows matched your search:" : "Sorry, nothing found for \"" . $_REQUEST['search'] . "\"";
     echo "<h2>$message</h2>\n";
   } else {
     // Index page
     // Get last time the setlists table was updated
-    $updates = $mysqli->query("SHOW TABLE STATUS LIKE 'setlists'");
-    $update = $updates->fetch_array(MYSQLI_ASSOC);
+    $updates = $mysqli->execute_query("SHOW TABLE STATUS LIKE 'setlists'");
+    $update = $updates->fetch_assoc();
     
     // Now get the actual data
-    $setlists = $mysqli->query("SELECT * FROM setlists WHERE approved = 'on' ORDER BY date DESC");
+    $setlists = $mysqli->execute_query("SELECT * FROM setlists WHERE approved = 'on' ORDER BY date DESC");
     ?>
     
     For the completely obsessive only! This is a collection of set lists from random shows over the years that has been compiled by myself and others. Yes, we're all terribly sick. But if you're like us, you may be wondering what songs Pat played on October 19, 2007. If you're even more like us, you may even want to <a href="add-set-list.php">add a set list</a> yourself. Keep checking back, as this section will grow (we're sick, remember) as long as Pat keeps playing shows.<br>
@@ -59,7 +59,7 @@ if ($_SERVER['QUERY_STRING'] != "" && !isset($_REQUEST['search'])) {
     <?php
   }
   
-  while($setlist = $setlists->fetch_array(MYSQLI_ASSOC)) {
+  foreach ($setlists as $setlist) {
     ?>
     <a href="set-lists.php?<?php echo $setlist['id']; ?>"><?php echo date("F j, Y", strtotime($setlist['date'])) . " - " . $setlist['venue']; ?></a><br>
   <?php } ?>

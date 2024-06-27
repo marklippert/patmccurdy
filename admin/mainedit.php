@@ -1,24 +1,27 @@
 <?php
-include "../inc/dbconfig.php";
+include_once "../inc/dbconfig.php";
 include "login.php";
 $PageTitle = "Edit Main / RSS";
 include "header.php";
 
-$items = $mysqli->query("SELECT * FROM main WHERE id = '" . $_GET['id'] . "'");
-$item = $items->fetch_array(MYSQLI_BOTH);
+$items = $mysqli->execute_query("SELECT * FROM main WHERE id = ?", [$_GET['id']]);
+$item = $items->fetch_assoc();
 ?>
 
 <form action="maindb.php?a=edit" method="POST">
   <div>
-    <label>End Date
-      <input type="text" name="enddate" id="enddate" readonly="true" style="width: 8em;" value="<?php if ($item['enddate'] != "") echo date("m/d/Y",$item['enddate']); ?>">
+    <label>
+      End Date
+      <input type="date" name="enddate" value="<?php echo date("Y-m-d", $item['enddate']); ?>">
     </label>
 
-    <label>Title
+    <label>
+      Title
       <input type="text" name="title" value="<?php echo $item['title']; ?>">
     </label>
 
-    <label>Text <span style="font-size: 85%;">(Remember to use absolute paths)</span>
+    <label>
+      Text <span style="font-size: 85%;">(Remember to use absolute paths)</span>
       <textarea name="text"><?php echo htmlentities($item['text']); ?></textarea>
     </label>
 
