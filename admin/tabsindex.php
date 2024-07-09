@@ -1,5 +1,5 @@
 <?php
-include("../inc/dbconfig.php");
+include_once "../inc/dbconfig.php";
 include "login.php";
 $PageTitle = "Guitar Tabs";
 include "header.php";
@@ -11,28 +11,32 @@ include "header.php";
 
     <form action="tabsdb.php?a=add" method="POST">
       <div>
-        <label>Title
+        <label>
+          Title
           <select name="title">
             <option value="">Select title...</option>
             <?php
-            $lyrics = $mysqli->query("SELECT * FROM lyrics ORDER BY title ASC");
+            $lyrics = $mysqli->execute_query("SELECT * FROM lyrics ORDER BY title ASC");
 
-            while($lyric = $lyrics->fetch_array(MYSQLI_ASSOC)) {
-              echo '<option value="' . $lyric['title'] . '">' . $lyric['title'] . "</option>\n";
+            foreach ($lyrics as $lyric) {
+              echo '<option value="'.$lyric['title'].'">'.$lyric['title']."</option>\n";
             }
             ?>
           </select>
         </label>
         
-        <label>Tabs
+        <label>
+          Tabs
           <textarea name="tab" style="height: 25em; white-space: pre;"></textarea>
         </label>
         
-        <label>Name
+        <label>
+          Name
           <input type="text" name="name">
         </label>
         
-        <label>Email
+        <label>
+          Email
           <input type="email" name="email">
         </label>
         
@@ -45,9 +49,9 @@ include "header.php";
     <h3>Guitar Tabs</h3>
     
     <?php
-    $tabs = $mysqli->query("SELECT * FROM tabs ORDER BY title ASC");
+    $tabs = $mysqli->execute_query("SELECT * FROM tabs ORDER BY title ASC");
     
-    while($tab = $tabs->fetch_array(MYSQLI_BOTH)) {
+    foreach ($tabs as $tab) {
       ?>
       <div class="guitartab flex">
         <div class="controls">

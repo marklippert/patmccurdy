@@ -41,9 +41,9 @@ include "header.php";
     <h3>Items</h3>
     
     <?php
-    $items = $mysqli->query("SELECT * FROM main ORDER BY id DESC");
+    $items = $mysqli->execute_query("SELECT * FROM main ORDER BY id DESC");
     
-    while($item = $items->fetch_array(MYSQLI_BOTH)) {
+    foreach ($items as $item) {
       ?>
       <div class="item flex">
         <div class="controls">
