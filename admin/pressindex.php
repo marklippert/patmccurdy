@@ -1,5 +1,5 @@
 <?php
-include "../inc/dbconfig.php";
+include_once "../inc/dbconfig.php";
 include "login.php";
 $PageTitle = "Press";
 include "header.php";
@@ -46,9 +46,9 @@ include "header.php";
     <h3>Articles</h3>
     
     <?php
-    $articles = $mysqli->query("SELECT * FROM press ORDER BY sort_date DESC");
+    $articles = $mysqli->execute_query("SELECT * FROM press ORDER BY sort_date DESC");
     
-    while($article = $articles->fetch_array(MYSQLI_BOTH)) {
+    foreach ($articles as $article) {
       ?>
       <div class="article flex">
         <div class="controls">
@@ -60,7 +60,7 @@ include "header.php";
           <strong><?php echo $article['date']; ?></strong> <em><?php echo $article['title']; ?></em>
         </div>
       </div>
-      <?php } ?>
+    <?php } ?>
   </div>
 </div>
 

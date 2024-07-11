@@ -1,46 +1,36 @@
 <?php
-include("../inc/dbconfig.php");
+include_once "../inc/dbconfig.php";
+
+if ($_GET['a'] == "add" || $_GET['a'] == "edit") {
+  $array = [
+    strtotime($_POST['date']),
+    gremlins($_POST['date']),
+    gremlins($_POST['source']),
+    gremlins($_POST['source_url']),
+    gremlins($_POST['title']),
+    gremlins($_POST['subtitle']),
+    gremlins($_POST['author']),
+    gremlins($_POST['text'])
+  ];
+}
 
 switch ($_GET['a']) {
   case "add":
-    $query = "INSERT INTO press (
-              sort_date,
-              date,
-              source,
-              source_url,
-              title,
-              subtitle,
-              author,
-              text
-              ) VALUES (
-              '" . strtotime($_POST['date']) . "',
-              '" . $_POST['date'] . "',
-              '" . $mysqli->real_escape_string($_POST['source']) . "',
-              '" . $_POST['source_url'] . "',
-              '" . $mysqli->real_escape_string($_POST['title']) . "',
-              '" . $mysqli->real_escape_string($_POST['subtitle']) . "',
-              '" . $mysqli->real_escape_string($_POST['author']) . "',
-              '" . $mysqli->real_escape_string($_POST['text']) . "'
-              )";
+    $sql = "INSERT INTO press (sort_date, date, source, source_url, title, subtitle, author, text) VALUES (?,?,?,?,?,?,?,?)";
     break;
   case "edit":
-    $query = "UPDATE press SET
-              sort_date = '" . strtotime($_POST['date']) . "',
-              date = '" . $_POST['date'] . "',
-              source = '" . $mysqli->real_escape_string($_POST['source']) . "',
-              source_url = '" . $_POST['source_url'] . "',
-              title = '" . $mysqli->real_escape_string($_POST['title']) . "',
-              subtitle = '" . $mysqli->real_escape_string($_POST['subtitle']) . "',
-              author = '" . $mysqli->real_escape_string($_POST['author']) . "',
-              text = '" . $mysqli->real_escape_string($_POST['text']) . "'
-              WHERE id = '" . $_POST['id'] . "'";
+    $sql = "UPDATE press SET sort_date = ?, date = ?, source = ?, source_url = ?, title = ?, subtitle = ?, author = ?, text = ? WHERE id = ?";
+    $array[] = $_POST['id'];
     break;
   case "delete":
-    $query = "DELETE FROM press WHERE id = '" . $_GET['id'] . "'";
+    $sql = "DELETE FROM press WHERE id = ?";
+    $array = [$_GET['id']];
     break;
 }
 
-$mysqli->query($query);
+$mysqli->execute_query($sql, $array);
+
+$mysqli->close();
 
 header("Location: pressindex.php");
 ?>

@@ -1,11 +1,11 @@
 <?php
-include "../inc/dbconfig.php";
+include_once "../inc/dbconfig.php";
 include "login.php";
 $PageTitle = "Press | Edit Article";
 include "header.php";
 
-$articles = $mysqli->query("SELECT * FROM press WHERE id = '" . $_GET['id'] . "'");
-$article = $articles->fetch_array(MYSQLI_BOTH);
+$articles = $mysqli->execute_query("SELECT * FROM press WHERE id = ?", [$_GET['id']]);
+$article = $articles->fetch_assoc();
 ?>
 
 <form action="pressdb.php?a=edit" method="POST">
