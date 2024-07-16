@@ -4,17 +4,6 @@ $Description = "A weekly sampling of one of Pat McCurdy's songs usually not avai
 include "header.php";
 ?>
 
-<script type="text/javascript" src="inc/jquery-3.5.1.min.js"></script>
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/plyr/3.6.2/plyr.min.js"></script>
-<link rel="stylesheet" href="https://cdn.plyr.io/3.6.3/plyr.css" />
-<script type="text/javascript">
-  jQuery(function($) {
-    var player = new Plyr('#sotw', {
-      controls: ['play','current-time','progress','duration','mute','volume']
-    });
-  });
-</script>
-
 <div style="text-align: center;">
   <?php
   $baseurl = "https://patmccurdy.com";
@@ -39,21 +28,22 @@ include "header.php";
         <itunes:name>Pat McCurdy</itunes:name>
         <itunes:email>webmaster@patmccurdy.com</itunes:email>
       </itunes:owner>\n";
+  
+  $now = time();
+  $sotw = $mysqli->execute_query("SELECT * FROM sotw WHERE startdate <= ? AND (enddate >= ? OR enddate = '') ORDER BY startdate DESC", [$now, $now]);
 
-  $sotw = $mysqli->query("SELECT * FROM sotw WHERE startdate <= " . time() . " AND (enddate >= " . time() . " OR enddate = '') ORDER BY startdate DESC");
-
-  while($row = $sotw->fetch_array(MYSQLI_BOTH)) {
+  foreach($sotw as $row) {
     echo '<a href="audio/'.$row['file'].'" style="font-weight: 700; font-size: 125%;">'.$row['title'].'</a> <span style="font-size: 80%;">('.round(filesize("audio/".$row['file'])/1048576, 1)." MB)</span><br>\n";
 
-    echo '<audio preload="auto" id="sotw"><source src="audio/'.$row['file'].'" type="audio/mp3" /></audio>';
+    echo '<audio preload="auto" class="sotw"><source src="audio/'.$row['file'].'" type="audio/mp3" /></audio>';
 
     // Prepare RSS description
     $desc = "";
 
     // Display band info if applicable
     if ($row['band'] != "") {
-      echo $row['band'] . "<br>\n";
-      $desc .= "Performed by " . $row['band'] . ".  ";
+      echo $row['band']."<br>\n";
+      $desc .= "Performed by ".$row['band'].". ";
       $author = $row['band'];
     } else {
       $author = "Pat McCurdy";
@@ -61,19 +51,19 @@ include "header.php";
 
     // Display "Recorded at..." info if it exists
     if ($row['recat'] != "") {
-      echo "Recorded at " . $row['recat'] . "<br>\n";
-      $desc .= "Recorded at " . $row['recat'] . ".";
+      echo "Recorded at " .$row['recat']."<br><br>\n";
+      $desc .= "Recorded at ".$row['recat'].".";
     }
 
     // Create RSS item
     $RSSfile .= "<item>
-    <title>" . $row['title'] . "</title>
-    <link>$baseurl/audio/" . $row['file'] . "</link>
+    <title>".$row['title']."</title>
+    <link>$baseurl/audio/".$row['file']."</link>
     <itunes:author>$author</itunes:author>
     <description>$desc</description>
-    <enclosure url=\"$baseurl/audio/" . $row['file'] . "\" length=\"" . filesize("audio/" . $row['file']) . "\" type=\"audio/mpeg\" />
-    <guid>$baseurl/audio/" . $row['file'] . "</guid>
-    <pubDate>" . date("r", $row['startdate']) . "</pubDate>
+    <enclosure url=\"$baseurl/audio/".$row['file']."\" length=\"".filesize("audio/".$row['file'])."\" type=\"audio/mpeg\" />
+    <guid>$baseurl/audio/".$row['file']."</guid>
+    <pubDate>".date("r", $row['startdate'])."</pubDate>
     </item>\n";
   }
 
@@ -88,33 +78,39 @@ include "header.php";
   ?>
 
   <br>
-  <br>
   Get the Song of the Week delivered to you automatically!<br>
-  Subscribe by <a href="sotw.xml">adding this link</a> to iTunes or the podcast-getter-thingy of your choice.
+  Subscribe by <a href="sotw.xml">adding this link</a> to the podcast-getter-thingy of your choice.
 </div>
 
 <br><br>
 
 <h2>Recent Past Songs of the Week</h2>
 <?php
-require_once('fullshows/inc/getid3/getid3.php');
-$getID3 = new getID3;
+include_once "fullshows/inc/Mp3Info/Mp3Info.php";
+use wapmorgan\Mp3Info\Mp3Info;
 
-$songs = $mysqli->query("SELECT * FROM sotw WHERE enddate <= " . time() . " AND enddate != '' ORDER BY startdate+0 DESC");
+$mp3s = [];
+$mp3dir = opendir("audio");
+while (false != ($mp3 = readdir($mp3dir))) {
+  if (pathinfo($mp3, PATHINFO_EXTENSION) == "mp3") $mp3s[] = $mp3;
+}
+closedir($mp3dir);
+
+$songs = $mysqli->execute_query("SELECT * FROM sotw WHERE enddate <= ? AND enddate != '' ORDER BY startdate+0 DESC", [$now]);
 
 $html_list = "";
 $js_list = "";
 $count = 1;
 
-while($song = $songs->fetch_array(MYSQLI_ASSOC)) {
-  if (file_exists("audio/".$song['file'])) {
+foreach($songs as $song) {
+  if (in_array($song['file'],$mp3s)) {
     $band = ($song['band'] != "") ? $song['band'] : "Pat McCurdy";
 
-    $file_info = $getID3->analyze("audio/".$song['file']);
-    $length = @$file_info['playtime_string'];
+    $file = new Mp3Info("audio/".$song['file'], true);
+    $length = floor($file->duration / 60) .":". floor($file->duration) % 60;
 
     $html_list .= "<li>".$band.' - '.$song['title']."</li>\n";
-    $js_list .= '{"name": "'.$band.' - '.$song['title'].'", "length": "'.$length.'", "file": "'.$song['file'].'"},'."\n";
+    $js_list .= '{"name": "'.$band.' - '.$song['title'].'", "length": "'.$length.'", "file": "'.$song['file'].'"},';
 
     if ($count == 10) { break; }
     $count++;
@@ -123,75 +119,94 @@ while($song = $songs->fetch_array(MYSQLI_ASSOC)) {
 ?>
 
 <div class="wtf">
-<audio preload="auto" id="audio">Your browser does not support HTML5 Audio!</audio>
-<ul id="playlist">
-  <?php echo $html_list; ?>
-</ul>
+  <audio preload="auto" id="audio">Your browser does not support HTML5 Audio!</audio>
+  <ul id="playlist">
+    <?php echo $html_list; ?>
+  </ul>
 </div>
 
+<script src="https://cdn.plyr.io/3.7.8/plyr.js"></script>
+<link rel="stylesheet" href="https://cdn.plyr.io/3.7.8/plyr.css" />
+
 <script type="text/javascript">
-  jQuery(function($) {
-    var supportsAudio = !! document.createElement('audio').canPlayType;
+  const players = Plyr.setup('.sotw', {
+    controls: ['play','current-time','progress','duration','mute','volume']
+  });
 
-    if (supportsAudio) {
-      var index = 0, playing = false;
+  const player = Plyr.setup('#audio', {
+    controls: ['rewind','play','fast-forward','current-time','progress','duration','mute','volume'],
+    seekTime: 1800 // Large number to make it jump to next track
+  });
 
-      var player = new Plyr('#audio', {
-        controls: ['rewind','play','fast-forward','current-time','progress','duration','mute','volume'],
-        seekTime: 1800 // Large number to make it jump to next track
-      });
+  var index = 0;
+  
+  var audio = document.getElementById('audio');
+  var plSongs = document.querySelectorAll('#playlist LI');
 
-      tracks = [<?php echo $js_list; ?>],
-      trackCount = tracks.length,
-
-      audio = $('#audio').bind('play', function () {
-        playing = true;
-      }).bind('pause', function () {
-        playing = false;
-      }).bind('ended', function () {
-        if ((index + 1) < trackCount) {
-          index++;
-          loadTrack(index);
-          audio.play();
-        } else {
-          audio.pause();
-          index = 0;
-          loadTrack(index);
-        }
-      }).get(0),
-
-      $('button[data-plyr="rewind"').click(function() {
-        if ((index - 1) > -1) {
-          index--;
-          loadTrack(index);
-          if (playing) audio.play();
-        } else {
-          audio.pause();
-          index = 0;
-          loadTrack(index);
-        }
-      }),
-
-      $('#playlist LI').click(function () {
-        var id = parseInt($(this).index());
-        if (id !== index) playTrack(id);
-      }),
-
-      loadTrack = function(id) {
-        $('.active').removeClass('active');
-        $('#playlist LI:eq(' + id + ')').addClass('active');
-        index = id;
-        audio.src = 'audio/' + tracks[id].file;
-      },
-
-      playTrack = function(id) {
-        loadTrack(id);
-        audio.play();
-      };
-
+  var tracks = [<?php echo $js_list; ?>];
+  var trackCount = tracks.length;
+  
+  // Playlist: play next track automatically and stop after last song
+  audio.addEventListener('ended', function() {
+    if ((index + 1) < trackCount) {
+      index++;
+      loadTrack(index);
+      audio.play();
+    } else {
+      audio.pause();
+      index = 0;
       loadTrack(index);
     }
-});
+  });
+  
+  // Playlist: when using rewind button, stop at the first track
+  document.querySelector('button[data-plyr="rewind"]').addEventListener('click', function() {
+    if ((index - 1) > -1) {
+      index--;
+      loadTrack(index);
+      if (document.querySelector('.wtf .plyr').classList.contains('plyr--playing')) audio.play();
+    } else {
+      audio.pause();
+      index = 0;
+      loadTrack(index);
+    }
+  });
+  
+  // Playlist: play track when clicked on
+  Array.prototype.forEach.call(plSongs, function(plSong, id) {
+    plSong.addEventListener('click', function() {
+      if (id !== index) playTrack(id);
+    })
+  });
+
+  loadTrack = function(id) {
+    players.forEach(s => { s.pause() }); // Stop other players
+    plSongs.forEach(pls => { pls.classList.remove('active'); });
+    plSongs[id].classList.add('active');
+    index = id;
+    audio.src = 'audio/' + tracks[id].file;
+  };
+  
+  // When clicking the play button on current SOTW, stop any other players
+  players.forEach(function(p) {
+    p.on('play', event => {
+      const instance = event.detail.plyr;
+      players.forEach(function(p) { if (p != instance) p.pause() });
+      audio.pause();
+    })
+  });
+  
+  // When clicking the play button on playlist, stop any other players
+  document.querySelector('.wtf button[data-plyr="play"]').addEventListener('click', function() {
+    players.forEach(s => { s.pause() });
+  });
+
+  playTrack = function(id) {
+    loadTrack(id);
+    audio.play();
+  };
+
+  loadTrack(index);
 </script>
 
 <?php include "footer.php"; ?>
