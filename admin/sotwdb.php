@@ -1,42 +1,36 @@
 <?php
-include("../inc/dbconfig.php");
+include_once "../inc/dbconfig.php";
 
-$enddate = ($_POST['enddate'] != "") ? strtotime($_POST['enddate'])+86399 : "";
+if ($_GET['a'] == "add" || $_GET['a'] == "edit") {
+  $enddate = ($_POST['enddate'] != "") ? strtotime($_POST['enddate'])+86399 : "";
+
+  $array = [
+    strtotime($_POST['startdate']),
+    $enddate,
+    gremlins($_POST['title']),
+    gremlins($_POST['file']),
+    gremlins($_POST['recat']),
+    gremlins($_POST['band'])
+  ];
+}
+
+
 
 switch ($_GET['a']) {
   case "add":
-    $query = "INSERT INTO sotw (
-              startdate,
-              enddate,
-              title,
-              file,
-              recat,
-              band
-              ) VALUES (
-              '" . strtotime($_POST['startdate']) . "',
-              '" . $enddate . "',
-              '" . $mysqli->real_escape_string($_POST['title']) . "',
-              \"" . $_POST['file'] . "\",
-              '" . $mysqli->real_escape_string($_POST['recat']) . "',
-              '" . $mysqli->real_escape_string($_POST['band']) . "'
-              )";
+    $sql = "INSERT INTO sotw (startdate, enddate, title, file, recat, band ) VALUES (?,?,?,?,?,?)";
     break;
   case "edit":
-    $query = "UPDATE sotw SET
-              startdate = '" . strtotime($_POST['startdate']) . "',
-              enddate = '" . $enddate . "',
-              title = '" . $mysqli->real_escape_string($_POST['title']) . "',
-              file = \"" . $_POST['file'] . "\",
-              recat = '" . $mysqli->real_escape_string($_POST['recat']) . "',
-              band = '" . $mysqli->real_escape_string($_POST['band']) . "'
-              WHERE id = '" . $_POST['id'] . "'";
+    $sql = "UPDATE sotw SET startdate = ?, enddate = ?, title = ?, file = ?, recat = ?, band = ? WHERE id = ?";
+    $array[] = $_POST['id'];
     break;
   case "delete":
-    $query = "DELETE FROM sotw WHERE id = '" . $_GET['id'] . "'";
+    $sql = "DELETE FROM sotw WHERE id = ?";
+    $array = [$_GET['id']];
     break;
 }
 
-$mysqli->query($query);
+$mysqli->execute_query($sql, $array);
 
 $mysqli->close();
 

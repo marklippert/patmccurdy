@@ -1,5 +1,5 @@
 <?php
-include "../inc/dbconfig.php";
+include_once "../inc/dbconfig.php";
 include "login.php";
 $PageTitle = "Song of the Week";
 include "header.php";
@@ -13,10 +13,10 @@ include "header.php";
       <div>
         <div class="admin-two-col flex">
           <label>Start Date
-            <input type="text" name="startdate" id="date" readonly="true">
+            <input type="date" name="startdate" style="width: 100%;">
           </label>
           <label>End Date
-            <input type="text" name="enddate" id="enddate" readonly="true">
+            <input type="date" name="enddate" style="width: 100%;">
           </label>
         </div>
 
@@ -64,9 +64,9 @@ include "header.php";
     
     <?php
     $orderby = ($_SERVER['QUERY_STRING'] == "alpha") ? "title ASC" : "startdate+0 DESC";
-    $songs = $mysqli->query("SELECT * FROM sotw ORDER BY $orderby");
+    $songs = $mysqli->execute_query("SELECT * FROM sotw ORDER BY $orderby");
     
-    while($song = $songs->fetch_array(MYSQLI_BOTH)) {
+    foreach($songs as $song) {
       $enddate = ($song['enddate'] != "") ? date("m/d/y", $song['enddate']) : "No end date";
       ?>
       <div class="sotw flex">

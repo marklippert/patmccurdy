@@ -1,21 +1,21 @@
 <?php
-include "../inc/dbconfig.php";
+include_once "../inc/dbconfig.php";
 include "login.php";
 $PageTitle = "Edit Song of the Week";
 include "header.php";
 
-$songs = $mysqli->query("SELECT * FROM sotw WHERE id = '" . $_GET['id'] . "'");
-$song = $songs->fetch_array(MYSQLI_BOTH);
+$songs = $mysqli->execute_query("SELECT * FROM sotw WHERE id = ?", [$_GET['id']]);
+$song = $songs->fetch_assoc();
 ?>
 
 <form action="sotwdb.php?a=edit" method="POST">
   <div>
     <div class="admin-two-col flex">
       <label>Start Date
-        <input type="text" name="startdate" id="date" readonly="true" value="<?php echo date("m/d/Y",$song['startdate']); ?>">
+        <input type="date" name="startdate" value="<?php echo date("Y-m-d", $song['startdate']); ?>" style="width: 100%;">
       </label>
       <label>End Date
-        <input type="text" name="enddate" id="enddate" readonly="true" value="<?php if ($song['enddate'] != "") echo date("m/d/Y",$song['enddate']); ?>">
+        <input type="date" name="enddate" value="<?php if ($song['enddate'] != "") echo date("Y-m-d", $song['enddate']); ?>" style="width: 100%;">
       </label>
     </div>
 
